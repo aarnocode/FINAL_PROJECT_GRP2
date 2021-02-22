@@ -7,6 +7,6 @@
 <title>Temp Success</title>
 </head>
 <body>
-
+${message}
 </body>
 </html>

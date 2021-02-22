@@ -42,6 +42,34 @@ public class User {
 		return username;
 	}
 
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public String getMi() {
+		return mi;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public int getContactno() {
+		return contactno;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public int getIsAdmin() {
+		return isAdmin;
+	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
