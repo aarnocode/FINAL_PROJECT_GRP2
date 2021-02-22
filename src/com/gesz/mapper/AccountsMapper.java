@@ -19,4 +19,20 @@ public interface AccountsMapper {
 				String username,
 				String password
 			);
+	
+	@Insert("Insert into final_project_grp2_user(USER_ID,FIRST_NAME,LAST_NAME,MI,USERNAME,PASS_WORD,EMAIL,CONTACT_NO,ADDRESS,ISADMIN)"
+			+ " values (#{arg0},#{arg1},#{arg2},#{arg3},#{arg4},#{arg5},#{arg6},#{arg7}),#{arg8},#{arg9}")
+	public Integer RegisterUser(
+				String username,
+				String password,
+				String firstname,
+				String lastname,
+				String mi,
+				String email,
+				String contactno,
+				String address,
+				String isAdmin
+			);
+	
+	
 }

@@ -40,7 +40,7 @@ function Register(firstname,lastname,mi,username,password,email,contactno,addres
 			password: password,
 			email: email,
 			contactno: contactno,
-			address: address,
+			address: address
 		},
 		success: function(result){
 			$("#mycontainer").html(result);

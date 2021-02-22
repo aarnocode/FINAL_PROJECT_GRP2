@@ -24,14 +24,14 @@ private static final long serialVersionUID = -3435554487273689111L;
 	    String lastname = request.getParameter("lastname");
 	    String mi = request.getParameter("mi");
 	    String email = request.getParameter("email");
-		String contactno = request.getParameter("contactno");
+		int contactno = Integer.parseInt(request.getParameter("contactno"));
 		String address = request.getParameter("address");
 		int isAdmin = 0;
 		RequestDispatcher dispatcher = null;
 		
 		
-		dispatcher = request.getRequestDispatcher("pages/adminControl.jsp");
-		User user = new User(username,password);
+		dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
+		User user = new User(username,password,firstname,lastname,mi,email,contactno,address,isAdmin);
 		request.setAttribute("user", user);
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
