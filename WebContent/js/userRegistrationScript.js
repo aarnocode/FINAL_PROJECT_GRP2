@@ -12,8 +12,8 @@ function initUserReg(){
 		var address = $("#streetaddress").val() + ", "+$("#zipcode").val()+", "+$("#city").val()+", "+$("#state").val()+", "+$("#country").val();
 		var errmsg = "Error "+address;
 		
-		alert('ff');
-		$("#errMessage").text(errmsg);
+		//alert('ff');
+		//$("#errMessage").text(errmsg);
 		
 		alert(firstname.length);
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
