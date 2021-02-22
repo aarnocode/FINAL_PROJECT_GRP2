@@ -2,7 +2,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="container">
         <!-- MALE ITEMS -->
-        <div class="cards">
+        <c:forEach var="prod" items="${products}">
+        	<div class="cards">
+            <img src="${prod.getImage()}">
+            <h3 class="itemName">${prod.getName()}</h3>
+            <h4 class="itemPrice">${prod.getPrice()}</h4>
+        </div>
+        </c:forEach>
+        <!-- <div class="cards">
             <img src="https://www.guess.com.ph/sites/default/files/item/MNRT00177JBK/MNRT00177JBK-1.jpg">
             <h3 class="itemName">Basic Graffiti Pop Color Crew</h3>
             <h4 class="itemPrice"> 2,498.00</h4>
@@ -23,7 +30,7 @@
             <h4 class="itemPrice"> 4,998.00</h4>
         </div>
     
-        <!-- FEMALE ITEMS -->
+        FEMALE ITEMS
         <div class="cards">
             <img src="https://www.guess.com.ph/sites/default/files/item/LDNT00387TWT/LDNT00387TWT-1.jpg">
             <h3 class="itemName">Emely Dress</h3>
@@ -43,7 +50,7 @@
             <img src="https://www.guess.com.ph/sites/default/files/item/LTRT00070CCG/LTRT00070CCG-1.jpg">
             <h3 class="itemName">Diagonal Sport Logo Baby Tee</h3>
             <h4 class="itemPrice"> 1,698.00</h4>
-        </div>
+        </div> -->
     </div>
 <link rel="stylesheet" href="css/homeStyle.css" type="text/css">
 <script src="js/homeScript.js"></script>

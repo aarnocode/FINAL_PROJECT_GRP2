@@ -33,7 +33,8 @@ public class LandingPageController extends HttpServlet{
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
 			 ProductMapper product = sqlSession.getMapper(ProductMapper.class);
 			 ArrayList<Product> products = product.getAllProduct();
-			 System.out.println(products.get(0));
+			 request.setAttribute("products", products);
+			 System.out.println(products.get(0).getName());
 		 }catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
