@@ -12,6 +12,7 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	<div id="mainContainer">
+	<jsp:include page="adminLogin.jsp"/>
 	</div>
 </body>
 </html>
