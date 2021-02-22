@@ -57,7 +57,11 @@
   <p class="errormsg" id="countryerror"></p>
   <br>
 
-	<input type="button" id="submitregBtn" value="Register">
+  <input type="button" id="submitregBtn" value="Register">
+  
+  <div id=mycontainer>
+  
+  </div>
 
 
 <script type="text/javascript">

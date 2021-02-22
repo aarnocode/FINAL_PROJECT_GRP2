@@ -19,6 +19,7 @@ function initUserReg(){
 		
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
 			alert("validation passed");
+			Register(firstname,lastname,mi,username,password,email,contactno,address);
 		}
 		
 		
@@ -27,6 +28,26 @@ function initUserReg(){
 	
 	
 }
+function Register(firstname,lastname,mi,username,password,email,contactno,address){
+	$.ajax({
+		url: contextPath + "pages/register",
+		method: "POST",
+		data: {
+			firstname: firstname,
+			lastname: lastname,
+			mi: mi,
+			username: username,
+			password: password,
+			email: email,
+			contactno: contactno,
+			address: address,
+		},
+		success: function(result){
+			$("#mycontainer").html(result);
+		}
+	});
+}
+
 function validation(firstname,lastname,mi,username,password,email,contactno,address){
 	var res = true;
 	var zipcode = $("#zipcode").val();
