@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import com.gesz.mapper.AccountsMapper;
+import com.gesz.mapper.ProductMapper;
 
 public class GenSessionFactory {
 	public static SqlSessionFactory buildqlSessionFactory() {
@@ -19,6 +20,7 @@ public class GenSessionFactory {
 		
 		Configuration configuration = new Configuration(environment);
 		configuration.addMapper(AccountsMapper.class);
+		configuration.addMapper(ProductMapper.class);
 		
 		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 		return builder.build(configuration);
