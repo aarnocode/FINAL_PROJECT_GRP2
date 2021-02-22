@@ -45,6 +45,7 @@
 	<input type="textbox" id="state" placeholder="State/Province"><br>
 
 	<input type="number" id="zipcode" placeholder="Postal / Zip Code"><br>
+	<p class="errormsg" id="ziperror"></p>
 
 	Country: <select name="country" id="country">
 	<option selected="selected">Please Select</option>
@@ -53,6 +54,7 @@
     <option value="Indonesia">Indonesia</option>
     <option value="Japan">Japan</option>
   </select>
+  <p class="errormsg" id="countryerror"></p>
   <br>
 
 	<input type="button" id="submitregBtn" value="Register">
