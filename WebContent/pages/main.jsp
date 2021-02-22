@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+<script src="js/bootstrap.js"></script>
+<title>Online Store</title>
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
 	<div id="mainContainer">
 	</div>
 </body>
