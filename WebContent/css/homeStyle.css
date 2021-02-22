@@ -1,0 +1,253 @@
+body{
+    font-family:'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+a{
+    text-decoration: none;
+}
+
+.navbar {
+    position: absolute;
+	top: 0;
+	left:0;
+	background-color: black;
+	width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge {
+    margin-left: 1em;
+    margin-right:2em;
+    color:white;
+    font-size:1.5em;
+}
+
+.navtabs {
+    margin-left: 1em;
+    margin-right:2em;
+    color:white;
+    font-size:1em;
+}
+
+.searchBar{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightControls{
+    display:flex;
+    margin-left:auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightControls img{
+    margin-right:1em;
+}
+
+.slides{
+    margin-top: 4em;
+    width:100%;
+    border-bottom: 1px solid black;
+    display:flex;
+}
+
+.slides img{
+    width:300px;
+    height:100px;
+}
+
+.container {
+    margin-left: 10%;
+    margin-right:10%;
+    margin-top: 5em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.itemContainer {
+    margin-left: 10%;
+    margin-right:10%;
+    margin-top: 5em;
+    display: flex;
+}
+
+.cards {
+    width:20%;
+    height:30em;
+    text-align:center;
+    margin:1em;
+}
+
+.cards img {
+    width:100%;
+    height:60%;
+    object-fit: cover;
+}
+
+.itemView {
+    width:50%;
+    height:30em;
+    text-align:center;
+    margin:1em;
+}
+
+.itemView img {
+    width:90%;
+    height:90%;
+    object-fit: contain;
+}
+.itemDesc {
+    width:50%;
+    margin-top: 2em;
+    font-size: 1.5em;
+}
+
+.btnBuy, .btnAddCart {
+    padding-left:1em;
+    padding-right: 1em;
+    font-family: 'Montserrat','Sans serif';
+    font-size:1em;
+    color:white;
+    background-color: black;
+    border: none;
+}
+
+.loginBlur{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 9999;
+    background-color:rgba(200, 200, 200, 0.5);
+    width:100%;
+    height:100%;
+    
+}
+
+.loginPop{
+    position:fixed;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    padding:10%;
+    background-color: black;
+    margin-left:35%;
+    margin-right:35%;
+    margin-top:5%;
+    color:white;
+    border-radius: 2em;
+    box-shadow:2px 2px 5px dimgray;
+}
+
+.loginPop input{
+    margin-bottom: 2em;
+    height:2em;
+}
+
+.loginPop input[type=button]{
+    padding-left:1em;
+    padding-right: 1em;
+    font-family: 'Montserrat','Sans serif';
+    font-size:1em;
+    color:black;
+    background-color: white;
+    border: none;
+}
+
+#notice {
+    color:tomato;
+    font-size: 0.8em;
+}
+
+.description {
+    font-size:0.7em;
+}
+
+.checkoutContainer {
+    margin-left:20%;
+    margin-right:20%;
+    margin-top:10%;
+}
+
+.checkoutTable {
+    border: 1px solid black;
+    text-align: left;
+    width:100%;
+    table-layout: fixed;
+}
+
+.checkoutTable img{
+    width:100px;
+    height:100px;
+    object-fit: cover;
+}
+
+.addressInfo {
+    display: inline-block;
+    margin:auto;
+}
+
+.addressInfo input{
+    margin-bottom: 1em;
+}
+
+.addressTable {
+    text-align: left;
+    width:80%;
+    table-layout: fixed;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#firstName, #lastName, #city, #province {
+    width:80%;
+}
+
+#address {
+    width:180%;
+}
+
+#btnCheckout {
+    font-family: 'Montserrat','Sans Serif';
+    font-weight:bold;
+    font-size:1em;
+    padding:1em;
+    color:white;
+    background-color: black;
+    text-align: center;
+}
+
+.account{
+    position:absolute;
+    top:5em;
+    right:0;
+    width:10%;
+    display:inline;
+    border:1px solid black;
+}
+
+.account input{
+    margin:1em;
+    border:0;
+    background-color: white;
+    font-family: 'Montserrat','Sans Serif';
+    font-size:1em; 
+}
+
+.window {
+    position:absolute;
+    top:4.5em;
+    left:0;
+    width:100%;
+    background-color: white;
+    display:none;
+}
