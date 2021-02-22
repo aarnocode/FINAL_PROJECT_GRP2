@@ -1,4 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <div class="row">
     <div id="pnlControl"class="col-lg-2">
       <input id="btnAddProduct" type="button" value="Add Product">
@@ -31,19 +30,4 @@ input[type=button]{
 	border-right:1px solid black;
 }
 </style>
-
-<script>
-$(document).ready(function(){
-	$("#pnlContentUpdate").hide();
-});
-
-$("#btnAddProduct").click(function(){
-	$("#pnlContentAdd").show();
-	$("#pnlContentUpdate").hide();
-});
-
-$("#btnUpdateProduct").click(function(){
-	$("#pnlContentUpdate").show();
-	$("#pnlContentAdd").hide();
-});
-</script>
+<script href="js/adminControlScript.js"></script>"

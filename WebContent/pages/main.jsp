@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+<script type="text/javascript">var contextPath = '${pageContext.request.contextPath}' + '/'</script>
 <script src="js/bootstrap.js"></script>
 <title>Online Store</title>
 </head>
