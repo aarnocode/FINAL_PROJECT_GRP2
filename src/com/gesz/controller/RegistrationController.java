@@ -20,20 +20,25 @@ private static final long serialVersionUID = -3435554487273689111L;
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String firstname = request.getParameter("firstname");
+	    String lastname = request.getParameter("lastname");
+	    String mi = request.getParameter("mi");
+	    String email = request.getParameter("email");
+		String contactno = request.getParameter("contactno");
+		String address = request.getParameter("address");
+		int isAdmin = 0;
 		RequestDispatcher dispatcher = null;
 		
-		Authenticator authenticator = new Authenticator();
-		String result = authenticator.authenticate(username,password);
-		if(result.equals("success")) {
-			dispatcher = request.getRequestDispatcher("pages/adminControl.jsp");
-			User user = new User(username,password);
-			request.setAttribute("user", user);
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-		}else {
-			request.setAttribute("loginMessage", "Login failed, please try again");
-			dispatcher=request.getRequestDispatcher("pages/adminLogin.jsp");
-		}
+		
+		dispatcher = request.getRequestDispatcher("pages/adminControl.jsp");
+		User user = new User(username,password);
+		request.setAttribute("user", user);
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
+
+		request.setAttribute("loginMessage", "Login failed, please try again");
+		dispatcher=request.getRequestDispatcher("pages/adminLogin.jsp");
+		
 		dispatcher.forward(request, response);
 	}
 
