@@ -1,0 +1,38 @@
+#pnlControl input[type=button]{
+	border:0px;
+	background-color: white;
+	margin:1em;
+}
+
+#pnlControl {
+	border-right:1px solid black;
+}
+
+.loginPop{
+    position:fixed;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    padding:5%;
+    background-color: black;
+    margin-left:35%;
+    margin-right:35%;
+    margin-top:5%;
+    color:white;
+    border-radius: 2em;
+    box-shadow:2px 2px 5px dimgray;
+}
+
+.warn {
+	font-size:0.5em;
+	color:red;
+}
+
+#txtAddImage, #txtAddDescription, #txtSearchLink {
+	width: 500px;
+}
+
+#txtAddName, #txtSearchName {
+	width:250px;
+}
