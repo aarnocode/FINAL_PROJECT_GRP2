@@ -1,0 +1,1 @@
+/*IF JS USE <PAGE NAME><"SCRIPT">.js*/
