@@ -7,5 +7,5 @@
 	<input id="txtPassword" type="password" class="mb-3"><br>
 	<input id="btnLogin" type="button" value="Login">
 </div>
-<link rel="stylesheet" href="css/adminLogin.css" type="text/css">
+<link rel="stylesheet" href="css/adminLoginStyle.css" type="text/css">
 <script src="js/adminLoginScript.js"></script>
