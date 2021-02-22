@@ -7,4 +7,4 @@
 	<input id="txtPassword" type="password">
 	<input id="btnLogin" type="button" value="Login">
 </div>
-<script href="js/adminLogin.js"></script>
+<script src="js/adminLoginScript.js"></script>

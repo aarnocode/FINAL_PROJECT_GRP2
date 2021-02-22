@@ -15,4 +15,5 @@
 	<div id="mainContainer">
 	</div>
 </body>
+<script src="js/mainScript.js"></script>
 </html>

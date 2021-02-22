@@ -30,4 +30,4 @@ input[type=button]{
 	border-right:1px solid black;
 }
 </style>
-<script href="js/adminControlScript.js"></script>"
+<script src="js/adminControlScript.js"></script>"
