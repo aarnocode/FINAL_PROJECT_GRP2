@@ -34,21 +34,10 @@ public class LandingPageController extends HttpServlet{
 			 ProductMapper product = sqlSession.getMapper(ProductMapper.class);
 			 ArrayList<Product> products = product.getAllProduct();
 			 request.setAttribute("products", products);
-			 System.out.println(products.get(0).getName());
 		 }catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		dispatcher = request.getRequestDispatcher("pages/home.jsp");
 		dispatcher.forward(request,response);
-		
-		/*
-		 * if(result.equals("success")) { dispatcher =
-		 * request.getRequestDispatcher("pages/adminControl.jsp"); User user = new
-		 * User(username,password); request.setAttribute("user", user); HttpSession
-		 * session = request.getSession(); session.setAttribute("user", user); }else {
-		 * request.setAttribute("loginMessage", "Login failed, please try again");
-		 * dispatcher=request.getRequestDispatcher("pages/adminLogin.jsp"); }
-		 * dispatcher.forward(request, response);
-		 */
 	}
 }
