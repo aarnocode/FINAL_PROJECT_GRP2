@@ -17,13 +17,15 @@ public interface ProductMapper {
 	@Select("Select MAX(product_id) from final_project_grp2_product")
 	public int getMaxId();
 	
-	@Select("Select product_id, name, price, stock, image from final_project_grp2_product where product_id=#{arg0}")
+	@Select("Select product_id, name, price, stock, image, description, product_category from final_project_grp2_product where product_id=#{arg0}")
 	@Results({
 			@Result(property = "id", column="product_id"),
 			@Result(property = "name", column="NAME"),
 			@Result(property = "price", column="PRICE"),
 			@Result(property = "stock", column="STOCK"),
-			@Result(property = "image", column="IMAGE")
+			@Result(property = "image", column="IMAGE"),
+			@Result(property = "description", column="DESCRIPTION"),
+			@Result(property = "category", column="PRODUCT_CATEGORY")
 	})
 	public Product getByID(int ID);
 
