@@ -1,63 +1,80 @@
-var isLoggedIn = false;
+var isLoggedIn = $("input[type=hidden]").val();
+
 $(".loginBlur").hide();
 $(document).ready(function(){
-	$(".btnBuy").on({
-        click: function(){
-        	if(isLoggedIn){
-        		window.location = "checkout.html?name="+name+
-                "&price="+price+
-                "&img="+img;
-        	}else{
-        		$(".loginBlur").show();
-        	}
-            
-        },
-        mouseenter:function(){
-            $(this).css({
-                "background-color":"red",
-                "box-shadow":"2px 2px 5px dimgray"
-            });
-        },
-        mouseleave:function(){
-            $(this).css({
-                "background-color":"black",
-                "box-shadow":"none"
-        });
-        }
-    });
-
-    $(".btnAddCart").on({
-        click: function(){
-            
-        },
-        mouseenter:function(){
-            $(this).css({
-                "background-color":"red",
-                "box-shadow":"2px 2px 5px dimgray"
-            });
-        },
-        mouseleave:function(){
-            $(this).css({
-                "background-color":"black",
-                "box-shadow":"none"
-        });
-        }
-    });
-
-    $(".cart").on({
-        click: function(){
-            window.location="cart.html";
-        },
-    });
-
-    $(".badge").click(function(){
-        window.location = "home.html?logged=true";
-    })
+	console.log($("input[type=hidden]").val());
 });
+
+$(".btnBuy").on({
+    click: function(){
+    	if(isLoggedIn == "true"){
+    		console.log("bought");
+    	}else{
+    		$(".loginBlur").show();
+    	}
+        
+    },
+    mouseenter:function(){
+        $(this).css({
+            "background-color":"red",
+            "box-shadow":"2px 2px 5px dimgray"
+        });
+    },
+    mouseleave:function(){
+        $(this).css({
+            "background-color":"black",
+            "box-shadow":"none"
+    });
+    }
+});
+
+$(".btnAddCart").on({
+    click: function(){
+        
+    },
+    mouseenter:function(){
+        $(this).css({
+            "background-color":"red",
+            "box-shadow":"2px 2px 5px dimgray"
+        });
+    },
+    mouseleave:function(){
+        $(this).css({
+            "background-color":"black",
+            "box-shadow":"none"
+    });
+    }
+});
+
+$(".cart").on({
+    click: function(){
+        window.location="cart.html";
+    },
+});
+
+$(".badge").click(function(){
+    window.location = "home.html?logged=true";
+})
+
 //Sir Ralph, dito po yung click event ng register. Lagyan mo nalag ajax sa loob.
 $("#register").click(function(){
 	window.location.href = 'http://localhost:8080/OnlineStore/pages/userRegistration.jsp';
 	console.log("register clicked!");
+});
+
+$(".btnLogin").click(function(){
+	console.log("clicked");
+	$.ajax({
+		url:contextPath + "login",
+		method: "POST",
+		data:{
+			username:$(".txtUsername").val(),
+			password:$(".txtPassword").val()
+		},
+		success: function(){
+			window.location="../pages/productview.jsp";
+		}
+	});
 });
 
 
