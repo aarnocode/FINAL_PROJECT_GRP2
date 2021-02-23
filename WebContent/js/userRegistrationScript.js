@@ -17,12 +17,13 @@ function initUserReg(){
 		$("#contacterror").text('');
 		
 		
-//		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
-//			alert("validation passed");
-//			Register(firstname,lastname,mi,username,password,email,contactno,address);
-//		}
-		alert('Hey');
-		Register("zz","zz","z","zzzzzzzzzzz","zzzzzzzzzzz","zzz@g.com","12345678","zzzzzzzzzz");
+		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
+			alert("validation passed");
+			clearErrMssg();
+			Register(firstname,lastname,mi,username,password,email,contactno,address);
+		}
+
+		//Register("zz","zz","z","zzzzzzzzzzz","zzzzzzzzzzz","rr@rr.com","12345678","zzzzzzzzzz");
 		
 		
 		
@@ -43,15 +44,25 @@ function Register(firstname,lastname,mi,username,password,email,contactno,addres
 			email: email,
 			contactno: contactno,
 			address: address
+		},
+		success: function(result){
+			//window.location.href = 'http://localhost:8080/OnlineStore/';
+			$("#mainContainer").html(result);
 		}
-//	,
-//		success: function(result){
-//			window.location.href = 'http://localhost:8080/OnlineStore/';
-//			$("#mainContainer").html(result);
-//		}
 	});
 }
-
+function clearErrMssg(){
+	$("#errMessage1").text('');
+	$("#errMessage2").text('');
+	$("#errMessage3").text('');
+	$("#fnerror").text('');
+	$("#lnerror").text('');
+	$("#mierror").text('');
+	$("#unerror").text('');
+	$("#pwerror").text('');
+	$("#emailerror").text('');
+	$("#contacterror").text('');
+}
 function validation(firstname,lastname,mi,username,password,email,contactno,address){
 	var res = true;
 	var zipcode = $("#zipcode").val();
@@ -79,7 +90,7 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 		if(username.length > 16)
 			$("#unerror").text("Username is only up to 20 Character ");
 		if(password.length > 30 || password.length < 8)
-			$("#pwerror").text("Password is must at least have 8 Charater and only up to 30 Character ");
+			$("#pwerror").text("Password must have at least 8 Characters and only up to 30 Character ");
 		if(email.length > 50)
 			$("#emailerror").text("Email is only up to 20 Character ");
 		if(contactno.length > 11)

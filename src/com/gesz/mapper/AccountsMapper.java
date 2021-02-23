@@ -34,7 +34,11 @@ public interface AccountsMapper {
 				int isAdmin
 			);
 	
-	@Select("SELECT user_id FROM final_project_grp2_user WHERE email = '#{arg0}'")
-	public int getEmail(
+	@Select("SELECT email FROM final_project_grp2_user WHERE email = #{arg0}")
+	public String verifyEmail(
 					String email);
+	
+	@Select("SELECT username FROM final_project_grp2_user WHERE username = #{arg0}")
+	public String verifyUsername(
+					String username);
 }

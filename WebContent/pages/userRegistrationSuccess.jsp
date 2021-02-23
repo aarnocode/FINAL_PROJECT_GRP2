@@ -8,6 +8,7 @@
 </head>
 <body>
 ${message}
+${message2}
 <p>gg</p>
 </body>
 </html>

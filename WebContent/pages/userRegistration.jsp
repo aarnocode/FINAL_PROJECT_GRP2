@@ -29,7 +29,7 @@
 	<input type="textbox" id="username" placeholder="Username"><br>
 	<p class="errormsg" id="unerror"></p>
 	
-	<input type="textbox" id="password" placeholder="Password"><br>
+	<input type="password" id="password" placeholder="Password"><br>
 	<p class="errormsg" id="pwerror"></p>
 	
 	<input type="textbox" id="email" placeholder="Email"><br>
