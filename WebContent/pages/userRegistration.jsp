@@ -61,7 +61,7 @@
   
   <div id="regcontainer">
   		
-  		<p>Messsage:</p>${message}
+  		
   </div>
 
 
