@@ -21,7 +21,7 @@ public interface AccountsMapper {
 			);
 	
 	@Insert("INSERT INTO final_project_grp2_user(USER_ID,FIRST_NAME,LAST_NAME,MI,USERNAME,PASS_WORD,EMAIL,CONTACT_NO,ADDRESS,ISADMIN)"
-			+ " VALUES (hdd_user_id_pk.nextval,#{arg0},#{arg1},#{arg2},#{arg3},#{arg4},#{arg5},#{arg6},#{arg7},#{arg8})")
+			+ " VALUES (GRP2USER_USER_ID_PK.nextval,#{arg0},#{arg1},#{arg2},#{arg3},#{arg4},#{arg5},#{arg6},#{arg7},#{arg8})")
 	public Integer registerUser(
 				String firstname,
 				String lastname,
