@@ -1,25 +1,55 @@
 package com.gesz.model;
 
+import java.math.BigDecimal;
+
 public class Product {
-	private int id;
+	private BigDecimal id;
 	private String name;
-	private double price;
+	private BigDecimal price;
 	private int stock;
 	private String image;
+	private String description;
+	private String category;
 	
-	public Product(int id,String name, double price, int stock, String image) {
+	public Product(BigDecimal id,String name, BigDecimal price, int stock, String image) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.stock = stock;
 		this.image = image;
 	}
+	
+	public Product(BigDecimal id,String name, BigDecimal price, int stock, String image, String description, String category) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.stock = stock;
+		this.image = image;
+		this.description = description;
+		this.category = category;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
 
-	public int getId() {
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public BigDecimal getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(BigDecimal id) {
 		this.id = id;
 	}
 
@@ -31,11 +61,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 
