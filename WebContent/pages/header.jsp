@@ -20,7 +20,7 @@
 
 
 			<div class="rightControls">
-				<img class="cart" src="https://img.icons8.com/windows/32/ffffff/favorite-cart.png" />
+				<img class="cart" src="https://img.icons8.com/windows/32/ffffff/favorite-cart.png" /><span class='badge' id='lblCartCount'> 5 </span>
 				<img class="login" src="https://img.icons8.com/pastel-glyph/32/ffffff/person-male--v3.png"/>
 			</div>
 			
