@@ -39,14 +39,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
-		//Ignore This Code(Irrelevant)
-		//System.out.println("GG");
-		//request.setAttribute("message", "User Added");
-		//dispatcher = request.getRequestDispatcher("Success.jsp");
-		//dispatcher.forward(request, response);
-		//request.getRequestDispatcher("").forward(request,response);
-		
-		
+	
 				try(SqlSession sqlSession = sqlSessionFactory.openSession()){
 				String userid = "hdd_user_id_pk.nextval";
 				
