@@ -10,14 +10,14 @@ $(document).ready(function(){
 
     $(".cards").on({
         click: function(){
-           /* window.location = "item.html?"+getData(img,name,price);*/
             $.ajax({
             	url:contextPath + "productview",
             	method:"POST",
             	data: {
             		id:$("input[type=hidden]",this).val()
             	},
-            	success:function(){
+            	success:function(result){
+            		window.location = "pages/productview.jsp";
             	}
             });
         },
