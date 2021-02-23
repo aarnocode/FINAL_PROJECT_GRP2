@@ -29,7 +29,7 @@
             <label>Password:</label><br>
             <input class="txtPassword" type="password"><br>
             <input class="btnLogin" type="button" value="Login">
-            <p id="register">"Not registered yet? Click here!"</p>
+            <p class="toRegister" id="register">"Not registered yet? Click here!"</p>
         </div>
     </div>
     

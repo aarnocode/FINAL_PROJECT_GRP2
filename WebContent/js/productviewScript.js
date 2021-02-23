@@ -56,8 +56,10 @@ $(document).ready(function(){
 });
 //Sir Ralph, dito po yung click event ng register. Lagyan mo nalag ajax sa loob.
 $("#register").click(function(){
+	window.location.href = 'http://localhost:8080/OnlineStore/pages/userRegistration.jsp';
 	console.log("register clicked!");
 });
+
 
 $(".login").mouseenter(function(){
     showAccount();
