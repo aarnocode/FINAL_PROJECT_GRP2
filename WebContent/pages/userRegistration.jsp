@@ -10,7 +10,7 @@
 <script type="text/javascript">var contextPath = '${pageContext.request.contextPath}' + '/'</script>
 <script src="../js/userRegistrationScript.js"></script>
 <script src="../js/bootstrap.js"></script>
-<title>Main</title>
+<title>User Registration</title>
 </head>
 <body>
 	<p class="errormsg" id="errMessage1"></p>
@@ -67,7 +67,7 @@
 
 <script type="text/javascript">
 		$(document).ready(function(){
-			document.title = "User Registration";
+			//document.title = "User Registration";
 			initUserReg();
 		});
 </script>
