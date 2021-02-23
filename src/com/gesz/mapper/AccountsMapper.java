@@ -2,7 +2,10 @@ package com.gesz.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+
+import com.gesz.model.User;
 
 
 public interface AccountsMapper {
@@ -41,4 +44,18 @@ public interface AccountsMapper {
 	@Select("SELECT username FROM final_project_grp2_user WHERE username = #{arg0}")
 	public String verifyUsername(
 					String username);
+	
+	@Select("SELECT user_id, username, pass_word, first_name, last_name, mi, email, contact_no, address FROM final_project_grp2_user WHERE user_id = #{arg0}")
+	@Results({
+		@Result(property = "id", column = "USER_ID"),
+		@Result(property = "username", column = "USERNAME"),
+		@Result(property = "password", column = "PASS_WORD"),
+		@Result(property = "firstname", column = "FIRST_NAME"),
+		@Result(property = "lastname", column = "LAST_NAME"),
+		@Result(property = "mi", column = "MI"),
+		@Result(property = "email", column = "EMAIL"),
+		@Result(property = "contactno", column = "CONTACT_NO"),
+		@Result(property = "address", column = "ADDRESS")
+	})
+	public User getUserById(int id);
 }
