@@ -1,10 +1,12 @@
+
 .productContainer {
-	display:flex;
+	display:inline-flex;
    width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: 160px;
+  flex-wrap:wrap;
 }
 
 .leftPanel {

@@ -1,9 +1,16 @@
+var isLoggedIn = false;
+$(".loginBlur").hide();
 $(document).ready(function(){
 	$(".btnBuy").on({
         click: function(){
-            window.location = "checkout.html?name="+name+
-                              "&price="+price+
-                              "&img="+img;
+        	if(isLoggedIn){
+        		window.location = "checkout.html?name="+name+
+                "&price="+price+
+                "&img="+img;
+        	}else{
+        		$(".loginBlur").show();
+        	}
+            
         },
         mouseenter:function(){
             $(this).css({
@@ -46,6 +53,10 @@ $(document).ready(function(){
     $(".badge").click(function(){
         window.location = "home.html?logged=true";
     })
+});
+//Sir Ralph, dito po yung click event ng register. Lagyan mo nalag ajax sa loob.
+$("#register").click(function(){
+	console.log("register clicked!");
 });
 
 $(".login").mouseenter(function(){

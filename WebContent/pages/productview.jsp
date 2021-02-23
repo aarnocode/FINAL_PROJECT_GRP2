@@ -20,6 +20,19 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+	<div class="loginBlur">
+        <div class="loginPop">
+            <h3>GESZ</h3>
+            <label id="notice"></label>
+            <label>Username:</label><br>
+            <input class="txtUsername" type="text"><br>
+            <label>Password:</label><br>
+            <input class="txtPassword" type="password"><br>
+            <input class="btnLogin" type="button" value="Login">
+            <p id="register">"Not registered yet? Click here!"</p>
+        </div>
+    </div>
+    
 	<div class="itemContainer">
         <div class="itemView">
             <img src="${productView.getImage()}">
