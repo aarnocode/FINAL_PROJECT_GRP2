@@ -1,4 +1,6 @@
-<nav class="navbar navbar-dark ">
+<div></div>
+
+<nav class="navbar navbar-dark " id="header">
 	
 		<div class="container-fluid ">
 		
@@ -25,3 +27,5 @@
 		</div><!-- end of container-fluid div -->
 	
 </nav>
+
+<script src="js/header.js"> </script>
