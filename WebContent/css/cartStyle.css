@@ -1,0 +1,38 @@
+#btnCheckout{
+	padding-left:1em;
+    padding-right: 1em;
+    font-family: 'Montserrat','Sans serif';
+    font-size:2em;
+    color:white;
+    background-color: black;
+    border: none;
+    margin-top:1em;
+}
+
+.cartTable th,td{
+	padding-left:1em;
+}
+
+.cartContainer {
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:1em;
+    margin-bottom: 1em;
+}
+
+.cartTable {
+    border: 1px solid black;
+    text-align: left;
+    width:100%;
+    table-layout: fixed;
+}
+
+.cartTable img{
+    width:100px;
+    height:100px;
+    object-fit: cover;
+}
+
+.center{
+	text-align:center;
+}
