@@ -1,5 +1,7 @@
 package com.gesz.mapper;
 
+import java.math.BigInteger;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Select;
@@ -29,7 +31,7 @@ public interface AccountsMapper {
 				String username,
 				String password,
 				String email,
-				int contactno,
+				BigInteger contactno,
 				String address,
 				int isAdmin
 			);

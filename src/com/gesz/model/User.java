@@ -1,5 +1,7 @@
 package com.gesz.model;
 
+import java.math.BigInteger;
+
 public class User {
 	private int id;
 	private String username;
@@ -8,7 +10,7 @@ public class User {
 	private String lastname;
 	private String mi;
 	private String email;
-	private int contactno;
+	private BigInteger contactno;
 	private String address;
 	private int isAdmin;
 	
@@ -18,7 +20,7 @@ public class User {
 	}
 	
 	public User(String username, String password,String firstname,String lastname,String mi,
-				String email,int contactno,String address,int isAdmin) {
+				String email,BigInteger contactno,String address,int isAdmin) {
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
@@ -58,7 +60,7 @@ public class User {
 		return email;
 	}
 
-	public int getContactno() {
+	public BigInteger getContactno() {
 		return contactno;
 	}
 
