@@ -47,7 +47,7 @@ function Register(firstname,lastname,mi,username,password,email,contactno,addres
 		},
 		success: function(result){
 			//window.location.href = 'http://localhost:8080/OnlineStore/';
-			$("#mainContainer").html(result);
+			$("#regcontainer").html(result);
 		}
 	});
 }

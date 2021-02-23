@@ -56,7 +56,6 @@ private static final long serialVersionUID = -3435554487273689111L;
 				String checkemail = accounts.verifyEmail(user.getEmail());
 				String checkusername = accounts.verifyUsername(user.getUsername());
 				
-				System.out.println("GG");
 				
 				//For Checking if Email and/or User already exist in the database
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
@@ -66,7 +65,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 						System.out.println("Username is already in use");
 						request.setAttribute("message2", "Username is already in use");
 					}
-					dispatcher = request.getRequestDispatcher("pages/userRegistrationSuccess.jsp");
+					dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
 					dispatcher.forward(request, response);
 				}
 				
@@ -78,7 +77,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 						System.out.println("Email Address is already in use");
 						request.setAttribute("message2", "Email Address is already in use");		
 					}
-					dispatcher = request.getRequestDispatcher("pages/userRegistrationSuccess.jsp");
+					dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
 					dispatcher.forward(request, response);
 				}
 				
@@ -93,7 +92,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 						sqlSession.commit();
 						request.setAttribute("user", user);
 						request.setAttribute("message", "User Added");
-						dispatcher = request.getRequestDispatcher("pages/userRegistrationSuccess.jsp");
+						dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
 						System.out.println("GOOOOD");
 						//request.getRequestDispatcher("").forward(request,response);
 						dispatcher.forward(request, response);
@@ -101,14 +100,14 @@ private static final long serialVersionUID = -3435554487273689111L;
 					else {//If Insert fails it will go here
 						request.setAttribute("user", user);
 						request.setAttribute("message", "User Not Added");
-						dispatcher = request.getRequestDispatcher("pages/userRegistrationSuccess.jsp");
+						dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
 						System.out.println("ERROR");
 						dispatcher.forward(request, response);
 					}
 				}
 				
 			}catch(Exception e) {//If Other Error Occurs it will go here
-				dispatcher = request.getRequestDispatcher("pages/userRegistrationSuccess.jsp");
+				dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
 				request.setAttribute("message", e.getMessage());	
 				System.out.println("CATCH ERROR");
 				System.out.println(e);
