@@ -93,7 +93,11 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 		res = false;
 	}
 	
-
+	if($('#password').val() != $('#confirmpass').val()){
+		$("#pwerror").text("Password Doesnt Match ");
+		
+		res = false;
+	}
 	
 	//Checks for special/illegal Characters
 	if(format.test(firstname)||format.test(lastname)||format.test(mi)||format.test(username)||format.test(password)||formatemail.test(email)||
@@ -127,7 +131,7 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 function maxLengthValidation(){
 	//Check the max lenght and display messages and prevent from further input
 	$('#firstname').on('keydown', function (e) {
-	    if($(this).val().length>19 && e.which != 8){
+	    if($(this).val().length>19 && e.which != 8 && e.which != 9){
 	    	$("#fnerror").text("First Name is only up to 20 Character ");
 	    	return false;
 	    }
@@ -137,7 +141,7 @@ function maxLengthValidation(){
 	    }
 	});
 	$('#lastname').on('keydown', function (e) {
-	    if($(this).val().length>19 && e.which != 8){
+	    if($(this).val().length>19 && e.which != 8 && e.which != 9){
 	    	$("#lnerror").text("Last Name is only up to 20 Character ");
 	    	return false;
 	    }
@@ -148,7 +152,7 @@ function maxLengthValidation(){
 	    }
 	});
 	$('#mi').on('keydown', function (e) {
-	    if($(this).val().length>0 && e.which != 8){
+	    if($(this).val().length>0 && e.which != 8 && e.which != 9){
 	    	$("#mierror").text("Middle initial is only up to 1 Character ");
 	    	return false;
 	    }
@@ -158,7 +162,7 @@ function maxLengthValidation(){
 	    }
 	});
 	$('#username').on('keydown', function (e) {
-	    if($(this).val().length>15 && e.which != 8){
+	    if($(this).val().length>15 && e.which != 8 && e.which != 9){
 	    	$("#unerror").text("Username is only up to 16 Character ");
 	    	return false;
 	    }
@@ -168,7 +172,18 @@ function maxLengthValidation(){
 	    }
 	});
 	$('#password').on('keydown', function (e) {
-	    if($(this).val().length>29 && e.which != 8){
+	    if($(this).val().length>29 && e.which != 8 && e.which != 9){
+	    	$("#pwerror").text("Password is only up to 30 Character ");
+	    	return false;
+	    }
+	    else if($(this).val().length <= 28 && $(this).val().length >= 7){
+	    	$("#pwerror").text("");
+	    	
+	    }
+	    
+	});
+	$('#confirmpass').on('keydown', function (e) {
+	    if($(this).val().length>29 && e.which != 8 && e.which != 9){
 	    	$("#pwerror").text("Password is only up to 30 Character ");
 	    	return false;
 	    }
@@ -179,7 +194,7 @@ function maxLengthValidation(){
 	    
 	});
 	$('#email').on('keydown', function (e) {
-	    if($(this).val().length>49 && e.which != 8){
+	    if($(this).val().length>49 && e.which != 8 && e.which != 9){
 	    	$("#emailerror").text("Email is only up to 50 Character ");
 	    	return false;
 	    }
@@ -189,7 +204,7 @@ function maxLengthValidation(){
 	    }
 	});
 	$('#contactno').on('keydown', function (e) {
-	    if($(this).val().length>10 && e.which != 8){
+	    if($(this).val().length>10 && e.which != 8 && e.which != 9){
 	    	$("#contacterror").text("Contact Number is only up to 11 Character ");
 	    	return false;
 	    }

@@ -47,7 +47,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 				String checkemail = accounts.verifyEmail(user.getEmail());
 				String checkusername = accounts.verifyUsername(user.getUsername());
 				
-				System.out.println("hey");
+				//System.out.println("hey");
 				//For Checking if Email and/or User already exist in the database
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
 					System.out.println("Email Address is already in use");
