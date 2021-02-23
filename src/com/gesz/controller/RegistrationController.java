@@ -39,14 +39,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
-		//Ignore This Code(Irrelevant)
-		//System.out.println("GG");
-		//request.setAttribute("message", "User Added");
-		//dispatcher = request.getRequestDispatcher("Success.jsp");
-		//dispatcher.forward(request, response);
-		//request.getRequestDispatcher("").forward(request,response);
-		
-		
+	
 				try(SqlSession sqlSession = sqlSessionFactory.openSession()){
 				String userid = "hdd_user_id_pk.nextval";
 				
@@ -59,25 +52,22 @@ private static final long serialVersionUID = -3435554487273689111L;
 				
 				//For Checking if Email and/or User already exist in the database
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
-					System.out.println("Email Address is already in use");
-					request.setAttribute("message", "Email Address is already in use");					
+					//System.out.println("Email Address is already in use");
+					request.setAttribute("message", "Email Address is already in use");	
+					
 					if(checkusername != "" && checkusername != null){	//Will go here if username already exist in database			
-						System.out.println("Username is already in use");
+						//System.out.println("Username is already in use");
 						request.setAttribute("message2", "Username is already in use");
 					}
-					dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
+					dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 					dispatcher.forward(request, response);
 				}
 				
 				//For Checking if Email and/or User already exist in the database
 				else if(checkusername != "" && checkusername != null){	//Will go here if username already exist in database			
-					System.out.println("Username is already in use");
+					//System.out.println("Username is already in use");
 					request.setAttribute("message", "Username is already in use");
-					if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
-						System.out.println("Email Address is already in use");
-						request.setAttribute("message2", "Email Address is already in use");		
-					}
-					dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
+					dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 					dispatcher.forward(request, response);
 				}
 				
@@ -91,23 +81,22 @@ private static final long serialVersionUID = -3435554487273689111L;
 					if(result == 1){//If Insert is Success if will go here
 						sqlSession.commit();
 						request.setAttribute("user", user);
-						request.setAttribute("message", "User Added");
-						dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
-						System.out.println("GOOOOD");
-						//request.getRequestDispatcher("").forward(request,response);
+						request.setAttribute("message", "You have Successfully Registered");
+						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
+						//System.out.println("Success");
 						dispatcher.forward(request, response);
 					}
 					else {//If Insert fails it will go here
 						request.setAttribute("user", user);
-						request.setAttribute("message", "User Not Added");
-						dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
-						System.out.println("ERROR");
+						request.setAttribute("message", "Registration Failed");
+						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
+						//System.out.println("ERROR");
 						dispatcher.forward(request, response);
 					}
 				}
 				
 			}catch(Exception e) {//If Other Error Occurs it will go here
-				dispatcher = request.getRequestDispatcher("../userRegistrationSuccess.jsp");
+				dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 				request.setAttribute("message", e.getMessage());	
 				System.out.println("CATCH ERROR");
 				System.out.println(e);

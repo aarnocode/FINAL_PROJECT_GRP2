@@ -18,7 +18,7 @@ function initUserReg(){
 		
 		
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
-			alert("validation passed");
+			//alert("validation passed");
 			clearErrMssg();
 			Register(firstname,lastname,mi,username,password,email,contactno,address);
 		}

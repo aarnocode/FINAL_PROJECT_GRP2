@@ -7,8 +7,7 @@
 <title>Temp Success</title>
 </head>
 <body>
-${message}
-${message2}
-<p>gg</p>
+<p>${message}</p>
+<p>${message2}</p>
 </body>
 </html>
