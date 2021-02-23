@@ -59,7 +59,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 						//System.out.println("Username is already in use");
 						request.setAttribute("message2", "Username is already in use");
 					}
-					dispatcher = request.getRequestDispatcher("/pages/userRegistrationSuccess.jsp");
+					dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 					dispatcher.forward(request, response);
 				}
 				
@@ -67,7 +67,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 				else if(checkusername != "" && checkusername != null){	//Will go here if username already exist in database			
 					//System.out.println("Username is already in use");
 					request.setAttribute("message", "Username is already in use");
-					dispatcher = request.getRequestDispatcher("/pages/userRegistrationSuccess.jsp");
+					dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 					dispatcher.forward(request, response);
 				}
 				
@@ -82,21 +82,21 @@ private static final long serialVersionUID = -3435554487273689111L;
 						sqlSession.commit();
 						request.setAttribute("user", user);
 						request.setAttribute("message", "You have Successfully Registered");
-						dispatcher = request.getRequestDispatcher("/pages/userRegistrationSuccess.jsp");
+						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 						//System.out.println("Success");
 						dispatcher.forward(request, response);
 					}
 					else {//If Insert fails it will go here
 						request.setAttribute("user", user);
 						request.setAttribute("message", "Registration Failed");
-						dispatcher = request.getRequestDispatcher("/pages/userRegistrationSuccess.jsp");
+						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 						//System.out.println("ERROR");
 						dispatcher.forward(request, response);
 					}
 				}
 				
 			}catch(Exception e) {//If Other Error Occurs it will go here
-				dispatcher = request.getRequestDispatcher("/pages/userRegistrationSuccess.jsp");
+				dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 				request.setAttribute("message", e.getMessage());	
 				System.out.println("CATCH ERROR");
 				System.out.println(e);
