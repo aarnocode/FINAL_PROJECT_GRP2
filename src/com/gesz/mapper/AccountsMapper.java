@@ -22,7 +22,7 @@ public interface AccountsMapper {
 	
 	@Insert("INSERT INTO final_project_grp2_user(USER_ID,FIRST_NAME,LAST_NAME,MI,USERNAME,PASS_WORD,EMAIL,CONTACT_NO,ADDRESS,ISADMIN)"
 			+ " VALUES (hdd_user_id_pk.nextval,#{arg0},#{arg1},#{arg2},#{arg3},#{arg4},#{arg5},#{arg6},#{arg7},#{arg8})")
-	public Integer RegisterUser(
+	public Integer registerUser(
 				String firstname,
 				String lastname,
 				String mi,
@@ -34,5 +34,7 @@ public interface AccountsMapper {
 				int isAdmin
 			);
 	
-	
+	@Select("SELECT user_id FROM final_project_grp2_user WHERE email = '#{arg0}'")
+	public int getEmail(
+					String email);
 }

@@ -37,37 +37,47 @@ private static final long serialVersionUID = -3435554487273689111L;
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
-		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
-		//	String userid = "hdd_user_id_pk.nextval";
-			
-			
-			User user = new User(username,password,firstname,lastname,mi,email,contactno,address,isAdmin);
-			AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
-			int result = accounts.RegisterUser(user.getFirstname(),user.getLastname(),user.getMi(),user.getUsername(),
-					user.getPassword(),user.getEmail(),user.getContactno(),user.getAddress(),user.getIsAdmin());
-			
-			if(result == 1){
-				request.setAttribute("user", user);
-				request.setAttribute("message", "User Added");
-				dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
-				System.out.println("GOOOOD");
-			}
-			else {
-				request.setAttribute("user", user);
-				request.setAttribute("message", "User Not Added");
-				dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
-				System.out.println("BAD");
-			}
-			
-		}catch(Exception e) {
-			dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
-			request.setAttribute("message", e.getMessage());	
-			System.out.println("BAAAAAD");
-			System.out.println(e);
-		}
-		
-		
+		System.out.println("GG");
+		request.setAttribute("message", "User Added");
+		dispatcher = request.getRequestDispatcher("");
 		dispatcher.forward(request, response);
+		//request.getRequestDispatcher("").forward(request,response);
+//		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
+//		//	String userid = "hdd_user_id_pk.nextval";
+//			
+//			
+//			User user = new User(username,password,firstname,lastname,mi,email,contactno,address,isAdmin);
+//			AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
+//			int result = accounts.registerUser(user.getFirstname(),user.getLastname(),user.getMi(),user.getUsername(),
+//					user.getPassword(),user.getEmail(),user.getContactno(),user.getAddress(),user.getIsAdmin());
+//			
+//			
+//			if(result == 1){
+//				sqlSession.commit();
+//				request.setAttribute("user", user);
+//				request.setAttribute("message", "User Added");
+//				dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
+//				System.out.println("GOOOOD");
+//				request.getRequestDispatcher("").forward(request,response);
+//			}
+//			else {
+//				request.setAttribute("user", user);
+//				request.setAttribute("message", "User Not Added");
+//				dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
+//				System.out.println("BAD");
+//				dispatcher.forward(request, response);
+//			}
+//			
+//		}catch(Exception e) {
+//			dispatcher = request.getRequestDispatcher("pages/tempSuccessRegister.jsp");
+//			request.setAttribute("message", e.getMessage());	
+//			System.out.println("BAAAAAD");
+//			System.out.println(e);
+//			dispatcher.forward(request, response);
+//		}
+		
+		
+		//dispatcher.forward(request, response);
 		
 		
 	}

@@ -1,5 +1,5 @@
 function initUserReg(){
-	
+	//window.location.href = 'http://localhost:8080/OnlineStore/';
 	
 	$("#submitregBtn").click(function(){
 		var firstname = $("#firstname").val();
@@ -17,10 +17,12 @@ function initUserReg(){
 		$("#contacterror").text('');
 		
 		
-		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
-			alert("validation passed");
-			Register(firstname,lastname,mi,username,password,email,contactno,address);
-		}
+//		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
+//			alert("validation passed");
+//			Register(firstname,lastname,mi,username,password,email,contactno,address);
+//		}
+		alert('Hey');
+		Register("zz","zz","z","zzzzzzzzzzz","zzzzzzzzzzz","zzz@g.com","12345678","zzzzzzzzzz");
 		
 		
 		
@@ -41,10 +43,12 @@ function Register(firstname,lastname,mi,username,password,email,contactno,addres
 			email: email,
 			contactno: contactno,
 			address: address
-		},
-		success: function(result){
-			$("#mycontainer").html(result);
 		}
+//	,
+//		success: function(result){
+//			window.location.href = 'http://localhost:8080/OnlineStore/';
+//			$("#mainContainer").html(result);
+//		}
 	});
 }
 

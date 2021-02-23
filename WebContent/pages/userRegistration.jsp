@@ -59,8 +59,9 @@
 
   <input type="button" id="submitregBtn" value="Register">
   
-  <div id=mycontainer>
-  
+  <div id="regcontainer">
+  		
+  		<p>Messsage:</p>${message}
   </div>
 
 
