@@ -1,0 +1,48 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-shadow: 0px 0px 3px rgb(117 117 117 / 12%);
+    color: rgb(64,224,208);
+    text-decoration: none;
+}
+.footer {
+	background: #696969;
+	color: white;
+	font-size: 14px;
+	padding: 60px 0 20px;
+}
+
+.container {
+	max-width: 1300px;
+	margin: auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.footerRow {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.fblogo{
+	width: 15px;
+	height: 15px;
+}
+
+li{
+	list-style-type: none;
+}
+
+ol, ul {
+    padding-left: 0.5rem;
+}
