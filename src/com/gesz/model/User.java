@@ -32,6 +32,7 @@ public class User {
 		this.address = address;
 		this.isAdmin = 0;
 	}
+	//overloaded method for fetching user info w/ ccno
 	public User(int id,String username, String password,String firstname,String lastname,String mi,
 			String email,BigInteger contactno,String address,BigInteger ccno) {
 	this.username = username;
