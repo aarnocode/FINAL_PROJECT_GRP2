@@ -16,7 +16,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.gesz.mapper.AccountsMapper;
 import com.gesz.mapper.CartMapper;
+import com.gesz.mapper.ProductMapper;
 import com.gesz.model.Cart;
+import com.gesz.model.Product;
 import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
 
@@ -28,15 +30,36 @@ public class CheckoutController extends HttpServlet {
 		
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
+		session.setAttribute("notice", "");
+		int UID = Integer.valueOf((String)session.getAttribute("UID"));
+		String action = (String)session.getAttribute("action");
+		Product prod = (Product)session.getAttribute("productView");
+		int quantity = Integer.valueOf(request.getParameter("quantity"));
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
-			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
-			 AccountsMapper account = sqlSession.getMapper(AccountsMapper.class);
-			 User user = account.getUserById(1);
-			 ArrayList<Cart> mycart = cart.getCartById(1);
-			 session.setAttribute("user", user);
-			 session.setAttribute("myCart", mycart);
+			 if(action == "cartCheckout") {
+				 CartMapper cart = sqlSession.getMapper(CartMapper.class);
+				 AccountsMapper account = sqlSession.getMapper(AccountsMapper.class);
+				 User user = account.getUserById(UID);
+				 ArrayList<Cart> mycart = cart.getCartById(UID);
+				 session.setAttribute("user", user);
+				 session.setAttribute("myCart", mycart);
+			 }else {
+				 //Check availability of stocks
+				 ProductMapper product = sqlSession.getMapper(ProductMapper.class);
+				 int stock = product.checkStock(prod.getId());
+				 System.out.println(stock);
+				 System.out.println(quantity);
+				
+				 if(stock < quantity) { 
+					 session.setAttribute("notice","Cannot add more. Currently out of stock."); 
+					 session.setAttribute("productQuantity", quantity-1);
+				}else {
+					session.setAttribute("productQuantity", quantity);
+				}
+				 
+			 }
 		 }catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

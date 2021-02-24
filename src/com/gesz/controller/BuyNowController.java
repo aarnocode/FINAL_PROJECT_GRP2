@@ -2,7 +2,6 @@ package com.gesz.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,6 +48,8 @@ public class BuyNowController extends HttpServlet{
 				 session.setAttribute("action", "buynow");
 			 }else if(action.equals("cancel")) {
 				 int quantity = Integer.valueOf(request.getParameter("quantity"));
+				 System.out.println(quantity);
+				 System.out.println(isExisting);
 				 if(isExisting > quantity) {
 					 cart.updateCart(isExisting-quantity, cart.getCartId(UID, prodId));
 				 }else {

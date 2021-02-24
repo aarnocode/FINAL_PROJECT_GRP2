@@ -32,6 +32,7 @@ public class ProductViewController extends HttpServlet {
 			 Product item = product.getByID(id);
 			
 			 session.setAttribute("productView",item);
+			 session.setAttribute("productQuantity",1);
 			 session.setMaxInactiveInterval(30*60);
 			 
 			/* request.setAttribute("item", item); */

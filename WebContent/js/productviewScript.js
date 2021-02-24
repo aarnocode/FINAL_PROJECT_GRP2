@@ -8,7 +8,8 @@ $(document).ready(function(){
 $(".btnBuy").on({
     click: function(){
     	if(isLoggedIn == "true"){
-    		$.ajax({
+    		window.location = "../pages/checkout.jsp";
+    		/*$.ajax({
     			url: contextPath + "buynow",
     			method:"POST",
     			data:{
@@ -23,7 +24,7 @@ $(".btnBuy").on({
     					}
     				});
     			}
-    		});
+    		});*/
     	}else{
     		$(".loginBlur").show();
     	}

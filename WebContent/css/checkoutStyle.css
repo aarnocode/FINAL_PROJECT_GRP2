@@ -1,4 +1,4 @@
-#btnCheckout{
+#btnCheckout, #btnCancel{
 	padding-left:1em;
     padding-right: 1em;
     font-family: 'Montserrat','Sans serif';
@@ -42,4 +42,8 @@ input[type=radio] {
 }
 #address{
 	width:500px;
+}
+
+#notice {
+	color:tomato;
 }
