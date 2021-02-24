@@ -6,4 +6,5 @@ function initUserProfile(){
 			$("#profilecontainer").html(result);
 		}
 	});
+//	if(${user.ccno})
 }

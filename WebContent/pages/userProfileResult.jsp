@@ -1,11 +1,14 @@
 
 <img src="../images/user_img.png" alt="User Image" class="userImg">
 <div>
-	${firstname}
-	<h1>Name: ${firstname} ${mi} ${lastname}</h1>
-	<h5>@${username}</h5>
-	<h2>Email: ${email}</h2>
-	<h2>Contact no: ${contactno}</h2>
-	<h2>Address: ${streetadd}${zipcode}${city}${state}${country}</h2>
-	<h2>Credit Card: ${ccno}</h2>
+	
+	<h1>Name: ${myuser.firstname} ${myuser.mi} ${myuser.lastname}</h1>
+	<h5>@${myuser.username}</h5>
+	<h2>Email: ${myuser.email}</h2>
+	<h2>Contact no: ${myuser.contactno}</h2>
+	<h2>Address: ${myuser.address}</h2>
+	<h2 style="text-align:left;float:left;">Credit Card: <h2 id="ifhavecc" style="text-align:left;float:left;">dd</h2>
+	
+
+
 </div>

@@ -19,7 +19,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 	}
-	
+	//overload for registering user
 	public User(String username, String password,String firstname,String lastname,String mi,
 				String email,BigInteger contactno,String address,int isAdmin) {
 		this.username = username;
@@ -32,7 +32,7 @@ public class User {
 		this.address = address;
 		this.isAdmin = 0;
 	}
-	//overloaded method for fetching user info w/ ccno
+	//overloaded method for fetching user info w/ ccno for UserProfile
 	public User(int id,String username, String password,String firstname,String lastname,String mi,
 			String email,BigInteger contactno,String address,BigInteger ccno) {
 	this.username = username;
@@ -43,8 +43,9 @@ public class User {
 	this.email = email;
 	this.contactno = contactno;
 	this.address = address;
-	this.isAdmin = 0;
+	this.ccno = ccno;
 }
+	
 	
 	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address) {
 		this.id = id;
@@ -109,6 +110,9 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public BigInteger getCcno() {
+		return ccno;
 	}
 	
 }

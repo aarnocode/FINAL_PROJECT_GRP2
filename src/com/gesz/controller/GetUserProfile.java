@@ -34,11 +34,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 				try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
 				
 				AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
-				User user = accounts.getUserByIdWCC(id);	
+				User user = accounts.getUserByIdWCC(id);
+				User user2 = new User("juan","luna");
 				System.out.println("soul");
 				
 				request.setAttribute("message", "Got User");
-				request.setAttribute("firstname", user.getFirstname());
+				
+				request.setAttribute("myuser", user);
+				
+				
 				dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
 				System.out.println("Success "+user.getFirstname());
 				dispatcher.forward(request, response);
