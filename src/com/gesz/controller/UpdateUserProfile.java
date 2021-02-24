@@ -23,13 +23,29 @@ public class UpdateUserProfile {
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
-		String mi = request.getParameter("mi");
-		String password = request.getParameter("password");
-		String email = request.getParameter("email");
-		BigInteger contactno = new BigInteger(request.getParameter("contactno"));
-		String address = request.getParameter("address");
+		String firstname = "dell";
+		String lastname = "dell";
+		String mi = "D";
+		String password = "delldell";
+		String email = "ralph@ralph.com";
+		BigInteger contactno = new BigInteger("123456");
+		String streetaddress = "#3 dell St.";
+		String zipcode = "1221";
+		String city = "Manila";
+		String state = "NCR";
+		String country = "Philippines";
+//		String firstname = request.getParameter("firstname");
+//		String lastname = request.getParameter("lastname");
+//		String mi = request.getParameter("mi");
+//		String password = request.getParameter("password");
+//		String email = request.getParameter("email");
+//		BigInteger contactno = new BigInteger(request.getParameter("contactno"));
+//		String streetaddress = request.getParameter("streetaddress");
+//		String zipcode = request.getParameter("zipcode");
+//		String city = request.getParameter("city");
+//		String state = request.getParameter("state");
+//		String country = request.getParameter("country");
+		String address = streetaddress+", "+zipcode+", "+city+", "+state+", "+country;
 		int id=2;
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
@@ -66,14 +82,14 @@ public class UpdateUserProfile {
 						//request.setAttribute("user", user);
 						request.setAttribute("message", "You have Successfully Update");
 						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
-						System.out.println("Success");
+						System.out.println("Success Insert");
 						dispatcher.forward(request, response);
 					}
 					else {//If Insert fails it will go here
 						//request.setAttribute("user", user);
 						request.setAttribute("message", "Failed to Update");
 						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
-						System.out.println("ERROR");
+						System.out.println("Not Inserted");
 						dispatcher.forward(request, response);
 					}
 				

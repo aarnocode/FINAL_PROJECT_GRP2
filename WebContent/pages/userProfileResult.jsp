@@ -8,7 +8,8 @@
 	<h2 class="dataheader">Contact no: </h2><h2 id="contactno">${myuser.contactno}</h2>
 	<h2 class="dataheader">Address: </h2><h2 id="address">Address: ${myuser.address}</h2>
 	<h2 class="dataheader">Credit Card: <h2 id="ccno">${myuser.ccno}</h2><br><a id="addcc" href="#">Add a credit card</a>
-	<input type="button" id="editsave" value="Edit">&emsp;&emsp;
+	<input type="button" id="editsave" value="Edit">&emsp;&emsp;<br>
+	${country}
 	
 	
 	

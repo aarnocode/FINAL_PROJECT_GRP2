@@ -35,12 +35,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 				
 				AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
 				User user = accounts.getUserByIdWCC(id);
-				User user2 = new User("juan","luna");
-				
-				
+				String[] add_split = user.getAddress().split(", ");
 				request.setAttribute("message", "Got User");
-				
+				request.setAttribute("streetaddress", add_split[0]);
+				request.setAttribute("zipcode", add_split[1]);
+				request.setAttribute("city", add_split[2]);
+				request.setAttribute("state", add_split[3]);
+				request.setAttribute("country", add_split[4]);
 				request.setAttribute("myuser", user);
+				
 				
 				System.out.println(user.getCcno());
 				dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
