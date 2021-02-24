@@ -39,7 +39,10 @@
     	<div id="addCartStatus" class="addCartPop">
 	    	<input id="status" type="hidden" value="${addCartStatus}">
 	     	<h3 id="addCartMessage"></h3>
-	     	<p class="viewCart">"View my cart"</p>
+	     	<div class="addCartButtons">
+	     		<input id="btnViewCart" type="button" value="View my cart">
+	     		<input id="btnHome" type="button" value="Home">
+	     	</div>
 		</div>
     </div>
     

@@ -42,7 +42,7 @@ public class AddToCartController extends HttpServlet{
 				 int stock = item.checkStock(prodId);
 				 if(stock > 0) {
 					 //stock
-					 item.decreaseStock(1, prodId);
+					 item.decreaseStock(stock-1, prodId);
 					 if(isExisting > 0) {
 						 cart.updateCart(isExisting+1, cart.getCartId(UID, prodId));
 					 }else {

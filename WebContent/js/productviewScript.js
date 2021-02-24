@@ -1,6 +1,7 @@
 var isLoggedIn = $("input[type=hidden]").val();
 
 $(".loginBlur").hide();
+$(".addCartBlur").hide();
 $("#addCartStatus").hide();
 $(document).ready(function(){
 	var status = $("#status").val();
@@ -8,9 +9,11 @@ $(document).ready(function(){
 	if(status == "success"){
 		$("#addCartMessage").text("Successfully added to cart!");
 		$("#addCartStatus").show();
+		$(".addCartBlur").show();
 	}else if(status == "failed"){
 		$("#addCartMessage").text("Sorry! This item is out of stock");
 		$("#addCartStatus").show();
+		$(".addCartBlur").show();
 	}
 });
 
@@ -18,22 +21,6 @@ $(".btnBuy").on({
     click: function(){
     	if(isLoggedIn == "true"){
     		window.location = "../pages/checkout.jsp";
-    		/*$.ajax({
-    			url: contextPath + "buynow",
-    			method:"POST",
-    			data:{
-    				action:"buy"
-    			},
-    			success: function(){
-    				$.ajax({
-    					url:contextPath + "cart",
-    					method:"POST",
-    					success: function(){
-    						window.location = "../pages/cart.jsp";
-    					}
-    				});
-    			}
-    		});*/
     	}else{
     		$(".loginBlur").show();
     	}
@@ -67,22 +54,6 @@ $(".btnAddCart").on({
     			}
     			
     		});
-    		/*$.ajax({
-    			url: contextPath + "buynow",
-    			method:"POST",
-    			data:{
-    				action:"buy"
-    			},
-    			success: function(){
-    				$.ajax({
-    					url:contextPath + "cart",
-    					method:"POST",
-    					success: function(){
-    						window.location = "../pages/cart.jsp";
-    					}
-    				});
-    			}
-    		});*/
     	}else{
     		$(".loginBlur").show();
     	}
@@ -105,6 +76,39 @@ $(".cart").on({
     click: function(){
         window.location="cart.html";
     },
+});
+
+$(".addCartButtons input[type=button]").on({
+	mouseenter:function(){
+		$(this).css({
+	        "background-color":"red",
+	        "box-shadow":"2px 2px 5px dimgray"});
+	},
+	mouseleave:function(){
+        $(this).css({
+            "background-color":"black",
+            "box-shadow":"none"})
+    }
+});
+
+$("#btnViewCart").click(function(){
+	$.ajax({
+		url: contextPath + "cart",
+		method: "POST",
+		success:function(){
+			window.location = "../pages/cart.jsp";
+		}
+	});
+});
+
+$("#btnHome").click(function(){
+	$.ajax({
+		url: contextPath+"home",
+		method: "POST",
+		success:function(){
+			window.location = "../";
+		}
+	});
 });
 
 //Sir Ralph, dito po yung click event ng register. Lagyan mo nalag ajax sa loob.

@@ -20,12 +20,17 @@ import com.gesz.model.Product;
 import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
 import com.gesz.service.Authenticator;
+import com.sun.xml.internal.ws.resources.HttpserverMessages;
 
 @WebServlet("/home")
 public class LandingPageController extends HttpServlet{
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
+		//Reset attributes
+		session.setAttribute("addCartStatus", "");
+		session.setAttribute("action","");
 		RequestDispatcher dispatcher = null;
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();

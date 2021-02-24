@@ -27,7 +27,7 @@ public class CheckoutController extends HttpServlet {
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
+		System.out.println("chckout na");
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
 		session.setAttribute("notice", "");
@@ -38,7 +38,8 @@ public class CheckoutController extends HttpServlet {
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
-			 if(action == "cartCheckout") {
+			 if(action.equals("cartCheckout")) {
+				 System.out.println("cart checkout oi");
 				 CartMapper cart = sqlSession.getMapper(CartMapper.class);
 				 AccountsMapper account = sqlSession.getMapper(AccountsMapper.class);
 				 User user = account.getUserById(UID);

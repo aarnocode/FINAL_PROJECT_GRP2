@@ -26,6 +26,8 @@ public class CartController extends HttpServlet {
 		
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
+		session.setAttribute("addCartStatus", "");
+		session.setAttribute("action", "cartCheckout");
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){

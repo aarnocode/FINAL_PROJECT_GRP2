@@ -33,3 +33,14 @@ $("#btnCancel").click(function(){
 		}
 	});
 });
+
+$("#btnCheckout").click(function(){
+	console.log("clicked");
+	$.ajax({
+		url:contextPath + "checkout",
+		method:"POST",
+		success:function(){
+			window.location = "../pages/checkout.jsp";
+		}
+	});
+});
