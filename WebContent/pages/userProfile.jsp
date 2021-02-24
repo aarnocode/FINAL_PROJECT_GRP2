@@ -22,7 +22,11 @@
 		<div id="profilecontainer">
 			
 	 	</div>
-		
+	 	<input type="button" id="editsave" value="Edit">&emsp;&emsp;<br>
+		<input type="button" id="cancel" value="Update">
+		<div id="updatecontainer">
+			
+	 	</div>
 		
 		<div class="editform">
 			<p class="errormsg" id="errMessage2"></p>

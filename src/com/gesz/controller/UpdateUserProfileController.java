@@ -18,8 +18,8 @@ import com.gesz.mapper.AccountsMapper;
 import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
 
-@WebServlet("/pages/profile/update")
-public class UpdateUserProfile {
+@WebServlet("/pages/updateprofile")
+public class UpdateUserProfileController {
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
@@ -63,7 +63,7 @@ public class UpdateUserProfile {
 				//For Checking if Email and/or User already exist in the database
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
 					System.out.println("Email Address is already in use");
-					request.setAttribute("message", "Another person have already used this Email");		
+					request.setAttribute("updatemsg", "Another person have already used this Email");		
 					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
 					break label;
 				}
@@ -80,14 +80,14 @@ public class UpdateUserProfile {
 					if(result == 1){//If Update is Success if will go here
 						sqlSession.commit();
 						//request.setAttribute("user", user);
-						request.setAttribute("message", "You have Successfully Update");
+						request.setAttribute("updatemsg", "You have Successfully Update");
 						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 						System.out.println("Success Insert");
 						dispatcher.forward(request, response);
 					}
 					else {//If Insert fails it will go here
 						//request.setAttribute("user", user);
-						request.setAttribute("message", "Failed to Update");
+						request.setAttribute("updatemsg", "Failed to Update");
 						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 						System.out.println("Not Inserted");
 						dispatcher.forward(request, response);

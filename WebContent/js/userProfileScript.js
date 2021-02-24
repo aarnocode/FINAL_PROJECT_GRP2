@@ -10,9 +10,22 @@ function initUserProfile(){
 //	if(${user.ccno} != "" || ${user.ccno} == ""){
 //		
 //	}
+	
+	$('#editsave').click(function(){
+		alert('b');
+		var edit = true;
+		
+	});
+	
+	$('#cancel').click(function(){
+		alert('f');
+		Update();
+		
+	});
 }
 
 function initUserProfileResult(){
+	alert('a');
 	if($('#ccno').text === null){	
 		$('#ccno').text('No Credit Card');	
 	}
@@ -22,10 +35,15 @@ function initUserProfileResult(){
 		$('#addcc').text('');
 	}
 	
-	$('#editsave').click(function(){
-		var edit = true;
-		
-	});
 	
+}
+function Update(){
+	$.ajax({
+		url: contextPath + "pages/updateprofile",
+		method: "POST",
+		success: function(result){
+			$("#updatecontainer").html(result);
+		}
+	});
 
 }
