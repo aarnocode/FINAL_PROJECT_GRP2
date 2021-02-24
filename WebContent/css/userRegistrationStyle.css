@@ -1,3 +1,171 @@
 .errormsg{
-	text-color:"red"
+	color:#a94442;
+	font-size: 0.9rem;
+	margin-left:10px;
+	text-align:left;
 }
+
+/* Font */
+/*---------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* Register Form */
+/*---------------------------------------*/
+.signup-form{
+	font-family: "Roboto", sans-serif;
+  width:1500px;
+  margin:30px auto;
+  background:linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
+   border-radius: 10px;
+}
+
+/* Form Header */
+/*---------------------------------------*/
+.form-header  {
+  background-color: #EFF0F1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.form-header h1 {
+  font-size: 30px;
+  text-align:center;
+  color:#666;
+  padding:20px 0;
+  border-bottom:1px solid #cccccc;
+}
+
+/* Form Body */
+/*---------------------------------------*/
+.form-body {
+  padding:10px 40px;
+  color:#666;
+}
+
+/*.form-group{
+  margin-bottom:20px;
+ 
+}*/
+
+.form-body input{
+	 font-size: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #333333;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: white;
+    outline: none;
+    
+    
+}
+
+input:focus {
+  border: 3px solid #555;
+}
+.horizontal-group{
+	 margin-bottom:20px;
+}
+
+
+.horizontal-group .left{
+  float:left;
+  width:49%;
+  text-align:right;
+ height:70px;
+}
+
+
+.horizontal-group .right{
+  float:right;
+  width:49%;
+  height:70px;
+}
+
+
+
+::-webkit-input-placeholder  {
+  color:#d9d9d9;
+}
+
+/* Form Footer */
+/*---------------------------------------*/
+.signup-form .form-footer  {
+  background-color: #EFF0F1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding:10px 40px;
+  text-align: right;
+  border-top: 1px solid #cccccc;
+  clear:both;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 49%;
+  padding: 10px;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.leftColumn{
+	float: left;
+  width: 30%;
+  padding: 10px;
+}
+.rightColumn{
+	float: left;
+  width: 70%;
+  padding: 10px;
+}
+
+
+#submitregBtn{
+	display:inline-block;
+   padding:10px 20px;
+   background-color: black;
+   font-size:17px;
+   border-color: #000;
+   border-width: 0.125rem;
+   border-radius:5px;
+   color:white;
+   cursor:pointer;
+}
+#submitregBtn:hover {
+  background-color: rgb(245,255,250);
+  color:black;
+}
+
+.input-group-addon {
+		border-color: #e1e1e1;
+		max-width: 42px;
+		text-align: center;
+	}
+	
+	
+/* Responsive layout - when the screen is less than 630px wide, make the two columns stack on top of each other instead of next to each other */
+
+
+@media screen and (max-width: 630px) and (min-width: 500px) {
+		.signup-form{
+			width:450px;
+		}
+		 .horizontal-group .left, .horizontal-group .right, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    text-align:left;
+  }
+	}

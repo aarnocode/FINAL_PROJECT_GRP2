@@ -17,6 +17,7 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	<div id="mainContainer">
+	
 	</div>
 	<jsp:include page="footer.jsp"/>
 </body>
