@@ -39,6 +39,7 @@
 		</div><!-- end of container-fluid div -->
 </nav>
 	<div id="mainContainer">
+	
 	</div>
 	<jsp:include page="footer.jsp"/>
 </body>
