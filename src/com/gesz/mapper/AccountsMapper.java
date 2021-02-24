@@ -74,5 +74,5 @@ public interface AccountsMapper {
 		@Result(property = "address", column = "ADDRESS"),
 		@Result(property = "ccno", column = "CCNO")
 	})
-	public User getUserById(int id,int id2);//overloaded method for fetching user info w/ ccno
+	public User getUserByIdWCC(int id);//overloaded method for fetching user info w/ ccno
 }

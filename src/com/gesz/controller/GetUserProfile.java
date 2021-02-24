@@ -30,23 +30,23 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
-	
+				System.out.println("hey");
 				try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
 				
 				AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
-				User user = accounts.getUserById(id, id);	
-				//System.out.println("hey");
+				User user = accounts.getUserByIdWCC(id);	
+				System.out.println("soul");
 				
 				request.setAttribute("message", "Got User");
 				request.setAttribute("firstname", user.getFirstname());
-				dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
-				System.out.println("Success");
+				dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
+				System.out.println("Success "+user.getFirstname());
 				dispatcher.forward(request, response);
 				
 				
 				
 				}catch(Exception e) {//If Other Error Occurs it will go here
-					dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");	
+					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");	
 					System.out.println("CATCH ERROR");
 					System.out.println(e);
 					dispatcher.forward(request, response);
