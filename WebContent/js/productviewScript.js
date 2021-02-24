@@ -20,7 +20,14 @@ $(document).ready(function(){
 $(".btnBuy").on({
     click: function(){
     	if(isLoggedIn == "true"){
-    		window.location = "../pages/checkout.jsp";
+    		
+    		$.ajax({
+    			url: contextPath + "checkout",
+    			method:"POST",
+    			success: function(){
+    				window.location = "../pages/checkout.jsp";
+    			}
+    		});
     	}else{
     		$(".loginBlur").show();
     	}
