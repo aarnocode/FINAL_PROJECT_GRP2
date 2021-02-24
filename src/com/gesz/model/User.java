@@ -12,6 +12,7 @@ public class User {
 	private String email;
 	private BigInteger contactno;
 	private String address;
+	private BigInteger ccno;
 	private int isAdmin;
 	
 	public User(String username, String password) {
@@ -31,6 +32,18 @@ public class User {
 		this.address = address;
 		this.isAdmin = 0;
 	}
+	public User(int id,String username, String password,String firstname,String lastname,String mi,
+			String email,BigInteger contactno,String address,BigInteger ccno) {
+	this.username = username;
+	this.password = password;
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.mi = mi;
+	this.email = email;
+	this.contactno = contactno;
+	this.address = address;
+	this.isAdmin = 0;
+}
 	
 	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address) {
 		this.id = id;

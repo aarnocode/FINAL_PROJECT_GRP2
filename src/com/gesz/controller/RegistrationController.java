@@ -95,7 +95,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 				
 			}catch(Exception e) {//If Other Error Occurs it will go here
 				dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
-				request.setAttribute("message", e.getMessage());	
+				//request.setAttribute("message", e.getMessage());	
 				System.out.println("CATCH ERROR");
 				System.out.println(e);
 				dispatcher.forward(request, response);

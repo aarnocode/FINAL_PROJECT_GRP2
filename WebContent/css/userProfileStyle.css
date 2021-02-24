@@ -1,5 +1,8 @@
 .userImg{
-	height: 500px;
-	width: 500px;
+	height: 200px;
+	width: 200px;
 	object-fit: cover;
+}
+.editform{
+	display: none; 
 }
