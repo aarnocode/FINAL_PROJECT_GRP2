@@ -45,8 +45,10 @@
              <th>Item</th>
              <th>Quantity</th>
              <th>Price</th>
+             <th>Total</th>
              <th>Image</th>
          </tr>
+         <c:set var="total" value="${0}"/>
          <c:forEach var="cart" items="${myCart}">
          	<tr>
              <td class="columnName">${cart.getName()}</td>
@@ -58,17 +60,19 @@
                  <span>
                      <input id="increase" type="button" value="+" name="${cart.getCart_id()}">
                  </span></td>
-             <td class="columnPrice">${cart.getPrice()*cart.getQuantity()}</td>
+             <td class="columnPrice"><fmt:formatNumber type="currency" currencySymbol="P" value="${cart.getPrice()}"/></td>
+             <td class="columnTotal"><fmt:formatNumber type="currency" currencySymbol="P" value="${cart.getPrice()*cart.getQuantity()}"/></td>
              <td class="columnImage"><img src="${cart.getImage()}"></td>
          </tr>
+         <c:set var="total" value="${cart.getPrice()*cart.getQuantity() + total}"/>
          </c:forEach>
+         <tr>
+         	<td colspan="3"><strong>Total</strong></td>
+         	<td><strong><fmt:formatNumber type="currency" currencySymbol="P" value="${total}"/></strong></td>
+         </tr>
      </table>
      <div class="center">
      	<input id="btnCheckout" type="button" value = "Checkout">
-     	<c:set var="action" value="${action}"></c:set>
-     	<c:if test="${action == 'buynow'}">
-     		<input id="btnCancel" type="button" value = "Cancel">
-     	</c:if>
      </div>
      
 </div>

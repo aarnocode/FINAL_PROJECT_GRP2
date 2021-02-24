@@ -27,30 +27,29 @@ public class CheckoutController extends HttpServlet {
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
+		System.out.println("chckout na");
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
 		session.setAttribute("notice", "");
 		int UID = Integer.valueOf((String)session.getAttribute("UID"));
 		String action = (String)session.getAttribute("action");
-		Product prod = (Product)session.getAttribute("productView");
-		int quantity = Integer.valueOf(request.getParameter("quantity"));
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
-			 if(action == "cartCheckout") {
-				 CartMapper cart = sqlSession.getMapper(CartMapper.class);
-				 AccountsMapper account = sqlSession.getMapper(AccountsMapper.class);
-				 User user = account.getUserById(UID);
+			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
+			 AccountsMapper account = sqlSession.getMapper(AccountsMapper.class);
+			 User user = account.getUserById(UID);
+			 session.setAttribute("user", user);
+			 if(action.equals("cartCheckout")) {
 				 ArrayList<Cart> mycart = cart.getCartById(UID);
-				 session.setAttribute("user", user);
 				 session.setAttribute("myCart", mycart);
 			 }else {
+				 Product prod = (Product)session.getAttribute("productView");
+				 int quantity = Integer.valueOf(request.getParameter("quantity"));
+				 session.setAttribute("user", user);
 				 //Check availability of stocks
 				 ProductMapper product = sqlSession.getMapper(ProductMapper.class);
 				 int stock = product.checkStock(prod.getId());
-				 System.out.println(stock);
-				 System.out.println(quantity);
 				
 				 if(stock < quantity) { 
 					 session.setAttribute("notice","Cannot add more. Currently out of stock."); 

@@ -23,6 +23,7 @@ public class ProductViewController extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		HttpSession session = request.getSession();
+		session.setAttribute("addCart","");
 		RequestDispatcher dispatcher = null;
 		int id = Integer.valueOf(request.getParameter("id"));
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();

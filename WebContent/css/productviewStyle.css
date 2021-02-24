@@ -7,6 +7,49 @@ body{
     overflow-x: hidden; 
 }
 
+.addCartPop{
+    position:fixed;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    padding:3%;
+    background-color: black;
+    margin-left:35%;
+    margin-right:35%;
+    margin-top:5%;
+    color:white;
+    border-radius: 2em;
+    box-shadow:2px 2px 5px dimgray;
+}  
+
+.addCartBlur{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 9999;
+    background-color:rgba(200, 200, 200, 0.2);
+    width:100%;
+    height:100%;
+    
+}
+
+.addCartBlur input[type=button] {
+	padding-left:1em;
+	padding-right:1em;
+	margin-left:1em;
+	margin-right:1em;
+	background-color:black;
+	color:white;
+	border:0;
+}
+
+.addCartButtons {
+	text-align:center;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .itemContainer {
     margin-left: 10%;
     margin-right:10%;
@@ -115,4 +158,8 @@ body{
 	text-decoration: none;
 	cursor: pointer;
 	
-  }  
+}
+
+
+  
+ 
