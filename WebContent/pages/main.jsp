@@ -15,7 +15,29 @@
 <title>Online Store</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<nav class="navbar navbar-dark " id="header">
+		<div class="container-fluid ">
+			<a class="navbar-brand" href="#"> 
+			<img src="images/logo.png" alt=""  class="d-inline-block align-top"> 
+				GESZ
+			</a>
+			<div class="searchBarWrapper">
+				<img src="https://img.icons8.com/android/24/ffffff/search.png" />
+				<!-- search icon -->
+				<input class="searchBar" type="text"
+					placeholder="Search for products">
+			</div>
+			<!-- end of searchBard div -->
+			<div class="rightControls">
+				<img class="cart" src="https://img.icons8.com/windows/32/ffffff/favorite-cart.png" /><span class='badge' id='lblCartCount'>
+					<c:if test="${cartCount >= 1}">
+						${cartCount}
+					</c:if>
+				</span>
+				<img class="login" src="https://img.icons8.com/pastel-glyph/32/ffffff/person-male--v3.png"/>
+			</div>
+		</div><!-- end of container-fluid div -->
+</nav>
 	<div id="mainContainer">
 	</div>
 	<jsp:include page="footer.jsp"/>

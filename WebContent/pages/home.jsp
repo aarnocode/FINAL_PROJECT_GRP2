@@ -1,5 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<div class="loginBlur">
+		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
+        <div class="loginPop">
+            <h3>GESZ</h3>
+            <label id="notice">${logMsg}</label>
+            <label>Username:</label><br>
+            <input class="txtUsername" type="text"><br>
+            <label>Password:</label><br>
+            <input class="txtPassword" type="password"><br>
+            <input class="btnLogin" type="button" value="Login">
+            <p class="toRegister" id="register">"Not registered yet? Click here!"</p>
+        </div>
+    </div>  
 <div class="leftPanel mt-5">
 	<p>Category</p>
 	<input type="button" value="category">

@@ -1,5 +1,4 @@
-var isLoggedIn = $("input[type=hidden]").val();
-
+var isLoggedIn = $("#isLoggedIn").val();
 $(".loginBlur").hide();
 $(".addCartBlur").hide();
 $("#addCartStatus").hide();
@@ -77,12 +76,6 @@ $(".btnAddCart").on({
             "box-shadow":"none"
     });
     }
-});
-
-$(".cart").on({
-    click: function(){
-        window.location="cart.html";
-    },
 });
 
 $(".addCartButtons input[type=button]").on({

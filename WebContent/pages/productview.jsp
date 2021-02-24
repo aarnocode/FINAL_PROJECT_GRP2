@@ -22,7 +22,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 	<div class="loginBlur">
-		<input type="hidden" value="${isLoggedIn}">
+		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
         <div class="loginPop">
             <h3>GESZ</h3>
             <label id="notice">${logMsg}</label>
@@ -33,8 +33,7 @@
             <input class="btnLogin" type="button" value="Login">
             <p class="toRegister" id="register">"Not registered yet? Click here!"</p>
         </div>
-    </div>
-    
+    </div> 
     <div class="addCartBlur">
     	<div id="addCartStatus" class="addCartPop">
 	    	<input id="status" type="hidden" value="${addCartStatus}">
