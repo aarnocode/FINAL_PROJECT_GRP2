@@ -30,7 +30,8 @@
 	<p class="errormsg" id="unerror"></p>
 	
 	<input type="password" id="password" placeholder="Password"><br>
-	<p class="errormsg" id="pwerror"></p>
+	<input type="password" id="confirmpass" placeholder="Confirm Password"><br>
+	<p class="errormsg" id="pwerror">Password must have at least 8 Characters</p>
 	
 	<input type="textbox" id="email" placeholder="Email"><br>
 	<p class="errormsg" id="emailerror"></p>
