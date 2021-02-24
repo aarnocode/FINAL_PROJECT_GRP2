@@ -30,19 +30,19 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
-				System.out.println("hey");
+
 				try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
 				
 				AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
 				User user = accounts.getUserByIdWCC(id);
 				User user2 = new User("juan","luna");
-				System.out.println("soul");
+				
 				
 				request.setAttribute("message", "Got User");
 				
 				request.setAttribute("myuser", user);
 				
-				
+				System.out.println(user.getCcno());
 				dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
 				System.out.println("Success "+user.getFirstname());
 				dispatcher.forward(request, response);

@@ -34,7 +34,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 		String address = request.getParameter("address");
 		int isAdmin = 0;
 		RequestDispatcher dispatcher = null;
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		
 		
 		//Implementation of mybatis
@@ -52,7 +52,7 @@ private static final long serialVersionUID = -3435554487273689111L;
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
 					System.out.println("Email Address is already in use");
 					request.setAttribute("message", "Email Address is already in use");	
-					System.out.println("hey");
+					//System.out.println("hey");
 					if(checkusername != "" && checkusername != null){	//Will go here if username already exist in database			
 						System.out.println("Username is already in use");
 						request.setAttribute("message2", "Username is already in use");

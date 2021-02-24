@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.gesz.model.User;
 
@@ -74,5 +75,8 @@ public interface AccountsMapper {
 		@Result(property = "address", column = "ADDRESS"),
 		@Result(property = "ccno", column = "CCNO")
 	})
-	public User getUserByIdWCC(int id);//overloaded method for fetching user info w/ ccno
+	public User getUserByIdWCC(int id);//method for fetching user info w/ ccno
+	
+	@Update("Update final_project_grp2_user set firstname=#{arg0}, lastname=#{arg1}, mi=#{arg2}, password=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
+	public int updateProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);
 }

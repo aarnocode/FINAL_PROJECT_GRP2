@@ -6,3 +6,9 @@
 .editform{
 	display: none; 
 }
+.dataheader{
+	text-align:left;float:left;
+}
+.notvisible{
+	display: none;
+}
