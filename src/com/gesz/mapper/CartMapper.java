@@ -2,6 +2,7 @@ package com.gesz.mapper;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -25,6 +26,19 @@ public interface CartMapper {
 	})
 	public ArrayList<Cart> getCartById(int id);
 	
+	@Select("SELECT MAX(cart_id) FROM FINAL_PROJECT_GRP2_CART")
+	public int getId();
+	
+	@Select("SELECT COALESCE ((SELECT quantity FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND product_id = #{arg1}), 0)FROM dual")
+	public int checkIfExist(int userId, int prodId);
+	
+	@Select("SELECT cart_id FROM FINAL_PROJECT_GRP2_CART WHERE user_id =#{arg0} AND product_id = #{arg1}")
+	public int getCartId(int userId, int prodId);
+	
 	@Update("UPDATE FINAL_PROJECT_GRP2_CART SET quantity = #{arg0} WHERE cart_id=#{arg1}")
 	public int updateCart(int quantity, int id);
+	
+	@Insert("INSERT INTO FINAL_PROJECT_GRP2_CART VALUES(#{arg0},#{arg1},#{arg2},#{arg3})")
+	public int addToCart(int cartId, int userId, int prodId, int quantity);
+	
 }

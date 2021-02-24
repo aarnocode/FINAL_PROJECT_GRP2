@@ -8,7 +8,19 @@ $(document).ready(function(){
 $(".btnBuy").on({
     click: function(){
     	if(isLoggedIn == "true"){
-    		console.log("bought");
+    		$.ajax({
+    			url: contextPath + "buynow",
+    			method:"POST",
+    			success: function(){
+    				$.ajax({
+    					url:contextPath + "cart",
+    					method:"POST",
+    					success: function(){
+    						window.location = "../pages/cart.jsp";
+    					}
+    				});
+    			}
+    		});
     	}else{
     		$(".loginBlur").show();
     	}
@@ -52,10 +64,6 @@ $(".cart").on({
     },
 });
 
-$(".badge").click(function(){
-    window.location = "home.html?logged=true";
-})
-
 //Sir Ralph, dito po yung click event ng register. Lagyan mo nalag ajax sa loob.
 $("#register").click(function(){
 	window.location.href = 'http://localhost:8080/OnlineStore/pages/userRegistration.jsp';
@@ -77,19 +85,6 @@ $(".btnLogin").click(function(){
 	});
 });
 
-
-$(".login").mouseenter(function(){
-    showAccount();
-});
-
-$(".account").mouseleave(function(){
-    hideAccount();
-});
-
-$("#logout").click(function(){
-    window.location="home.html";
-})
-
 $(".navtabs").on({
     mouseenter:function(){
         $(this).css("border-bottom","1px solid white");
@@ -100,27 +95,4 @@ $(".navtabs").on({
         $(".window").css({"height":"0","display":"none"});
     }
 });
-
-function getData(){
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}
-
-function hideAccount(){
-    $(".account").animate({
-        width:0
-    });
-}
-function showAccount(){
-    $(".account").animate({
-        width:"10%"
-    });
-}
 
