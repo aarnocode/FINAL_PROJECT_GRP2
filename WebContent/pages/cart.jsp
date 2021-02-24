@@ -54,7 +54,7 @@
                  <span>
                      <input id="decrease" type="button" value="-" name="${cart.getCart_id()}">
                  </span>
-                 <span id="quantity${cart.getCart_id()}">${cart.getQuantity()}</span>
+                 <span id="quantity${cart.getCart_id()}" class="quantity">${cart.getQuantity()}</span>
                  <span>
                      <input id="increase" type="button" value="+" name="${cart.getCart_id()}">
                  </span></td>
@@ -65,6 +65,10 @@
      </table>
      <div class="center">
      	<input id="btnCheckout" type="button" value = "Checkout">
+     	<c:set var="action" value="${action}"></c:set>
+     	<c:if test="${action == 'buynow'}">
+     		<input id="btnCancel" type="button" value = "Cancel">
+     	</c:if>
      </div>
      
 </div>

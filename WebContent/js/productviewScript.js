@@ -11,6 +11,9 @@ $(".btnBuy").on({
     		$.ajax({
     			url: contextPath + "buynow",
     			method:"POST",
+    			data:{
+    				action:"buy"
+    			},
     			success: function(){
     				$.ajax({
     					url:contextPath + "cart",

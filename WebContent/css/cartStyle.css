@@ -9,6 +9,17 @@
     margin-top:1em;
 }
 
+#btnCancel{
+	padding-left:1em;
+    padding-right: 1em;
+    font-family: 'Montserrat','Sans serif';
+    font-size:2em;
+    color:white;
+    background-color: black;
+    border: none;
+    margin-top:1em;
+}
+
 .cartTable th,td{
 	padding-left:1em;
 }

@@ -1,4 +1,4 @@
-$("input[type=button]").click(function(){
+$("#increase,#decrease").click(function(){
 	var id=$(this).attr('name');
 	var quantity = parseInt($("#quantity"+id).text());
 	if($(this).val() == "-" && quantity > 1){
@@ -16,6 +16,20 @@ $("input[type=button]").click(function(){
 		},
 		success:function(){
 			window.location="../pages/cart.jsp";
+		}
+	});
+});
+
+$("#btnCancel").click(function(){
+	$.ajax({
+		url: contextPath + "buynow",
+		method: "POST",
+		data: {
+			action:"cancel",
+			quantity:$(".quantity").text()
+		},
+		success:function(){
+			window.location = "../";
 		}
 	});
 });

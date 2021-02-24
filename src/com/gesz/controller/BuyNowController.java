@@ -14,6 +14,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.gesz.mapper.CartMapper;
+import com.gesz.model.Cart;
 import com.gesz.model.Product;
 import com.gesz.mybatis.GenSessionFactory;
 
@@ -25,7 +26,8 @@ public class BuyNowController extends HttpServlet{
 		
 		HttpSession session = request.getSession();
 		Product product = (Product)session.getAttribute("productView");
-		RequestDispatcher dispatcher = null;
+		String action = request.getParameter("action");
+		
 		int UID = Integer.valueOf((String)session.getAttribute("UID"));
 		int prodId = product.getId();
 		int isExisting = 0;
@@ -36,12 +38,25 @@ public class BuyNowController extends HttpServlet{
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
 			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
 			 isExisting = cart.checkIfExist(UID, prodId);
-			 if(isExisting > 0) {
-				 cart.updateCart(isExisting+1, cart.getCartId(UID, prodId));
-			 }else {
-				 cart.addToCart(cart.getId()+1, UID, prodId, 1);
+			 if(action.equals("buy")) {
+				 
+				 if(isExisting > 0) {
+					 cart.updateCart(isExisting+1, cart.getCartId(UID, prodId));
+				 }else {
+					 cart.addToCart(cart.getId()+1, UID, prodId, 1,Cart.getNewDate());
+				 }
+				 sqlSession.commit();
+				 session.setAttribute("action", "buynow");
+			 }else if(action.equals("cancel")) {
+				 int quantity = Integer.valueOf(request.getParameter("quantity"));
+				 if(isExisting > quantity) {
+					 cart.updateCart(isExisting-quantity, cart.getCartId(UID, prodId));
+				 }else {
+					 cart.removeItem(UID, prodId);
+				 }
+				 sqlSession.commit();
 			 }
-			 sqlSession.commit();
+			 
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
