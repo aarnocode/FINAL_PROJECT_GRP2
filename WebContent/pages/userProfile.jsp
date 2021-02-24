@@ -17,9 +17,15 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	
-	<jsp:include page="footer.jsp"/>
-  <div id="profilecontainer">
-  </div>
+	<div>
+		<img src="../images/user_img.png" alt="User Image" class="userImg">
+	</div>
+	
+	
+	
+	 <div id="profilecontainer">
+	  
+	 </div>
 
 
 <script type="text/javascript">
