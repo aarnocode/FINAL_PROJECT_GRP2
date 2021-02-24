@@ -39,7 +39,35 @@
 
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
-     <h1>Checkout</h1>
+	 <h1>Checkout</h1>
+	 <h3 id="notice">${notice}</h3>
+<c:if test="${action != 'cartCheckout'}">
+     <table class="cartTable">
+         <tr>
+             <th>Item</th>
+             <th>Quantity</th>
+             <th>Price</th>
+             <th>Total</th>
+             <th>Image</th>
+         </tr>
+         	<tr>
+             <td class="columnName">${productView.getName()}</td>
+             <td class="columnQuantity">
+            	 <span>
+                     <input id="decrease" type="button" value="-" name="${productView.getId()}">
+                 </span>
+                 <span id="quantity">${productQuantity}</span>
+                 <span>
+                     <input id="increase" type="button" value="+" name="${productView.getId()}">
+                 </span></td>
+             <td class="columnPrice"><fmt:formatNumber type="currency" currencySymbol = "P" value="${productView.getPrice()}"/></td>
+             <td class="columnTotal"></td>
+             <td class="columnImage"><img src="${productView.getImage()}"></td>
+         </tr>
+     </table>
+</c:if>
+
+<c:if test="${action == 'cartCheckout'}">
      <table class="cartTable">
          <tr>
              <th>Item</th>
@@ -57,37 +85,42 @@
          </tr>
          </c:forEach>
      </table>
+</c:if>
+
      
-     <h1>Payment method:</h1>
-        <input type="radio" name="method">Cash On Delivery
-        <input type="radio" name="method">Credit/Debit Card
-        <input type="radio" name="method">PayPal
-        <h1>Shipping Information:</h1>
-        <table class="addressTable">
-            <tr>
-                <td><label>First Name</label></td>
-                <td><label>Last Name</label></td>
-            </tr>
-            <tr>
-                <td><input id="firstName" type="text" value="${user.getFirstname()}" readonly></td>
-                <td> <input id="lastName" type="text" value="${user.getLastname()}" readonly></td>
-            </tr>
-            <tr>
-                <td colspan="3"><label>Address</label></td>
-            </tr>
-            <tr>
-                <td colspan="3"><input id="address" type="text" value="${user.getAddress()}" readonly></td>
-            </tr>
-            <tr>
-                <td><label>Contact Number</label></td>
-            </tr>
-            <tr>
-                <td><input id="contactNumber" type="number" value="${user.getContactno()}" readonly></td>
-            </tr>
-        </table>
-       	<div class="center">
-				<input id="btnCheckout" type="button" value="Confirm Checkout">
-		</div>
+    <h1>Payment method:</h1>
+       <input type="radio" name="method">Cash On Delivery
+       <input type="radio" name="method">Credit/Debit Card
+       <input type="radio" name="method">PayPal
+       <h1>Shipping Information:</h1>
+       <table class="addressTable">
+           <tr>
+               <td><label>First Name</label></td>
+               <td><label>Last Name</label></td>
+           </tr>
+           <tr>
+               <td><input id="firstName" type="text" value="${user.getFirstname()}" readonly></td>
+               <td> <input id="lastName" type="text" value="${user.getLastname()}" readonly></td>
+           </tr>
+           <tr>
+               <td colspan="3"><label>Address</label></td>
+           </tr>
+           <tr>
+               <td colspan="3"><input id="address" type="text" value="${user.getAddress()}" readonly></td>
+           </tr>
+           <tr>
+               <td><label>Contact Number</label></td>
+           </tr>
+           <tr>
+               <td><input id="contactNumber" type="number" value="${user.getContactno()}" readonly></td>
+           </tr>
+       </table>
+      	<div class="center">
+			<input id="btnCheckout" type="button" value="Confirm Checkout">
+			<c:if test="${action != 'cartCheckout'}">
+				<input id="btnCancel" type="button" value="Cancel">
+			</c:if>	
+	</div>
 </div>
 
 

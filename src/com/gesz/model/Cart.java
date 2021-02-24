@@ -1,5 +1,8 @@
 package com.gesz.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Cart {
 	private int cart_id;
 	private int product_id;
@@ -7,14 +10,24 @@ public class Cart {
 	private int quantity;
 	private double price;
 	private String image;
+	private String date;
 	
-	public Cart(int cart_id, int product_id,String name, int quantity, double price, String image) {
+	public Cart(int cart_id, int product_id,String name, int quantity, double price, String image, String date) {
 		this.cart_id = cart_id;
 		this.product_id = product_id;
 		this.name = name;
 		this.quantity = quantity;
 		this.price = price;
 		this.image = image;
+		this.date = date;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getName() {
@@ -63,6 +76,19 @@ public class Cart {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+	
+	public static String convertDate(String date) {
+		String result="";
+		return result;
+	}
+	
+	public static String getNewDate() {
+		String result="";
+		Date now = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
+		result=formatter.format(now);
+		return result;
 	}
 	
 }

@@ -15,6 +15,10 @@ public interface AccountsMapper {
 	@Result(property="valid",column="valid")
 	public int getAdminUser(String username, String password);
 	
+	@Select("Select user_id valid from final_project_grp2_user where username = #{arg0} AND pass_word=#{arg1} AND isadmin =0")
+	@Result(property="valid",column="valid")
+	public int getUser(String username, String password);
+	
 	@Select("Select count(id) num from accounts_am")
 	public int getCountId();
 	

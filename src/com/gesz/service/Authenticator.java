@@ -22,7 +22,25 @@ public class Authenticator {
 				 return "failed";
 			 }
 		 }
+	}
+	
+	public String[] userAuthenticate(String username, String password) {
 		
+		String [] result = new String[2];
+		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
+		 try(SqlSession sqlSession = sqlSessionFactory.openSession()){
+			 AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
+			 int valid = accounts.getUser(username, password);
+			 if(valid > 0) {
+				 result[0] = "success";
+				 result[1] = String.valueOf(valid);
+				 return result;
+			 }else {
+				 result[0] = "failed";
+				 result[1] = String.valueOf(valid);
+				 return result;
+			 }
+		 }
 	}
 }

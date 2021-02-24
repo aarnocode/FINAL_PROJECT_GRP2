@@ -50,6 +50,9 @@ public interface ProductMapper {
 		@Result(property="category",column="PRODUCT_CATEGORY")
 	})
 	public ArrayList<Product> getAllProduct();
+	
+	@Select("Select stock from final_project_grp2_product where product_id = #{arg0}")
+	public int checkStock(int prodId);
 	 
 	@Update("Update final_project_grp2_product set name=#{arg0}, price=#{arg1}, stock=#{arg2}, image=#{arg3} where product_id = #{arg4}")
 	public int updateProduct(String name, double price, int stock, String image, int id);

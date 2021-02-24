@@ -3,7 +3,7 @@ package com.gesz.model;
 import java.math.BigDecimal;
 
 public class Product {
-	private BigDecimal id;
+	private int id;
 	private String name;
 	private BigDecimal price;
 	private int stock;
@@ -11,7 +11,7 @@ public class Product {
 	private String description;
 	private String category;
 	
-	public Product(BigDecimal id,String name, BigDecimal price, int stock, String image) {
+	public Product(int id,String name, BigDecimal price, int stock, String image) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -19,7 +19,7 @@ public class Product {
 		this.image = image;
 	}
 	
-	public Product(BigDecimal id,String name, BigDecimal price, int stock, String image, String description, String category) {
+	public Product(int id,String name, BigDecimal price, int stock, String image, String description, String category) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -45,11 +45,11 @@ public class Product {
 		this.category = category;
 	}
 
-	public BigDecimal getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(BigDecimal id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

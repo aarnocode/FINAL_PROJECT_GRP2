@@ -30,7 +30,7 @@ public class CartController extends HttpServlet {
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
 			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
-			 ArrayList<Cart> mycart = cart.getCartById(1);
+			 ArrayList<Cart> mycart = cart.getCartById(Integer.valueOf((String)session.getAttribute("UID")));
 			 session.setAttribute("myCart", mycart);
 		 }catch (Exception e) {
 			System.out.println(e.getMessage());

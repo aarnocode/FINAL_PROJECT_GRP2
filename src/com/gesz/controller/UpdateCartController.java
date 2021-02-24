@@ -34,7 +34,7 @@ public class UpdateCartController extends HttpServlet{
 			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
 			 cart.updateCart(quantity, id);
 			 sqlSession.commit();
-			 ArrayList<Cart> mycart = cart.getCartById(1);//MAke usre get user ID from session
+			 ArrayList<Cart> mycart = cart.getCartById(Integer.valueOf((String)session.getAttribute("UID")));//MAke usre get user ID from session
 			 session.setAttribute("myCart", mycart);
 		 }catch (Exception e) {
 			System.out.println(e.getMessage());
