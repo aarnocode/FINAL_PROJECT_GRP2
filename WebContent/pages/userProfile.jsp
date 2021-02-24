@@ -18,7 +18,7 @@
 	<jsp:include page="header.jsp"/>
 	
 	<div>
-		
+		${updatemsg}
 		<div id="profilecontainer">
 			
 	 	</div>

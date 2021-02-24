@@ -40,10 +40,8 @@ function initUserProfileResult(){
 function Update(){
 	$.ajax({
 		url: contextPath + "pages/updateprofile",
-		method: "POST",
-		success: function(result){
-			$("#updatecontainer").html(result);
-		}
+		method: "POST"
+		
 	});
 
 }

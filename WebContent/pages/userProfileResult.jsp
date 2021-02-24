@@ -10,7 +10,6 @@
 	<h2 class="dataheader">Credit Card: <h2 id="ccno">${myuser.ccno}</h2><br><a id="addcc" href="#">Add a credit card</a>
 	
 	
-	
 	${updatemsg}
 	
 	

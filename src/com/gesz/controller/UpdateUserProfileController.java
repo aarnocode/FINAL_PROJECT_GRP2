@@ -64,11 +64,11 @@ public class UpdateUserProfileController extends HttpServlet{
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
 					System.out.println("Email Address is already in use");
 					request.setAttribute("updatemsg", "Another person have already used this Email");		
-					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
+					dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
 					sqlSession.close();
 					break label;
 				}
-				//contact no validation
+				//CCNO validation
 //				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
 //					System.out.println("Email Address is already in use");
 //					request.setAttribute("message", "Another person have already used this Email");		
@@ -83,7 +83,7 @@ public class UpdateUserProfileController extends HttpServlet{
 						sqlSession.close();
 						//request.setAttribute("user", user);
 						request.setAttribute("updatemsg", "You have Successfully Update");
-						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
+						dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
 						System.out.println("Success Insert");
 						dispatcher.forward(request, response);
 					}
@@ -91,7 +91,7 @@ public class UpdateUserProfileController extends HttpServlet{
 						//request.setAttribute("user", user);
 						sqlSession.close();
 						request.setAttribute("updatemsg", "Failed to Update");
-						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
+						dispatcher = request.getRequestDispatcher("/pages/userProfile");
 						System.out.println("Not Inserted");
 						dispatcher.forward(request, response);
 					}
