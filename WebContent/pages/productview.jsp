@@ -35,6 +35,15 @@
         </div>
     </div>
     
+    <div class="addCartBlur">
+    	<div id="addCartStatus" class="addCartPop">
+	    	<input id="status" type="hidden" value="${addCartStatus}">
+	     	<h3 id="addCartMessage"></h3>
+	     	<p class="viewCart">"View my cart"</p>
+		</div>
+    </div>
+    
+    
 	<div class="itemContainer">
         <div class="itemView">
             <img src="${productView.getImage()}">

@@ -57,6 +57,9 @@ public interface ProductMapper {
 	@Update("Update final_project_grp2_product set name=#{arg0}, price=#{arg1}, stock=#{arg2}, image=#{arg3} where product_id = #{arg4}")
 	public int updateProduct(String name, double price, int stock, String image, int id);
 	
+	@Update("Update final_project_grp2_product set stock=#{arg0} where product_id = #{arg1}")
+	public int decreaseStock(int quantity, int prodId);
+	
 	@Insert("Insert into final_project_grp2_product values (#{arg0},#{arg1},#{arg2},#{arg3},#{arg4},#{arg5},#{arg6})")
 	public int addProduct(int id,String name, String description, String category, double price, int stock, String image);
 }

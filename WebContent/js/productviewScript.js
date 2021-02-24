@@ -1,8 +1,17 @@
 var isLoggedIn = $("input[type=hidden]").val();
 
 $(".loginBlur").hide();
+$("#addCartStatus").hide();
 $(document).ready(function(){
-	console.log($("input[type=hidden]").val());
+	var status = $("#status").val();
+	
+	if(status == "success"){
+		$("#addCartMessage").text("Successfully added to cart!");
+		$("#addCartStatus").show();
+	}else if(status == "failed"){
+		$("#addCartMessage").text("Sorry! This item is out of stock");
+		$("#addCartStatus").show();
+	}
 });
 
 $(".btnBuy").on({
@@ -45,8 +54,38 @@ $(".btnBuy").on({
 });
 
 $(".btnAddCart").on({
-    click: function(){
-        
+	click: function(){
+    	if(isLoggedIn == "true"){
+    		$.ajax({
+    			url: contextPath + "addtocart",
+    			method: "POST",
+    			data:{
+    				action:"addToCart"
+    			},
+    			success:function(){
+    				window.location = "../pages/productview.jsp";
+    			}
+    			
+    		});
+    		/*$.ajax({
+    			url: contextPath + "buynow",
+    			method:"POST",
+    			data:{
+    				action:"buy"
+    			},
+    			success: function(){
+    				$.ajax({
+    					url:contextPath + "cart",
+    					method:"POST",
+    					success: function(){
+    						window.location = "../pages/cart.jsp";
+    					}
+    				});
+    			}
+    		});*/
+    	}else{
+    		$(".loginBlur").show();
+    	}
     },
     mouseenter:function(){
         $(this).css({
