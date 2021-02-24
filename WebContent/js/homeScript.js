@@ -1,3 +1,5 @@
+var isLoggedIn = $("#isLoggedIn").val();
+$(".loginBlur").hide();
 $(document).ready(function(){
     $(".cards").on({
         mouseenter: function(){
@@ -41,6 +43,41 @@ $(document).ready(function(){
     	}
     });
     
+});
+
+$("#register").click(function(){
+	window.location.href = 'http://localhost:8080/OnlineStore/pages/userRegistration.jsp';
+	console.log("register clicked!");
+});
+
+$(".btnLogin").click(function(){
+	console.log("clicked");
+	$.ajax({
+		url:contextPath + "login",
+		method: "POST",
+		data:{
+			username:$(".txtUsername").val(),
+			password:$(".txtPassword").val()
+		},
+		success: function(){
+			window.location=contextPath;
+		}
+	});
+});
+
+$(".cart").click(function(){
+	if(isLoggedIn == "true"){
+		$.ajax({
+			url: contextPath + "cart",
+			method: "POST",
+			success: function(){
+				window.location = "../pages/cart.jsp";
+			}
+		});
+	}else{
+		$(".loginBlur").show();
+	}
+	
 });
 function getData(img,name,price){
     var str;

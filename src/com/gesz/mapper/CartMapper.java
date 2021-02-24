@@ -37,6 +37,9 @@ public interface CartMapper {
 	@Select("SELECT cart_id FROM FINAL_PROJECT_GRP2_CART WHERE user_id =#{arg0} AND product_id = #{arg1}")
 	public int getCartId(int userId, int prodId);
 	
+	@Select("SELECT COUNT(user_id) FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0}")
+	public int getCartCount(int userId);
+	
 	@Update("UPDATE FINAL_PROJECT_GRP2_CART SET quantity = #{arg0} WHERE cart_id=#{arg1}")
 	public int updateCart(int quantity, int id);
 	
