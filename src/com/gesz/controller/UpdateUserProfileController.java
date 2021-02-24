@@ -55,16 +55,17 @@ public class UpdateUserProfileController extends HttpServlet{
 		System.out.println("birthday");
 
 				label:try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
-				
+					System.out.println("to");
 				AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
 				String checkemail = accounts.verifyEmail(email);
 				
-				
+				System.out.println("you");
 				//For Checking if Email and/or User already exist in the database
 				if(checkemail != "" && checkemail != null){	//Will go here if email already exist in database			
 					System.out.println("Email Address is already in use");
 					request.setAttribute("updatemsg", "Another person have already used this Email");		
 					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
+					sqlSession.close();
 					break label;
 				}
 				//contact no validation
@@ -79,6 +80,7 @@ public class UpdateUserProfileController extends HttpServlet{
 				
 					if(result == 1){//If Update is Success if will go here
 						sqlSession.commit();
+						sqlSession.close();
 						//request.setAttribute("user", user);
 						request.setAttribute("updatemsg", "You have Successfully Update");
 						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
@@ -87,6 +89,7 @@ public class UpdateUserProfileController extends HttpServlet{
 					}
 					else {//If Insert fails it will go here
 						//request.setAttribute("user", user);
+						sqlSession.close();
 						request.setAttribute("updatemsg", "Failed to Update");
 						dispatcher = request.getRequestDispatcher("/pages/userRegistrationResult.jsp");
 						System.out.println("Not Inserted");
@@ -101,7 +104,7 @@ public class UpdateUserProfileController extends HttpServlet{
 					System.out.println(e);
 					dispatcher.forward(request, response);
 				}
-				dispatcher.forward(request, response);
+				//dispatcher.forward(request, response);
 		
 	}
 }

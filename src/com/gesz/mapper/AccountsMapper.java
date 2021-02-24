@@ -77,6 +77,6 @@ public interface AccountsMapper {
 	})
 	public User getUserByIdWCC(int id);//method for fetching user info w/ ccno
 	
-	@Update("Update final_project_grp2_user set firstname=#{arg0}, lastname=#{arg1}, mi=#{arg2}, password=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
+	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
 	public int updateProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);
 }

@@ -48,6 +48,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 				System.out.println(user.getCcno());
 				dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
 				System.out.println("Success "+user.getFirstname());
+				sqlSession.close();
 				dispatcher.forward(request, response);
 				
 				
