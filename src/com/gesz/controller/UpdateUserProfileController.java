@@ -19,7 +19,7 @@ import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
 
 @WebServlet("/pages/updateprofile")
-public class UpdateUserProfileController {
+public class UpdateUserProfileController extends HttpServlet{
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
@@ -49,10 +49,10 @@ public class UpdateUserProfileController {
 		int id=2;
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
-		
+		System.out.println("Happy");
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
-		
+		System.out.println("birthday");
 
 				label:try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
 				
