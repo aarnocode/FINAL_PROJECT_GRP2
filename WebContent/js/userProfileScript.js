@@ -7,9 +7,6 @@ function initUserProfile(){
 		}
 	});
 	
-//	if(${user.ccno} != "" || ${user.ccno} == ""){
-//		
-//	}
 	
 	$('#editsave').click(function(){
 		alert('b');
@@ -22,17 +19,18 @@ function initUserProfile(){
 		Update();
 		
 	});
+	
 }
 
 function initUserProfileResult(){
-	alert('a');
-	if($('#ccno').text === null){	
+	if($.trim($('#ccno').text()) == ""){	
 		$('#ccno').text('No Credit Card');	
+		alert('b');
 	}
 	else{
-		Console.log($('#ccno').text());
 		alert($('#ccno').text());
 		$('#addcc').text('');
+		alert('c');
 	}
 	
 	

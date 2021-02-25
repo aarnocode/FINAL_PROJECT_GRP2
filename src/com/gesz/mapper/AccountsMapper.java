@@ -41,12 +41,10 @@ public interface AccountsMapper {
 			);
 	
 	@Select("SELECT email FROM final_project_grp2_user WHERE email = #{arg0}")
-	public String verifyEmail(
-					String email);
+	public String verifyEmail(String email);
 	
 	@Select("SELECT username FROM final_project_grp2_user WHERE username = #{arg0}")
-	public String verifyUsername(
-					String username);
+	public String verifyUsername(String username);
 	
 	@Select("SELECT user_id, username, pass_word, first_name, last_name, mi, email, contact_no, address FROM final_project_grp2_user WHERE user_id = #{arg0}")
 	@Results({
@@ -62,7 +60,7 @@ public interface AccountsMapper {
 	})
 	public User getUserById(int id);
 	
-	@Select("SELECT user_id, username, pass_word, first_name, last_name, mi, email, contact_no, address FROM final_project_grp2_user WHERE user_id = #{arg0}")
+	@Select("SELECT user_id, username, pass_word, first_name, last_name, mi, email, contact_no, address, ccno FROM final_project_grp2_user WHERE user_id = #{arg0}")
 	@Results({
 		@Result(property = "id", column = "USER_ID"),
 		@Result(property = "username", column = "USERNAME"),
@@ -76,6 +74,9 @@ public interface AccountsMapper {
 		@Result(property = "ccno", column = "CCNO")
 	})
 	public User getUserByIdWCC(int id);//method for fetching user info w/ ccno
+	
+	@Select("SELECT CCNO FROM final_project_grp2_user WHERE email = #{arg0}")
+	public String getcc(String id);
 	
 	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
 	public int updateProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);

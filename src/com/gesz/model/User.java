@@ -99,6 +99,9 @@ public class User {
 	public int getIsAdmin() {
 		return isAdmin;
 	}
+	public BigInteger getCcno() {
+		return ccno;
+	}
 
 	public void setUsername(String username) {
 		this.username = username;
@@ -111,8 +114,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public BigInteger getCcno() {
-		return ccno;
-	}
+	
 	
 }
