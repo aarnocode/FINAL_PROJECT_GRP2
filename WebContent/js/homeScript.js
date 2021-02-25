@@ -43,6 +43,21 @@ $(document).ready(function(){
     	}
     });
     
+    $(".category").click(function(){
+    	var category = $(this).attr("id");
+    	$.ajax({
+    		url:contextPath+"home",
+    		method:"POST",
+    		data:{
+    			category:category
+    		},
+    		success:function(result){
+    			$("#mainContainer").html(result);
+    			$(window).scrollTop(0);
+    		}
+    	});
+    });
+    
 });
 
 $("#register").click(function(){
