@@ -1,5 +1,9 @@
 var isLoggedIn = $("#isLoggedIn").val();
-$(".loginBlur").hide();
+if(isLoggedIn == "false"){
+	$(".loginBlur").show();
+}else{
+	$(".loginBlur").hide();
+}
 $(".addCartBlur").hide();
 $("#addCartStatus").hide();
 $(document).ready(function(){
@@ -130,6 +134,13 @@ $(".btnLogin").click(function(){
 			window.location="../pages/productview.jsp";
 		}
 	});
+});
+
+$("#btnClose").click(function(){
+	$(".txtUsername").val("");
+	$(".txtPassword").val("");
+	$("#notice").text("");
+	$(".loginBlur").hide();
 });
 
 $(".navtabs").on({

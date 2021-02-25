@@ -69,7 +69,10 @@
     justify-content: center;
     align-items: center;
     display: block;
-    padding:10%;
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:3%;
+    padding-bottom:3%;
     background-color: black;
     margin-left:35%;
     margin-right:35%;
@@ -98,5 +101,12 @@
 	color: #FE4646;
 	text-decoration: none;
 	cursor: pointer;
-	
+}
+
+#btnClose {
+	color:white;
+	font-weight:bold;
+	background-color:black;
+	border:1px solid white;
+	border-radius:100px;
 }

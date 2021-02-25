@@ -40,6 +40,7 @@ public class LoginController extends HttpServlet{
 		}else {
 			System.out.println("failed");
 			session.setAttribute("logMsg", "Login failed, please try again");
+			session.setAttribute("isLoggedIn", false);
 		}
 	}
 	

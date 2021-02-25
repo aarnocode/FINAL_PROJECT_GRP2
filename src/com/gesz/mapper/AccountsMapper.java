@@ -15,7 +15,7 @@ public interface AccountsMapper {
 	@Result(property="valid",column="valid")
 	public int getAdminUser(String username, String password);
 	
-	@Select("Select user_id valid from final_project_grp2_user where username = #{arg0} AND pass_word=#{arg1} AND isadmin =0")
+	@Select("Select Coalesce ((Select user_id valid from final_project_grp2_user where username = #{arg0} AND pass_word=#{arg1} AND isadmin =0),0) valid from dual")
 	@Result(property="valid",column="valid")
 	public int getUser(String username, String password);
 	

@@ -24,6 +24,7 @@
 	<div class="loginBlur">
 		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
         <div class="loginPop">
+        	<input id="btnClose" type="button" value="X">
             <h3>GESZ</h3>
             <label id="notice">${logMsg}</label>
             <label>Username:</label><br>

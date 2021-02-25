@@ -1,5 +1,9 @@
 var isLoggedIn = $("#isLoggedIn").val();
-$(".loginBlur").hide();
+if(isLoggedIn == "false"){
+	$(".loginBlur").show();
+}else{
+	$(".loginBlur").hide();
+}
 $(document).ready(function(){
     $(".cards").on({
         mouseenter: function(){
@@ -80,13 +84,20 @@ $(".btnLogin").click(function(){
 	});
 });
 
+$("#btnClose").click(function(){
+	$(".txtUsername").val("");
+	$(".txtPassword").val("");
+	$("#notice").text("");
+	$(".loginBlur").hide();
+});
+
 $(".cart").click(function(){
 	if(isLoggedIn == "true"){
 		$.ajax({
 			url: contextPath + "cart",
 			method: "POST",
 			success: function(){
-				window.location = "../pages/cart.jsp";
+				window.location = contextPath+"pages/cart.jsp";
 			}
 		});
 	}else{
