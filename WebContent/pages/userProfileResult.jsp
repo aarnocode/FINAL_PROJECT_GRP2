@@ -16,6 +16,7 @@ ${errMessage}
 		<p id="myuserfirstname">${myuser.firstname}</p>
 		<p id="myusermi">${myuser.mi}</p>
 		<p id="myuserlastname">${myuser.lastname}</p>
+		<p id="myuserpassword">${myuser.password}</p>
 		<p id="myuserstreetaddress">${streetaddress}</p>
 		<p id="myuserzipcode">${zipcode}</p>
 		<p id="myusercity">${city}</p>

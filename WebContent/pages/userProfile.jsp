@@ -75,7 +75,8 @@
 				    <option value="Indonesia">Indonesia</option>
 				    <option value="Japan">Japan</option>
 				  </select><br>
-				  <br>
+				  <input type="number" id="ccnoinput" placeholder="Credit Card No."><br>
+					<p class="errormsg" id="ccnoinputerror"></p><br>
 				  
 				  <input type="button" id="submitEditBtn" value="Save">&emsp;&emsp;			  
 	 			  <input type="button" id="cancelEditBtn" value="Cancel">
