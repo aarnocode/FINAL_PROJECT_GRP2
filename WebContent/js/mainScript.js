@@ -19,7 +19,7 @@ $(document).ready(function(){
 			category:"All"
 		},
 		success:function(result){
-			$("#mainContainer").html(result);
+			window.location = "pages/home.jsp";
 		}
 	});
 	

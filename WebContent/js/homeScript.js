@@ -23,7 +23,7 @@ $(document).ready(function(){
             		id:$("input[type=hidden]",this).val()
             	},
             	success:function(result){
-            		window.location = "pages/productview.jsp";
+            		window.location = "../pages/productview.jsp";
             	}
             });
         },
@@ -56,7 +56,7 @@ $(document).ready(function(){
     			category:category
     		},
     		success:function(result){
-    			$("#mainContainer").html(result);
+    			window.location = "../pages/home.jsp";
     			$(window).scrollTop(0);
     		}
     	});
@@ -79,7 +79,7 @@ $(".btnLogin").click(function(){
 			password:$(".txtPassword").val()
 		},
 		success: function(){
-			window.location=contextPath;
+			window.location="../pages/home.jsp";
 		}
 	});
 });
@@ -89,6 +89,12 @@ $("#btnClose").click(function(){
 	$(".txtPassword").val("");
 	$("#notice").text("");
 	$(".loginBlur").hide();
+	if(isLoggedIn == "false"){
+		$.ajax({
+			url: contextPath + "resetstate",
+			method:"POST"
+		});
+	}
 });
 
 $(".cart").click(function(){
