@@ -1,32 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <nav class="navbar navbar-dark " id="header">
 	
 		<div class="container-fluid ">
-		
+			<div >
 			<a class="navbar-brand" href="#"> 
-			<img src="../images/logo.png" alt=""  class="d-inline-block align-top"> 
+			<div class="homeIcon" >
+			<i class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
+			</div>
+			<div class="brandName">
 				GESZ
+			</div>
 			</a>
-		
+			</div>
 
-			<div class="searchBarWrapper">
-				<img src="https://img.icons8.com/android/24/ffffff/search.png" />
+			<div class="searchBarWrapper" >
+				<div class="searchIcon" >
+				<i class="material-icons" style="font-size:36px; color:white">search</i>
 				<!-- search icon -->
+				</div>
+				<div class="searchField" >
 				<input class="searchBar" type="text"
-					placeholder="Search for products">
+					placeholder="Search for products" >
+				</div>
 			</div>
 			<!-- end of searchBard div -->
 
 
 			<div class="rightControls">
-				<img class="cart" src="https://img.icons8.com/windows/32/ffffff/favorite-cart.png" /><span class='badge' id='lblCartCount'>
+				<i class="material-icons cart" style="font-size:36px; color:white">shopping_cart</i><span class='badge' id='lblCartCount'>
 					<c:if test="${cartCount >= 1}">
 						${cartCount}
 					</c:if>
 				</span>
-				<img class="login" src="https://img.icons8.com/pastel-glyph/32/ffffff/person-male--v3.png"/>
+				<i class="material-icons" style="font-size:36px; color:white">account_circle</i>
 			</div>
 			
 		</div><!-- end of container-fluid div -->
