@@ -1,6 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<div class="loginBlur">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="../css/userRegistrationStyle.css" type="text/css">
+<link rel="stylesheet" href="../css/footer.css" type="text/css">
+<link rel="stylesheet" href="../css/header.css" type="text/css">
+<link rel="stylesheet" href="../css/homeStyle.css" type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">var contextPath = '${pageContext.request.contextPath}' + '/'</script>
+<script src="../js/userRegistrationScript.js"></script>
+<script src="../js/bootstrap.js"></script>
+<title>Online Store</title>
+</head>
+<body>
+	<jsp:include page="header.jsp"/>
+		<div class="loginBlur">
 		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
         <div class="loginPop">
         	<input id="btnClose" type="button" value="X">
@@ -34,7 +55,12 @@
     	</div>
    	</c:forEach>
 </div>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/homeStyle.css" type="text/css">
-<script src="js/homeScript.js"></script>
+
+
+
+<jsp:include page="footer.jsp"/>
+</body>
+<script src="../js/homeScript.js"></script>
+</html>
+
+

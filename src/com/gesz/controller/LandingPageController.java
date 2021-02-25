@@ -32,6 +32,7 @@ public class LandingPageController extends HttpServlet{
 		session.setAttribute("addCartStatus", "");
 		session.setAttribute("action","");
 		session.setAttribute("isAdmin", "false");
+		session.setAttribute("logMsg", "");
 		RequestDispatcher dispatcher = null;
 		String category = request.getParameter("category");
 		
@@ -41,13 +42,13 @@ public class LandingPageController extends HttpServlet{
 			 ProductMapper product = sqlSession.getMapper(ProductMapper.class);
 			 if(category.equals("All")) {
 				 ArrayList<Product> products = product.getAllProduct();
-				 request.setAttribute("products", products);
+				 session.setAttribute("products", products);
 			 }else {
 				 ArrayList<Product> products = product.getProductByCategory(category);
-				 request.setAttribute("products", products);
+				 session.setAttribute("products", products);
 			 }
 			 ArrayList<String> categories = product.getCategories();
-			 request.setAttribute("categories", categories);
+			 session.setAttribute("categories", categories);
 		 }catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
