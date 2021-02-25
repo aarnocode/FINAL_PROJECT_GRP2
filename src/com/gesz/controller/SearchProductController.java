@@ -47,7 +47,7 @@ public class SearchProductController extends HttpServlet{
 				System.out.println(e.getMessage());
 			}
 		}
-		dispatcher=request.getRequestDispatcher("pages/adminControl.jsp");
+		dispatcher=request.getRequestDispatcher("pages/adminTabs.jsp");
 		dispatcher.forward(request, response);
 		
 		/*

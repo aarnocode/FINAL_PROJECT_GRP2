@@ -44,7 +44,7 @@ public class UpdateProductController extends HttpServlet {
 		}else {
 			request.setAttribute("resultMessage", "Failed to update the product..");
 		}
-		dispatcher=request.getRequestDispatcher("pages/adminControl.jsp");
+		dispatcher=request.getRequestDispatcher("pages/adminTabs.jsp");
 		dispatcher.forward(request, response);
 	}
 }

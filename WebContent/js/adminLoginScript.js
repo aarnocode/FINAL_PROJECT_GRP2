@@ -8,7 +8,7 @@ $("#btnLogin").click(function(){
 			password:$("#txtPassword").val()
 		},
 		success:function(result){
-			$("#mainContainer").html(result);
+			window.location = "../pages/adminControl.jsp";
 		}
 		
 	});

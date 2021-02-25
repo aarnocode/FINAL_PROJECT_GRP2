@@ -31,6 +31,7 @@ public class LandingPageController extends HttpServlet{
 		//Reset attributes
 		session.setAttribute("addCartStatus", "");
 		session.setAttribute("action","");
+		session.setAttribute("isAdmin", "false");
 		RequestDispatcher dispatcher = null;
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();

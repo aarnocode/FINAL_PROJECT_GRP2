@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -51,7 +52,7 @@ public class AddProductController extends HttpServlet{
 		}else {
 			request.setAttribute("resultMessage", "Failed to add the product..");
 		}
-		dispatcher=request.getRequestDispatcher("pages/adminControl.jsp");
+		dispatcher=request.getRequestDispatcher("pages/adminTabs.jsp");
 		dispatcher.forward(request, response);
 	}
 }

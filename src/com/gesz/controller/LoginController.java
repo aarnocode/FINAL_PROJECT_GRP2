@@ -37,7 +37,6 @@ public class LoginController extends HttpServlet{
 			session.setAttribute("UID", result[1]);
 			session.setAttribute("isLoggedIn", true);
 			session.setAttribute("cartCount", getCartCount(result[1]));
-			dispatcher = request.getRequestDispatcher("pages/adminControl.jsp");
 		}else {
 			System.out.println("failed");
 			session.setAttribute("logMsg", "Login failed, please try again");

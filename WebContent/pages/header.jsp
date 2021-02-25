@@ -6,7 +6,7 @@
 		<div class="container-fluid ">
 		
 			<a class="navbar-brand" href="#"> 
-			<img src="images/logo.png" alt=""  class="d-inline-block align-top"> 
+			<img src="../images/logo.png" alt=""  class="d-inline-block align-top"> 
 				GESZ
 			</a>
 		
