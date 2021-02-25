@@ -36,3 +36,9 @@
 #txtAddName, #txtSearchName {
 	width:250px;
 }
+
+#imgSourceUpdate, #imgSourceAdd {
+	width:200px;
+	height:280px;
+	object-fit: cover;
+}

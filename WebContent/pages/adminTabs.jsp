@@ -26,7 +26,7 @@
 				    	<input id="txtAddDescription" type="text" placeholder="description" maxlength="500" class="mb-2"><br>
 				    	<label>Image link</label><label id="warnImageAdd" class="warn"></label><br>
 			   			<input id="txtAddImage" type="text" placeholder="link?" maxlength="500" class="mb-2"><br>
-			   			<img id="imgSourceAdd" src="" alt="No image" style="width:300px;height:300px">
+			   			<img id="imgSourceAdd" src="" alt="Image Preview: If it doesn't show anything, you had an invalid link." style="width:300px;height:300px">
 			    	</div>
 			    </div>
 		    </div>
@@ -43,17 +43,24 @@
 			    </div>
 			    
 			    <div id="result" class="ms-4">
-			    	<label>Product ID: </label><label id="lblProductId">${product.getId()}</label><br>
-			    	<label>Product Name</label><label id="warnName" class="warn"></label><br>
-				    <input id="txtSearchName" class="mb-2" type="text" placeholder="Product Name" disabled="disabled" value="${product.getName()}"><br>
-				    <label>Price</label><label id="warnPrice" class="warn"></label><br>
-				    <input id="txtSearchPrice" class="mb-2" type="number" placeholder="Price" disabled="disabled" value="${product.getPrice()}"><br>
-				    <label>Stock</label><label id="warnStock" class="warn"></label><br>
-				    <input id="txtSearchStock" class="mb-2" type="number" placeholder="Stock" disabled="disabled" value="${product.getStock()}"><br>
-				    <label>Image link</label><label id="warnImage" class="warn"></label><br>
-				    <input id="txtSearchLink" class="mb-2" type="text" placeholder="link?" disabled="disabled" value="${product.getImage()}">
-				    <img id="imgSourceUpdate" src="" alt="No image"><br>
-				    <input id="btnUpdate" type="button" value="Update Product" disabled="disabled">
+			    	<div class="row">
+			    		<div class="col-lg-6">
+			    			<label>Product ID: </label><label id="lblProductId">${product.getId()}</label><br>
+					    	<label>Product Name</label><label id="warnName" class="warn"></label><br>
+						    <input id="txtSearchName" class="mb-2" type="text" placeholder="Product Name" disabled="disabled" value="${product.getName()}"><br>
+						    <label>Price</label><label id="warnPrice" class="warn"></label><br>
+						    <input id="txtSearchPrice" class="mb-2" type="number" placeholder="Price" disabled="disabled" value="${product.getPrice()}"><br>
+						    <label>Stock</label><label id="warnStock" class="warn"></label><br>
+						    <input id="txtSearchStock" class="mb-2" type="number" placeholder="Stock" disabled="disabled" value="${product.getStock()}"><br>
+						    <label>Image link</label><label id="warnImage" class="warn"></label><br>
+						    <input id="txtSearchLink" class="mb-2" type="text" placeholder="link?" disabled="disabled" value="${product.getImage()}"><br>
+						    <input id="btnUpdate" type="button" value="Update Product" disabled="disabled">
+			    		</div>
+			    		<div class="col-lg-6">
+			    			<img id="imgSourceUpdate" src="" alt="Image Preview: If it doesn't show anything, you had an invalid link.">
+			    		</div>
+			    	</div>
+			    	
 			    </div>
 		    </div>
 		</div>
