@@ -39,7 +39,7 @@ public interface ProductMapper {
 	})
 	public Product getByName(String name);
 	
-	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product")
+	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product where stock > 0")
 	@Results({
 		@Result(property="id", column="product_id"),
 		@Result(property="name",column="NAME"),
@@ -50,6 +50,21 @@ public interface ProductMapper {
 		@Result(property="category",column="PRODUCT_CATEGORY")
 	})
 	public ArrayList<Product> getAllProduct();
+	
+	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product where stock > 0 AND product_category = #{arg0}")
+	@Results({
+		@Result(property="id", column="product_id"),
+		@Result(property="name",column="NAME"),
+		@Result(property="price",column="PRICE"),
+		@Result(property="stock",column="STOCK"),
+		@Result(property="image",column="IMAGE"),
+		@Result(property="description",column="DESCRIPTION"),
+		@Result(property="category",column="PRODUCT_CATEGORY")
+	})
+	public ArrayList<Product> getProductByCategory(String category);
+	
+	@Select("Select DISTINCT(product_category) from final_project_grp2_product")
+	public ArrayList<String> getCategories();
 	
 	@Select("Select stock from final_project_grp2_product where product_id = #{arg0}")
 	public int checkStock(int prodId);

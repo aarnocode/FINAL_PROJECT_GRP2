@@ -15,12 +15,10 @@
     </div>  
 <div class="leftPanel mt-5">
 	<p>Category</p>
-	<input type="button" value="category">
-	<input type="button" value="category">
-	<input type="button" value="category">
-	<input type="button" value="category">
-	<input type="button" value="category">
-	<input type="button" value="category">
+		<input id="All" class="category" type="button" value="All">
+	<c:forEach var="category" items="${categories}">
+		<input id="${category}" class="category" type="button" value="${category}">
+	</c:forEach>
 </div>
 <div class="productContainer mt-4">
 <!-- MALE ITEMS -->

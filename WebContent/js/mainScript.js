@@ -15,6 +15,9 @@ $(document).ready(function(){
 	$.ajax({
 		url:contextPath+"home",
 		method:"POST",
+		data:{
+			category:"All"
+		},
 		success:function(result){
 			$("#mainContainer").html(result);
 		}
