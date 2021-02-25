@@ -36,9 +36,17 @@
 	border: 1px solid #888;
 	width: 40%;
   }
+  .cc-modal-content {
+	border-radius: 50px;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%;
+  }
  .close {
 	color: #aaaaaa;
-	float: right;
+/* 	float: right; */
 	font-size: 28px;
 	font-weight: bold;
 	margin-right: 15px;

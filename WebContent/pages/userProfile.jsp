@@ -24,43 +24,46 @@
 	 	</div>
 	 	<input class="notvisible" type="button" id="editBtn" value="Edit">&emsp;&emsp;
 	 	<input class="notvisible" type="button" id="cancel" value="Update">
-		
 		<div id="updatecontainer">
 			
 	 	</div>
 		
+<!-- 		Hidden Edit Modal -->
 		<div id="editModal" class="modal">
 		    <div class="modal-content">
-		     <span id="modalCloseBtn" class="close">&times;</span>
+		    <div class="modal-header">
+			    	<h5 class="modal-title">Update User Info</h5>
+			    	<span id="modalCloseBtn" class="close">&times;</span>	
+			    </div>  
 			     <div class="editform">
 			   		<p class="errormsg" id="errMessage1"></p>
 					<p class="errormsg" id="errMessage2"></p>
 					<p class="errormsg" id="errMessage3"></p>
 					
-					<input type="textbox" id="firstname" placeholder="First Name"><br>
+					<input type="text"  id="firstname" placeholder="First Name"><br>
 					<p class="errormsg" id="fnerror"></p>
 					
-					<input type="textbox" id="lastname" placeholder="Last Name"><br>
+					<input type="text" id="lastname" placeholder="Last Name"><br>
 					<p class="errormsg" id="lnerror"></p>
 					
-					<input type="textbox" id="mi" placeholder="Middle Initial"><br>
+					<input type="text" id="mi" placeholder="Middle Initial"><br>
 					<p class="errormsg" id="mierror"></p>
 					
 					<input type="password" id="oldpassword" placeholder="Old Password"><br>
-					<input type="password" id="newpassword" placeholder="New Password"><br>
+					<input type="password" id="newpassword" placeholder="New Password"><a id="editpass"href="#">Edit</a><br>
 					<p class="errormsg notvisible" id="pwerror">Password must have at least 8 Characters</p>
 					<br>
-					<input type="textbox" id="email" placeholder="Email"><br>
+					<input type="text" id="email" placeholder="Email"><br>
 					<p class="errormsg" id="emailerror"></p>
 					
 					<input type="number" id="contactno" placeholder="Contact No"><br>
 					<p class="errormsg" id="contacterror"></p>
 					
-					<input type="textbox" id="streetaddress" placeholder="Street Address"><br>
+					<input type="text" id="streetaddress" placeholder="Street Address"><br>
 				
-					<input type="textbox" id="city" placeholder="City"><br>
+					<input type="text" id="city" placeholder="City"><br>
 				
-					<input type="textbox" id="state" placeholder="State/Province"><br>
+					<input type="text" id="state" placeholder="State/Province"><br>
 				
 					<input type="number" id="zipcode" placeholder="Postal / Zip Code"><br>
 					<p class="errormsg" id="ziperror"></p>
@@ -77,21 +80,33 @@
 				  <input type="button" id="submitEditBtn" value="Save">&emsp;&emsp;			  
 	 			  <input type="button" id="cancelEditBtn" value="Cancel">
 				</div>
-			</div>
-		        
-		    </div>
+			</div>        
+		</div>
+<!-- 		Hidden Add Credit Card -->
+		<div id="ccModal" class="modal">
+				 <div class="cc-modal-content">
+				    <div class="modal-header">
+				    	<h5 class="modal-title">Add Credit Card</h5>
+				    	<span id="modalCloseBtn" class="close">&times;</span>	
+				    </div>  
+				    <div class="">
+					   		<p class="errormsg" id="ccerrMessage1"></p>
+							<input type="text"  id="ccnoinput" placeholder="Credit Card Number"><br>
+							<p class="errormsg" id="ccnoerror"></p><br><br>
+						  <input type="button" id="addccBtn" value="Add">&emsp;&emsp;			  
+			 			  <input type="button" id="cancelccBtn" value="Cancel">
+					</div>
+				</div>        
+		</div>
+		
+		
+		
+		
+		
 	</div>
-		
-		
-	
 	<div id="regcontainer">
   			
   	</div>
-	
-	
-	 
-
-
 <script type="text/javascript">
 		$(document).ready(function(){
 			initUserProfile();

@@ -6,7 +6,7 @@ ${errMessage}
 	<h2 class="dataheader">Email: </h2><h2 id="myuseremail">${myuser.email}</h2>
 	<h2 class="dataheader">Contact no: </h2><h2 id="myusercontactno">${myuser.contactno}</h2>
 	<h2 class="dataheader">Address: </h2><h2 id="myuseraddress">Address: ${streetaddress}, ${zipcode}, ${city}, ${state}, ${country}</h2>
-	<h2 class="dataheader">Credit Card: <h2 id="myuserccno">${myuser.ccno}</h2><br><a id="addcc" href="#">Add a credit card</a>
+	<h2 class="dataheader">Credit Card: <h2 id="myuserccno">${myuser.ccno}</h2><br><a id="addcc" href="#" onclick="openCC()">Add a credit card</a>
 	
 	${updatemsg}
 	

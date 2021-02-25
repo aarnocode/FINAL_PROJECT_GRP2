@@ -8,19 +8,20 @@ function initUserProfile(){
 			$("#profilecontainer").html(result);
 		}
 	});
-	
+	$('#editpass').click(function(){
+		$("#oldpassword").attr("disabled", false);
+		$("#newpassword").attr("disabled", false);
+		
+	});
 	
 	$('#editBtn').click(function(){
 		$("#editModal").css("display", "block");
-//		if($('#editsave').val() == "Edit"){
-//			$('#editsave').val("Save");
-//		}
-//		else if($('#editsave').val() == "Save"){
-//			$('#editsave').val("Edit");
-//		}
-		
-		
+		//$("#ccModal").css("display", "block");	
 	});
+//	$('#addcc').click(function(){
+//		alert('f');
+//		$("#ccModal").css("display", "block");	
+//	});
 	$('#cancel').click(function(){
 		alert('f');
 		Update();
@@ -29,15 +30,19 @@ function initUserProfile(){
 	$('#modalCloseBtn').click(function(){
 		modalClose();
 	});
-	
+	$('.close').click(function(){
+		modalClose();
+	});
 	
 	$('#cancelEditBtn').click(function(){
 		modalClose();
 		
 	});
+	$("#oldpassword").attr("disabled", true);
+	$("#newpassword").attr("disabled", true);
 	
 	window.onclick = function(event) {
-	  if (event.target == document.getElementById("editModal")) {
+	  if (event.target == document.getElementById("editModal") || event.target == document.getElementById("ccModal")) {
 		  modalClose();
 	  }
 	}
@@ -75,7 +80,6 @@ function initUserProfileResult(){
 	
 	if($.trim($('#myuserccno').text()) == ""){	
 		$('#myuserccno').text('No Credit Card');	
-		alert('a');
 	}
 	else{
 		alert('b');
@@ -84,6 +88,10 @@ function initUserProfileResult(){
 	
 	
 	transferInfoToEditInput();
+}
+function openCC(){
+
+	$("#ccModal").css("display", "block");	
 }
 function clearErrMssg(){
 	$("#errMessage1").text('');
@@ -96,9 +104,9 @@ function clearErrMssg(){
 	$("#emailerror").text('');
 	$("#contacterror").text('');
 }
-
 function modalClose(){
     $("#editModal").css("display", "none");
+    $("#ccModal").css("display", "none");
 //    $('.active').removeClass('active');
 //    $('#username').val('');
 //    $('#password').val('');
