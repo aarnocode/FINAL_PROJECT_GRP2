@@ -61,8 +61,9 @@ public class GetUserProfileController extends HttpServlet{
 					
 					
 					}catch(Exception e) {//If Other Error Occurs it will go here
+						request.setAttribute("errMessage", "Uh Oh Some Error Occured, Please Reload");
 						dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");	
-						System.out.println("CATCH ERROR");
+						System.out.println("Catch Error");
 						System.out.println(e);
 						dispatcher.forward(request, response);
 					}
