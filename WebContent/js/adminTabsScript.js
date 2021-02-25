@@ -106,6 +106,11 @@ function initializeEvents(){
 				success:function(result){
 					clearUpdate();
 					$("#mainContainer").html(result);
+					$("#pnlContentAdd").hide();
+					$("#pnlContentUpdate").show();
+					$("#pnlControl").show();
+					$(".loginPop").hide();
+					initializeEvents();
 					$(document).ready(function(){
 						$("#btnUpdateProduct").trigger("click");
 						$("#result input").prop("disabled",false);
@@ -137,6 +142,7 @@ function initializeEvents(){
 					$("#mainContainer").html(result);
 					$("#pnlContentUpdate").hide();
 					$(".loginPop").hide();
+					initializeEvents();
 					$(document).ready(function(){
 						$(".loginPop").show();
 						setInterval(() => {
