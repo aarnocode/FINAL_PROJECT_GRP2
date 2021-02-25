@@ -26,6 +26,7 @@
 				    	<input id="txtAddDescription" type="text" placeholder="description" maxlength="500" class="mb-2"><br>
 				    	<label>Image link</label><label id="warnImageAdd" class="warn"></label><br>
 			   			<input id="txtAddImage" type="text" placeholder="link?" maxlength="500" class="mb-2"><br>
+			   			<img id="imgSourceAdd" src="" alt="No image" style="width:300px;height:300px">
 			    	</div>
 			    </div>
 		    </div>
@@ -50,9 +51,9 @@
 				    <label>Stock</label><label id="warnStock" class="warn"></label><br>
 				    <input id="txtSearchStock" class="mb-2" type="number" placeholder="Stock" disabled="disabled" value="${product.getStock()}"><br>
 				    <label>Image link</label><label id="warnImage" class="warn"></label><br>
-				    <input id="txtSearchLink" class="mb-2" type="text" placeholder="link?" disabled="disabled" value="${product.getImage()}"><br>
+				    <input id="txtSearchLink" class="mb-2" type="text" placeholder="link?" disabled="disabled" value="${product.getImage()}">
+				    <img id="imgSourceUpdate" src="" alt="No image"><br>
 				    <input id="btnUpdate" type="button" value="Update Product" disabled="disabled">
 			    </div>
 		    </div>
 		</div>
-<script src="../js/adminTabsScript.js"></script>

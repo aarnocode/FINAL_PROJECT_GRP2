@@ -22,4 +22,6 @@
 <jsp:include page="footer.jsp"/>
 </body>
 <script src="../js/adminControlScript.js"></script>
+
+<script src="../js/adminTabsScript.js"></script>
 </html>
