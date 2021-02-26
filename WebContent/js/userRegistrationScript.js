@@ -14,7 +14,9 @@ function initUserReg(){
 		$("#errMessage1").text('');
 		$("#errMessage2").text('');
 		$("#errMessage3").text('');
+		$("#pwerror").text('');
 		$("#contacterror").text('');
+		$("#countryerror").text('');
 		
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
 			clearErrMssg();
