@@ -13,6 +13,7 @@ public class User {
 	private BigInteger contactno;
 	private String address;
 	private int isAdmin;
+	private BigInteger ccno;
 	
 	public User(String username, String password) {
 		this.username = username;
@@ -32,7 +33,7 @@ public class User {
 		this.isAdmin = 0;
 	}
 	
-	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address) {
+	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address,BigInteger ccno) {
 		this.id = id;
 		this.username=username;
 		this.password=password;
@@ -42,7 +43,15 @@ public class User {
 		this.email = email;
 		this.contactno=contactno;
 		this.address = address;
-		
+		this.ccno = ccno;
+	}
+
+	public BigInteger getCcno() {
+		return ccno;
+	}
+
+	public void setCcno(BigInteger ccno) {
+		this.ccno = ccno;
 	}
 
 	public int getId() {

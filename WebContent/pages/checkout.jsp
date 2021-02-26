@@ -45,18 +45,19 @@
                      <input id="increase" type="button" value="+" name="${productView.getId()}">
                  </span></td>
              <td class="columnPrice"><fmt:formatNumber type="currency" currencySymbol = "P" value="${productView.getPrice()}"/></td>
-             <td class="columnTotal"></td>
+             <td id="grandTotal" class="columnTotal"><fmt:formatNumber type="currency" currencySymbol = "P" value="${productQuantity*productView.getPrice()}"/></td>
              <td class="columnImage"><img src="${productView.getImage()}"></td>
          </tr>
      </table>
 </c:if>
-
+<c:set var="totalCart" value="${0}"/>
 <c:if test="${action == 'cartCheckout'}">
      <table class="cartTable">
          <tr>
              <th>Item</th>
              <th>Quantity</th>
              <th>Price</th>
+             <th>Total</th>
              <th>Image</th>
          </tr>
          <c:forEach var="cart" items="${myCart}">
@@ -64,18 +65,59 @@
              <td class="columnName">${cart.getName()}</td>
              <td class="columnQuantity">
                  <span id="quantity${cart.getCart_id()}">${cart.getQuantity()}</span></td>
-             <td class="columnPrice">${cart.getPrice()*cart.getQuantity()}</td>
+             <td class="columnPrice"><fmt:formatNumber type="currency" currencySymbol="P" value="${cart.getPrice()}"/></td>
+             <td class="columnTotalEach"><fmt:formatNumber type="currency" currencySymbol="P" value="${cart.getPrice()*cart.getQuantity()}"/></td>
              <td class="columnImage"><img src="${cart.getImage()}"></td>
          </tr>
+         <c:set var="totalCart" value="${cart.getPrice()*cart.getQuantity() + totalCart}"/>
          </c:forEach>
+         <tr><td colspan="5"><hr></td></tr>
+         <tr>
+         	<td colspan="3"><strong>Total</strong></td>
+         	<td id="grandTotal"><strong><fmt:formatNumber type="currency" currencySymbol="P" value="${totalCart}"/></strong></td>
+         </tr>
      </table>
 </c:if>
 
      
     <h1>Payment method:</h1>
-       <input type="radio" name="method">Cash On Delivery
-       <input type="radio" name="method">Credit/Debit Card
-       <input type="radio" name="method">PayPal
+       <input id="rdCashOnDelivery" type="radio" name="method" checked="checked">Cash On Delivery
+       <input id="rdCharge" type="radio" name="method">Credit/Debit Card
+       
+       <div id="cashOnDelivery">
+       	<table>
+       		<tr>
+       			<td><label>Change for: </label></td>
+       			<td><input id="amount" type="number" placeholder="Enter amount"></td>
+       			<td id="amountErr" class="err">Invalid amount</td>
+       		</tr>
+       	</table>
+       </div>
+       
+       <div id="charge">
+       	<table>
+       		<tr><td colspan="2">Card Number</td></tr>
+ 			<tr><td><input id="cardNumber" type="text" value="${user.getCcno()}"></td></tr>
+ 			<tr><td id="numberErr" class="err">Invalid Card Number</td></tr>
+ 			<tr><td colspan="2">Account Name</td></tr>
+ 			<tr><td><input id="accountName" type="text" placeholder="Owner name"></td></tr>
+ 			<tr><td id="nameErr" class="err">Name cannot have a number.</td></tr>
+ 			<tr>
+ 				<td><label>CCV</label></td>
+ 				<td><label>Expiry Date</label></td>
+ 			</tr>
+ 			<tr>
+ 				<td><input id="ccv" type="number" maxlength="3"></td>
+ 				<td><input id="expiry" type="text" maxlength="5"></td>
+ 			</tr>
+ 			<tr>
+ 				<td id="ccvErr" class="err">Invalid CCV</td>
+ 				<td id="expiryErr" class="err">Invalid Expiry Date</td>
+ 			</tr>
+       	</table>
+       </div>
+       
+       
        <h1>Shipping Information:</h1>
        <table class="addressTable">
            <tr>

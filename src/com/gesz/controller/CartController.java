@@ -17,6 +17,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.gesz.mapper.CartMapper;
 import com.gesz.model.Cart;
 import com.gesz.mybatis.GenSessionFactory;
+import com.gesz.service.UpdateCart;
 
 @WebServlet("/cart")
 public class CartController extends HttpServlet {
@@ -25,8 +26,10 @@ public class CartController extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
+		String userId = (String)session.getAttribute("UID");
 		session.setAttribute("addCartStatus", "");
 		session.setAttribute("action", "cartCheckout");
+		session.setAttribute("cartCount",UpdateCart.getCartCount(userId));
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){

@@ -55,8 +55,9 @@
          </tr>
          <c:set var="total" value="${cart.getPrice()*cart.getQuantity() + total}"/>
          </c:forEach>
+         <tr><td colspan="7"><hr></td></tr>
          <tr>
-         	<td colspan="3"><strong>Total</strong></td>
+         	<td colspan="4"><strong>Total</strong></td>
          	<td><strong><fmt:formatNumber type="currency" currencySymbol="P" value="${total}"/></strong></td>
          </tr>
      </table>

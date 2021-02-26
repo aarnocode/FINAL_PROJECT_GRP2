@@ -47,3 +47,6 @@ input[type=radio] {
 #notice {
 	color:tomato;
 }
+.err{
+	color:tomato;
+}

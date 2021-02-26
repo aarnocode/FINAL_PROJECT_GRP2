@@ -11,6 +11,7 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import com.gesz.mapper.AccountsMapper;
 import com.gesz.mapper.CartMapper;
+import com.gesz.mapper.OrderMapper;
 import com.gesz.mapper.ProductMapper;
 import com.gesz.model.Cart;
 
@@ -24,6 +25,7 @@ public class GenSessionFactory {
 		configuration.addMapper(AccountsMapper.class);
 		configuration.addMapper(ProductMapper.class);
 		configuration.addMapper(CartMapper.class);
+		configuration.addMapper(OrderMapper.class);
 		
 		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 		return builder.build(configuration);

@@ -27,14 +27,15 @@ public class CheckoutController extends HttpServlet {
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("chckout na");
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
 		session.setAttribute("notice", "");
 		int UID = Integer.valueOf((String)session.getAttribute("UID"));
 		String action = (String)session.getAttribute("action");
 		String selected = request.getParameter("selected");
-		selected = selected.substring(0,selected.length()-1);
+		if(selected.length() > 0 ) {
+			selected = selected.substring(0,selected.length()-1);
+		}
 		String [] item = selected.split(",");
 		System.out.println(selected);
 		
@@ -62,6 +63,7 @@ public class CheckoutController extends HttpServlet {
 					 session.setAttribute("notice","Cannot add more. Currently out of stock."); 
 					 session.setAttribute("productQuantity", quantity-1);
 				}else {
+					product.decreaseStock(quantity, prod.getId());
 					session.setAttribute("productQuantity", quantity);
 				}
 				 
