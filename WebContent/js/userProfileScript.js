@@ -82,14 +82,14 @@ function initUserProfile(){
 		}
 		
 	});
+	//ADD CREDIT CARD
 	$('#addccBtn').click(function(){
 		var ccno = $("#addccnoinput").val();
 		$("cc#errMessage1").text('');
-		if(validation(ccno)){
+		if(addCreditCardValidation(ccno)){
 			clearErrMssg();
-			//alert('bb');
 			alert("validation pass");
-			//AddCreditCard(ccno);
+			AddCreditCard(ccno);
 		}
 	});
 	$("#ccnoinput").attr("disabled", true);
@@ -202,8 +202,14 @@ function Update(firstname,lastname,mi,email,contactno,streetaddress,zipcode,city
 //		}
 	});
 }
-function AddCreditCard(){
-	
+function AddCreditCard(ccno){
+	$.ajax({
+		url: contextPath + "pages/addcc",
+		method: "POST",
+		data: {
+			ccno : ccno
+		}
+	});
 }
 //Test Update Function
 function Update2(){

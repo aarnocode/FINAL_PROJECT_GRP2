@@ -77,7 +77,9 @@ public interface AccountsMapper {
 	
 	@Select("SELECT CCNO FROM final_project_grp2_user WHERE email = #{arg0}")
 	public String getcc(String id);
-	
+	//Update Button with Credit Card
+	@Update("Update final_project_grp2_user set ccno=#{arg0} where user_id = #{arg1}")
+	public int addCCNo(BigInteger ccno,int id);
 	//Update Button for no Credit Card
 	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
 	public int updateNoCCProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);

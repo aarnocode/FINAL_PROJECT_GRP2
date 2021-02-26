@@ -23,7 +23,6 @@ public class UpdateUserProfileController extends HttpServlet{
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
-		System.out.println("H");
 //		String firstname = "dell";
 //		String lastname = "dell";
 //		String mi = "D";
