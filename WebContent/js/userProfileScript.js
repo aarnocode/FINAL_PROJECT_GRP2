@@ -38,8 +38,11 @@ function initUserProfile(){
 	//Close Edit modal
 	$('#cancelEditBtn').click(function(){
 		modalClose();
-	//UPDATE USER DATA
 	});
+	$('#cancelccBtn').click(function(){
+		modalClose();
+	});
+	//UPDATE USER DATA
 	$('#submitEditBtn').click(function(){
 		var firstname = $("#firstname").val();
 		var lastname = $("#lastname").val();
@@ -73,7 +76,16 @@ function initUserProfile(){
 		}
 		
 	});
-	
+	$('#addccBtn').click(function(){
+		var ccno = $("#addccnoinput").val();
+		$("cc#errMessage1").text('');
+		if(validation(ccno)){
+			clearErrMssg();
+			//alert('bb');
+			alert("validation pass");
+			//AddCreditCard(ccno);
+		}
+	});
 	$("#ccnoinput").attr("disabled", true);
 	$("#oldpassword").attr("disabled", true);
 	$("#newpassword").attr("disabled", true);
@@ -124,7 +136,7 @@ function initUserProfileResult(){
 	
 	if($.trim($('#myuserccno').text()) == ""){//No Credit Card
 		$("#ccnoinput").attr("placeholder", "No Credit Card");
-		$('#addcc').addClass("notvisible");
+		$('#addcc').removeClass("notvisible");
 		//Dont put #myuserccno.text above this
 		$('#myuserccno').text('No Credit Card');	
 	}
@@ -157,13 +169,12 @@ function modalClose(){
 
     $("#editModal").css("display", "none");
     $("#ccModal").css("display", "none");
-//    $('.active').removeClass('active');
-//    $('#username').val('');
-//    $('#password').val('');
-//    document.getElementById("errMsg").style.display = "none"
 }
 //Update Function
 function Update(){
+	
+}
+function AddCreditCard(){
 	
 }
 //Test Update Function
@@ -174,6 +185,44 @@ function Update2(){
 		
 	});
 
+}
+// Validation for Add Credit Card
+function addCreditCardValidation(ccno){
+	var res = true;
+	var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+	//Check if any of the input field is null or empty
+	if(isEmptyOrNull(ccno)){
+		//alert('a');
+		errmsg = "There Are Some Empty Fields, Please Fill them up";
+		$("#ccerrMessage1").text(errmsg);
+		
+		res = false;
+		
+	}
+	//Check if any of the input field exceeded the max. char length and displays and error message
+	if(ccno.length > 25){
+		//alert('b');
+		$("#addccnoerror").text("Credit Card Number is only up to 25 Character ");				
+		res = false;
+	}	
+	//Checks for special/illegal Characters
+	if(format.test(ccno)){
+		//alert('d');
+		$("#ccerrMessage1").text("Some Fields Contains Special Characters");
+		res = false;
+	}
+	//Check for negative numbers
+	if(ccno < 0){
+		//alert('e');
+		$("#addccnoerror").text("Invalid Credit Card Number");
+		res = false;
+	}	
+	
+	if(res)
+		return true;
+	else
+		return false;
 }
 //Input Validation
 function validation(firstname,lastname,mi,password,email,contactno,address,newpassword,ccno,isPassInputDisabled,isCcnoInputDisabled){
@@ -232,10 +281,12 @@ function validation(firstname,lastname,mi,password,email,contactno,address,newpa
 		res = false;
 	}
 	//Check for negative numbers
-	if(contactno < 0 ||zipcode < 0){
+	if(contactno < 0 ||zipcode < 0 || ccno < 0){
 		//alert('e');
 		if(contactno < 0)
-			$("#contacterror").text($("#contacterror").text()+"Invalid contact Number");
+			$("#contacterror").text("Invalid contact Number");
+		if(ccno < 0)
+			$("#ccnoinputerror").text("Invalid Credit Card Number");
 		if(zipcode < 0)
 			$("#ziperror").text("Invalid Zip Code");
 		
@@ -341,6 +392,16 @@ function maxLengthValidation(){
 	    	$("#ccnoinputerror").text("");
 	    }
 	});	
+	$('#addccnoinput').on('keydown', function (e) {
+	    if($(this).val().length>24 && e.which != 8 && e.which != 9){
+	    	$("#addccnoerror").text("Credit Card Number is only up to 25 Character ");
+	    	return false;
+	    }
+	          
+	    if($(this).val().length<=25){
+	    	$("#addccnoerror").text("");
+	    }
+	});	
 	
 	 $("#contactno").keypress(function (e) {
 
@@ -375,6 +436,17 @@ function maxLengthValidation(){
          }
 
      });
+	 $("#addccnoinput").keypress(function (e) {
+
+         var key = e.charCode || e.keyCode || 0;
+
+         // only numbers
+         if (key < 48 || key > 58) {
+
+             return false;
+         }
+
+     });
 }
 function isEmptyOrNull(item){
 	if (item == "" || item.length == 0 || item == null)
@@ -387,10 +459,14 @@ function clearErrMssg(){
 	$("#errMessage1").text('');
 	$("#errMessage2").text('');
 	$("#errMessage3").text('');
+	$("#ccerrMessage1").text('');
 	$("#fnerror").text('');
 	$("#lnerror").text('');
 	$("#mierror").text('');
 	$("#pwerror").text('');
 	$("#emailerror").text('');
 	$("#contacterror").text('');
+	$("#ccnoinputerror").text('');
+	$("#addccnoerror").text('');
+	
 }

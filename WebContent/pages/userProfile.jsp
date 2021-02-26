@@ -92,8 +92,8 @@
 				    </div>  
 				    <div class="">
 					   		<p class="errormsg" id="ccerrMessage1"></p>
-							<input type="text"  id="ccnoinput" placeholder="Credit Card Number"><br>
-							<p class="errormsg" id="ccnoerror"></p><br><br>
+							<input type="number"  id="addccnoinput" placeholder="Credit Card Number"><br>
+							<p class="errormsg" id="addccnoerror"></p><br><br>
 						  <input type="button" id="addccBtn" value="Add">&emsp;&emsp;			  
 			 			  <input type="button" id="cancelccBtn" value="Cancel">
 					</div>
