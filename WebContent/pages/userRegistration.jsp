@@ -176,7 +176,7 @@
 			<div class="rightColumn">
 			<div class="horizontal-group">
 				<div class="form-group left" >
-				Contact No.: 
+				Contact No: 
 				</div>
 				<div class="form-group right">
 				<input type="number" id="contactno" placeholder="Enter your contact no">

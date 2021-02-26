@@ -1,5 +1,4 @@
 function initUserReg(){
-	//window.location.href = 'http://localhost:8080/OnlineStore/';
 	$(".logo").click(function(){
 		toMainMenu();
 	});
@@ -13,12 +12,7 @@ function initUserReg(){
 		var contactno = $("#contactno").val();
 		var address = $("#streetaddress").val() + ", "+$("#zipcode").val()+", "+$("#city").val()+", "+$("#state").val()+", "+$("#country").val();
 		var errmsg = "Error "+address;
-		$("#errMessage1").text('');
-		$("#errMessage2").text('');
-		$("#errMessage3").text('');
-		$("#pwerror").text('');
-		$("#contacterror").text('');
-		$("#countryerror").text('');
+		refreshErrMsg();
 		
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
 			clearErrMssg();
@@ -32,8 +26,17 @@ function initUserReg(){
 	
 }
 
-
-function toMainMenu(){
+function refreshErrMsg(){//Clears Relevant Message every time user registers
+	$("#errMessage1").text('');
+	$("#errMessage2").text('');
+	$("#errMessage3").text('');
+	$("#pwerror").text('');
+	$("#contacterror").text('');
+	$("#countryerror").text('');
+	$("#msgresult1").text('');
+	$("#msgresult2").text('');
+}
+function toMainMenu(){//Redirect to Main Menu if you click the logo
 	if(window.location.href == "http://localhost:8080/OnlineStore/pages/userRegistration.jsp" ||
 			window.location.href == "http://localhost:8080/OnlineStore/pages/userRegistration.jsp#"){
 		window.location.href = 'http://localhost:8080/OnlineStore/pages/home.jsp';
@@ -87,7 +90,7 @@ function cleartTxtBox(){
 	$("#state").val('');
 	$("#country").val("Please Select");
 }
-function validation(firstname,lastname,mi,username,password,email,contactno,address){
+function validation(firstname,lastname,mi,username,password,email,contactno,address){//Validation for the Data Inputted by user
 	var res = true;
 	var zipcode = $("#zipcode").val();
 	var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
@@ -132,7 +135,7 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 	
 	//Checks for special/illegal Characters
 	if(format.test(firstname)||format.test(lastname)||format.test(mi)||format.test(username)||format.test(password)||formatemail.test(email)||
-			format.test(contactno)){
+			format.test(contactno)||format.test($("#city").val())||format.test($("#state").val())){
 		$("#errMessage3").text("Some Fields Contains Special Characters");
 		res = false;
 	}
@@ -159,7 +162,7 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 		return false;
 			
 }
-function maxLengthValidation(){
+function maxLengthValidation(){//Validation while typing for textbox
 	//Check the max lenght and display messages and prevent from further input
 	$('#firstname').on('keydown', function (e) {
 	    if($(this).val().length>19 && e.which != 8 && e.which != 9){
@@ -268,14 +271,14 @@ function maxLengthValidation(){
 
      });
 }
-function isEmptyOrNull(item){
+function isEmptyOrNull(item){//Returns Results if data is null or empty
 	if (item == "" || item.length == 0 || item == null)
 	    return true;
 	else
 		return false;
 	
 }
-function messageResult(){
+function messageResult(){//Change success message to green
 	if($("#msgresult1").text() === "You have Successfully Registered"){
 		$("#msgresult1").removeClass("errormsg");
 		$("#msgresult1").addClass("successmsg");
