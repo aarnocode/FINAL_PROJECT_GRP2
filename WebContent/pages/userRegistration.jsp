@@ -4,9 +4,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
-
 <link rel="stylesheet" href="../css/userRegistrationStyle.css"
 	type="text/css">
+<link rel="stylesheet" href="../css/header.css" type="text/css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
@@ -18,6 +18,7 @@
 <title>User Registration</title>
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
 	<div class="signup-form">
 		
 		<div class="form-header">
@@ -27,13 +28,13 @@
 		
 		
 		<div class="form-body">
-			<div class="row">
-			<div class="column">
-			
 			<p class="errormsg" id="errMessage1"></p>
 		<p class="errormsg" id="errMessage2"></p>
 		<p class="errormsg" id="errMessage3"></p>
+			<div class="row">
 			
+			<div class="column">
+			<h4 style="text-align:center">--Personal Info--</h4>
 			<div class="row">
 			<div class="leftColumn">
 			<p class="errormsg" id="fnerror"></p> 
@@ -143,13 +144,11 @@
 			</div>
 			</div> <!-- confirm password row -->
 			
-			
-			</div> <!--  end of first column -->
-			
-			<div class="column">
-			
 			<div class="row">
-			<div class="leftColumn"></div>
+			
+			<div class="leftColumn">
+			<p class="errormsg" id="emailerror"></p>
+			</div>
 			<div class="rightColumn">
 			<div class="horizontal-group">
 				<div class="form-group left" >
@@ -158,11 +157,17 @@
 				<div class="form-group right">
 				<input type="textbox" id="email" placeholder="Enter your email address">
 				</div>
-				<p class="errormsg" id="emailerror"></p>
+				
 
 			</div>
 			</div>
 			</div> <!-- end email row -->
+			</div> <!--  end of first column -->
+			
+			
+			<div class="column">
+			<h4 style="text-align:center">--Delivery Details--</h4>
+			
 
 			<div class="row">
 			<div class="leftColumn">
@@ -286,6 +291,7 @@
 
 	<div id="regcontainer"></div>
 
+	<jsp:include page="footer.jsp"/>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
