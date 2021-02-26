@@ -8,34 +8,37 @@
 		<div class="container-fluid ">
 			<div >
 			<a class="navbar-brand" href="#"> 
-			<div class="homeIcon" >
-			<i class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
+			<div class="logo" >
+			<img src="../images/logo.png">
 			</div>
 			<div class="brandName">
 				GESZ
 			</div>
 			</a>
 			</div>
-
+			
+			<!--  
 			<div class="searchBarWrapper" >
 				<div class="searchIcon" >
 				<i class="material-icons" style="font-size:36px; color:white">search</i>
-				<!-- search icon -->
+				
 				</div>
 				<div class="searchField" >
 				<input class="searchBar" type="text"
 					placeholder="Search for products" >
 				</div>
-			</div>
-			<!-- end of searchBard div -->
+			</div> 
+			-->
 
 
 			<div class="rightControls">
+				
 				<i class="material-icons cart" style="font-size:36px; color:white">shopping_cart</i><span class='badge' id='lblCartCount'>
 					<c:if test="${cartCount >= 1}">
 						${cartCount}
 					</c:if>
 				</span>
+				<i class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
 				<i class="material-icons" style="font-size:36px; color:white">account_circle</i>
 			</div>
 			
