@@ -11,6 +11,7 @@
 
 .searchBarWrapper{
 	width: 500px;
+	padding-top:12px;
 }
 
 .searchBar{
@@ -38,3 +39,12 @@
     vertical-align: top;
     margin-left: -10px; 
 }
+
+.homeIcon, .brandName, .searchIcon, .searchField{
+	float:left
+}
+
+.brandName{
+	padding-top:7px
+}
+
