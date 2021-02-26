@@ -261,8 +261,8 @@
 				<div class="form-group left" >
 				Country: 
 				</div>
-				<div class="form-group right">
-				<select name="country" id="country">
+				<div class="form-group  right">
+				<select class="form-select" aria-label="Country Select" name="country" id="country">
 					<option selected="selected">Please Select</option>
 					<option value="Philippines">Philippines</option>
 					<option value="Malaysia">Malaysia</option>
@@ -276,7 +276,6 @@
 			</div>
 			</div>
 			</div> <!-- end country row -->
-			
 			</div> <!-- END of column2 -->
 			</div> <!--  END of row -->
 
