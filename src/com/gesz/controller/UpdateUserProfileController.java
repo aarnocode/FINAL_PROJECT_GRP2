@@ -49,21 +49,18 @@ public class UpdateUserProfileController extends HttpServlet{
 		String country = request.getParameter("country");
 		String address = streetaddress+", "+zipcode+", "+city+", "+state+", "+country;
 		Boolean sameemail = Boolean.parseBoolean(request.getParameter("sameemail"));
-		int id=2;
+		int id=7;
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
-		System.out.println("Happy");
 		
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
-		System.out.println("birthday");
 
 				label:try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
-					System.out.println("to");
+					//System.out.println("to");
 					AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
 					String checkemail = accounts.verifyEmail(email);
 					
-					System.out.println("you");
 					//For Checking if Email and/or User already exist in the database
 					if(checkemail != "" && checkemail != null && sameemail == false){	//Will go here if email already exist in database			
 						System.out.println("Email Address is already in use");
@@ -81,7 +78,7 @@ public class UpdateUserProfileController extends HttpServlet{
 						sqlSession.close();
 						request.setAttribute("updatemsg", "You have Successfully Updated with No CC");
 						dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
-						System.out.println("Success Insert");
+						System.out.println("Success have Successfully Update");
 						dispatcher.forward(request, response);
 					}
 					else {//Will go here if user have Credit Card#		
@@ -107,7 +104,8 @@ public class UpdateUserProfileController extends HttpServlet{
 					}
 				}catch(Exception e) {//If Other Error Occurs it will go here
 					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");	
-					System.out.println("CATCH ERROR");
+					request.setAttribute("updatemsg", "Another person have already used this Email");
+					System.out.println("Catch Error");
 					System.out.println(e);
 					dispatcher.forward(request, response);
 				}

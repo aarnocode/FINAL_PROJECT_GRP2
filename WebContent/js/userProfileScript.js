@@ -22,10 +22,6 @@ function initUserProfile(){
 	$('#editBtn').click(function(){
 		$("#editModal").css("display", "block");	
 	});
-	$('#cancel').click(function(){
-		//Update2();
-		
-	});
 	//Close Edit modal
 	$('#modalCloseBtn').click(function(){
 		modalClose();
@@ -195,11 +191,11 @@ function Update(firstname,lastname,mi,email,contactno,streetaddress,zipcode,city
 			password: newpassword,
 			ccno : ccno,
 			sameemail : sameemail
+		},
+		success: function(result){
+			//window.location.href = 'http://localhost:8080/OnlineStore/';
+			$("#updatecontainer").html(result);
 		}
-//	,
-//		success: function(result){
-//			$("#updatecontainer").html(result);
-//		}
 	});
 }
 function AddCreditCard(ccno){
@@ -211,15 +207,7 @@ function AddCreditCard(ccno){
 		}
 	});
 }
-//Test Update Function
-function Update2(){
-	$.ajax({
-		url: contextPath + "pages/updateprofile",
-		method: "POST"
-		
-	});
 
-}
 // Validation for Add Credit Card
 function addCreditCardValidation(ccno){
 	var res = true;

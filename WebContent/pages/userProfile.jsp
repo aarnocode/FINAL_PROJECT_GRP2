@@ -23,7 +23,6 @@
 			
 	 	</div>
 	 	<input class="notvisible" type="button" id="editBtn" value="Edit">&emsp;&emsp;
-	 	<input class="notvisible" type="button" id="cancel" value="Update">
 		<div id="updatecontainer">
 			
 	 	</div>

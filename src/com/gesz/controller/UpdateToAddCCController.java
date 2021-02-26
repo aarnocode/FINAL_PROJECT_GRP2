@@ -27,16 +27,12 @@ public class UpdateToAddCCController extends HttpServlet{
 		int id=7;
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
-		System.out.println("Happy");
 		
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
-		System.out.println("birthday");
 
 				try(SqlSession sqlSession = sqlSessionFactory.openSession()){				
-					System.out.println("to");
 					AccountsMapper accounts = sqlSession.getMapper(AccountsMapper.class);
-					System.out.println("you");
 			
 						int result = accounts.addCCNo(ccno,id);
 						
