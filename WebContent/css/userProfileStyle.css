@@ -6,6 +6,9 @@
 .editform{
 /* 	display: none;  */
 }
+.errormsg{
+	color: red;
+}
 .dataheader{
 	text-align:left;float:left;
 }

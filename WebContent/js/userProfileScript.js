@@ -1,6 +1,4 @@
-function initUserProfile(){
-var enterNewPass = false;
-	
+function initUserProfile(){	
 	$.ajax({
 		url: contextPath + "pages/profile",
 		method: "POST",
@@ -12,8 +10,12 @@ var enterNewPass = false;
 	$('#editpass').click(function(){
 		$("#oldpassword").attr("disabled", false);
 		$("#newpassword").attr("disabled", false);
-		enterNewPass = true;
-		
+		$("#pwerror").removeClass("notvisible");
+	});
+	//Edit Credit Card No.
+	$('#editccno').click(function(){
+		$("#ccnoinput").attr("disabled", false);
+		$("#ccnoinputerror").removeClass("notvisible");	
 	});
 	
 	//Open Edit Modal
@@ -22,7 +24,7 @@ var enterNewPass = false;
 	});
 	$('#cancel').click(function(){
 		alert('f');
-		Update();
+		Update2();
 		
 	});
 	//Close Edit modal
@@ -39,24 +41,52 @@ var enterNewPass = false;
 	//UPDATE USER DATA
 	});
 	$('#submitEditBtn').click(function(){
-		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
+		var firstname = $("#firstname").val();
+		var lastname = $("#lastname").val();
+		var mi = $("#mi").val();
+		var password = $("#oldpassword").val();
+		var newpassword = $("#newpassword").val();
+		var email = $("#email").val();
+		var contactno = $("#contactno").val();
+		var address = $("#streetaddress").val() + ", "+$("#zipcode").val()+", "+$("#city").val()+", "+$("#state").val()+", "+$("#country").val();
+		var errmsg = "Error "+address;
+		var ccno = $("#ccnoinput").val();
+		var isPassInputDisabled = $('#newpassword').prop('disabled');
+		var isCcnoInputDisabled = $('#ccnoinput').prop('disabled');
+		
+		$("#errMessage1").text('');
+		$("#errMessage2").text('');
+		$("#errMessage3").text('');
+		$("#contacterror").text('');
+		//alert('aa');
+		if(validation(firstname,lastname,mi,password,email,contactno,address,newpassword,ccno,isPassInputDisabled,isCcnoInputDisabled)){
 			clearErrMssg();
-			Register(firstname,lastname,mi,username,password,email,contactno,address);
+			//alert('bb');
+			if(isPassInputDisabled === true){
+				newpassword = $('#myuserpassword').text();
+			}
+			if(isCcnoInputDisabled === true){
+				ccno = "";
+			}
+			alert("validation pass");
+			//Update2(firstname,lastname,mi,email,contactno,address,newpassword,ccno);
 		}
 		
 	});
 	
-	
+	$("#ccnoinput").attr("disabled", true);
 	$("#oldpassword").attr("disabled", true);
 	$("#newpassword").attr("disabled", true);
-	
-	window.onclick = function(event) {
-	  if (event.target == document.getElementById("editModal") || event.target == document.getElementById("ccModal")) {
-		  modalClose();
-	  }
-	}
+	//Optional Modal Close Function
+//	window.onclick = function(event) {
+//	  if (event.target == document.getElementById("editModal") || event.target == document.getElementById("ccModal")) {
+//		  modalClose();
+//	  }
+//	}
 	maxLengthValidation();
 }
+
+
 //Optional Function(Inactive)
 function disableEditInput(){
 	$("#firstname").attr("disabled", true);
@@ -79,6 +109,7 @@ function transferInfoToEditInput(){
 	$("#mi").val($('#myusermi').text());
 	//$("#oldpassword").val($('#myuserpassword').text());
 	$("#contactno").val($('#myusercontactno').text());
+	$("#ccnoinput").val($('#myuserccno').text());
 	$("#email").val($('#myuseremail').text());
 	$("#streetaddress").val($('#myuserstreetaddress').text());
 	$("#zipcode").val($('#myuserzipcode').text());
@@ -86,17 +117,18 @@ function transferInfoToEditInput(){
 	$("#state").val($('#myuserstate').text());
 	$("#country").val($('#myusercountry').text());
 }
+//Condition if User does/doesnt have Credit Card
 function initUserProfileResult(){
 	$("#editBtn").removeClass("notvisible");
 	$("#cancel").removeClass("notvisible");
 	
-	if($.trim($('#myuserccno').text()) == ""){		
-		$("#ccnoinput").attr("disabled", true);
+	if($.trim($('#myuserccno').text()) == ""){//No Credit Card
 		$("#ccnoinput").attr("placeholder", "No Credit Card");
+		$('#addcc').addClass("notvisible");
 		//Dont put #myuserccno.text above this
 		$('#myuserccno').text('No Credit Card');	
 	}
-	else{
+	else{//Have Credit Card
 		$('#addcc').addClass("notvisible");
 	}
 	
@@ -132,6 +164,10 @@ function modalClose(){
 }
 //Update Function
 function Update(){
+	
+}
+//Test Update Function
+function Update2(){
 	$.ajax({
 		url: contextPath + "pages/updateprofile",
 		method: "POST"
@@ -139,16 +175,18 @@ function Update(){
 	});
 
 }
-
-function validation(firstname,lastname,mi,password,email,contactno,address,newpassword){
+//Input Validation
+function validation(firstname,lastname,mi,password,email,contactno,address,newpassword,ccno,isPassInputDisabled,isCcnoInputDisabled){
 	var res = true;
 	var zipcode = $("#zipcode").val();
 	var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 	var formatemail = /[!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/;
 	//Check if any of the input field is null or empty
-	if(isEmptyOrNull(firstname)|| isEmptyOrNull(lastname) || isEmptyOrNull(mi) || isEmptyOrNull(password)
-			|| isEmptyOrNull(password) || isEmptyOrNull(email) || isEmptyOrNull(contactno) || isEmptyOrNull(streetaddress)
-			|| isEmptyOrNull(zipcode)  || isEmptyOrNull(city) || isEmptyOrNull(state) || isEmptyOrNull(city)){
+	if(isEmptyOrNull(firstname)|| isEmptyOrNull(lastname) || isEmptyOrNull(mi) || (isEmptyOrNull(password)&&isPassInputDisabled === false)
+			|| isEmptyOrNull(email) || isEmptyOrNull(contactno) || isEmptyOrNull(streetaddress) || isEmptyOrNull(zipcode) 
+			|| isEmptyOrNull(city) || isEmptyOrNull(state) || isEmptyOrNull(city) || (isEmptyOrNull(newpassword)&&isPassInputDisabled === false)
+			||	(isEmptyOrNull(ccno) && isCcnoInputDisabled === false)){
+		//alert('a');
 		errmsg = "There Are Some Empty Fields, Please Fill them up";
 		$("#errMessage1").text(errmsg);
 		
@@ -156,30 +194,46 @@ function validation(firstname,lastname,mi,password,email,contactno,address,newpa
 		
 	}
 	//Check if any of the input field exceeded the max. char length and displays and error message
-	if(firstname.length > 20 || lastname.length > 20 || mi.length > 1  || (password.length > 30 || password.length < 8) ||
-			email.length > 50 || contactno.length > 11 || address.length > 300){
-		if(password.length > 30 || password.length < 8)
+	if(firstname.length > 20 || lastname.length > 20 || mi.length > 1  || ((password.length > 30 || password.length < 8)&&isPassInputDisabled === false) || 
+			email.length > 50 || contactno.length > 11 || address.length > 300 || ((newpassword.length > 30 || newpassword.length < 8)&&isPassInputDisabled === false)||
+				(ccno.length > 25 && isCcnoInputDisabled === false)){
+		//alert('b');
+		if(firstname.length > 20)
+			$("#fnerror").text("First Name is only up to 20 Character ");
+		if(lastname.length > 20)
+			$("#lnerror").text("Last Name is only up to 20 Character ");
+		if(mi.length > 1)
+			$("#mierror").text("Middle initial is only up to 1 Character ");
+		if(((password.length > 30 || password.length < 8)&&isPassInputDisabled === false) || ((newpassword.length > 30 || newpassword.length < 8)&&isPassInputDisabled === false))
 			$("#pwerror").text("Password must have at least 8 Characters and only up to 30 Character ");
+		if(email.length > 50)
+			$("#emailerror").text("Email is only up to 50 Character ");
+		if(contactno.length > 11)
+			$("#contacterror").text("Contact Number is only up to 11 Character ");
 		if(address.length > 300)
 			$("#errMessage2").text("Address is only up to 300 Character ");
-		
+		if(ccno.length > 25)
+			$("#ccnoinputerror").text("Credit Card Number is only up to 25 Character ");				
 		res = false;
 	}
-	
-	if($('#oldpassword').val() != $('#myuserpassword').val()){
+	//Check is Oldpassword matches Current Password while edit password is enabled
+	if(password != $('#myuserpassword').text() && isPassInputDisabled === false){
+		//alert('c');
 		$("#pwerror").text("Old Password Doesnt Match Your Current Password ");
-		
 		res = false;
 	}
 	
 	//Checks for special/illegal Characters
-	if(format.test(firstname)||format.test(lastname)||format.test(mi)||format.test(password)||formatemail.test(email)||
-			format.test(contactno)){
+	if(format.test(firstname)||format.test(lastname)||format.test(mi)||formatemail.test(email)||
+			format.test(contactno)||(format.test(newpassword)&&isPassInputDisabled === false)||(format.test(password)&&isPassInputDisabled === false)||
+			(format.test(ccno)&&isCcnoInputDisabled === false)){
+		//alert('d');
 		$("#errMessage3").text("Some Fields Contains Special Characters");
 		res = false;
 	}
 	//Check for negative numbers
 	if(contactno < 0 ||zipcode < 0){
+		//alert('e');
 		if(contactno < 0)
 			$("#contacterror").text($("#contacterror").text()+"Invalid contact Number");
 		if(zipcode < 0)
@@ -189,6 +243,7 @@ function validation(firstname,lastname,mi,password,email,contactno,address,newpa
 	}
 	//Check if no countries is Selected
 	if($("#country").val() == "Please Select"){
+		//alert('f');
 		$("#countryerror").text("Please Select a Country");
 		res = false;
 	}
@@ -276,6 +331,16 @@ function maxLengthValidation(){
 	    	$("#contacterror").text("");
 	    }
 	});	
+	$('#ccnoinput').on('keydown', function (e) {
+	    if($(this).val().length>24 && e.which != 8 && e.which != 9){
+	    	$("#ccnoinputerror").text("Credit Card Number is only up to 25 Character ");
+	    	return false;
+	    }
+	          
+	    if($(this).val().length<=25){
+	    	$("#ccnoinputerror").text("");
+	    }
+	});	
 	
 	 $("#contactno").keypress(function (e) {
 
@@ -289,6 +354,17 @@ function maxLengthValidation(){
 
      });
 	 $("#zipcode").keypress(function (e) {
+
+         var key = e.charCode || e.keyCode || 0;
+
+         // only numbers
+         if (key < 48 || key > 58) {
+
+             return false;
+         }
+
+     });
+	 $("#ccnoinput").keypress(function (e) {
 
          var key = e.charCode || e.keyCode || 0;
 
