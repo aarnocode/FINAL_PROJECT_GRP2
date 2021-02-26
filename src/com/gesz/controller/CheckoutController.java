@@ -36,6 +36,7 @@ public class CheckoutController extends HttpServlet {
 		String selected = request.getParameter("selected");
 		selected = selected.substring(0,selected.length()-1);
 		String [] item = selected.split(",");
+		System.out.println(selected);
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){

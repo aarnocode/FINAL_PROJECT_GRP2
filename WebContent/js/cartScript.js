@@ -48,19 +48,23 @@ $("#btnCheckout").click(function(){
 	$("input[type=checkbox]").each(function(){
 		if ($(this).is(':checked')) {
 			selected=selected + $(this).attr("name")+",";
-			console.log($(this).attr("name"));
 		}
 	});
-	$.ajax({
-		url:contextPath + "checkout",
-		method:"POST",
-		data: {
-			selected:selected
-		},
-		success:function(){
-			window.location = "../pages/checkout.jsp";
-		}
-	});
+	console.log("selected: "+selected );
+	if(selected === ""){
+		$("#cartNotice").text("Select items you wish to checkout.");
+	}else{
+		$.ajax({
+			url:contextPath + "checkout",
+			method:"POST",
+			data: {
+				selected:selected
+			},
+			success:function(){
+				window.location = "../pages/checkout.jsp";
+			}
+		});
+	}
 });
 
 $("img[name=delete").click(function(){
