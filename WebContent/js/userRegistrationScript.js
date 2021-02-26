@@ -16,15 +16,11 @@ function initUserReg(){
 		$("#errMessage3").text('');
 		$("#contacterror").text('');
 		
-		
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
-			//alert("validation passed");
 			clearErrMssg();
 			Register(firstname,lastname,mi,username,password,email,contactno,address);
+			cleartTxtBox();
 		}
-
-		//Register("zz","zz","z","zzzzzzzzzzz","zzzzzzzzzzz","rr@rr.com","12345678","zzzzzzzzzz");
-		
 		
 		
 	});
@@ -66,6 +62,22 @@ function clearErrMssg(){
 	$("#pwerror").text('');
 	$("#emailerror").text('');
 	$("#contacterror").text('');
+	$("#countryerror").text('');
+}
+function cleartTxtBox(){
+	$("#firstname").val('');
+	$("#lastname").val('');
+	$("#mi").val('');
+	$("#username").val('');
+	$("#password").val('');
+	$("#confirmpass").val('');
+	$("#email").val('');
+	$("#contactno").val('');
+	$("#streetaddress").val('');
+	$("#zipcode").val('');
+	$("#city").val('');
+	$("#state").val('');
+	$("#country").val("Please Select");
 }
 function validation(firstname,lastname,mi,username,password,email,contactno,address){
 	var res = true;
@@ -74,8 +86,8 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 	var formatemail = /[!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/;
 	//Check if any of the input field is null or empty
 	if(isEmptyOrNull(firstname)|| isEmptyOrNull(lastname) || isEmptyOrNull(mi) || isEmptyOrNull(username)
-			|| isEmptyOrNull(password) || isEmptyOrNull(email) || isEmptyOrNull(contactno) || isEmptyOrNull(streetaddress)
-			|| isEmptyOrNull(zipcode)  || isEmptyOrNull(city) || isEmptyOrNull(state) || isEmptyOrNull(city)){
+			|| isEmptyOrNull(password) || isEmptyOrNull(email) || isEmptyOrNull(contactno) || isEmptyOrNull($("#streetaddress").val())
+			|| isEmptyOrNull(zipcode)  || isEmptyOrNull($("#city").val()) || isEmptyOrNull($("#state").val()) || isEmptyOrNull($("#country").val())){
 		errmsg = "There Are Some Empty Fields, Please Fill them up";
 		$("#errMessage1").text(errmsg);
 		
@@ -85,11 +97,22 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 	//Check if any of the input field exceeded the max. char length and displays and error message
 	if(firstname.length > 20 || lastname.length > 20 || mi.length > 1 || username.length > 16 || (password.length > 30 || password.length < 8) ||
 			email.length > 50 || contactno.length > 11 || address.length > 300){
+		if(firstname.length > 20)
+			$("#fnerror").text("First Name is only up to 20 Character ");
+		if(lastname.length > 20)
+			$("#lnerror").text("Last Name is only up to 20 Character ");
+		if(mi.length > 1)
+			$("#mierror").text("Middle initial is only up to 1 Character ");
+		if(mi.length > 16)
+			$("#unerror").text("Username is only up to 16 Character ");
 		if(password.length > 30 || password.length < 8)
 			$("#pwerror").text("Password must have at least 8 Characters and only up to 30 Character ");
+		if(email.length > 50)
+			$("#emailerror").text("Email is only up to 50 Character ");
+		if(contactno.length > 11)
+			$("#contacterror").text("Contact Number is only up to 11 Character ");
 		if(address.length > 300)
 			$("#errMessage2").text("Address is only up to 300 Character ");
-		
 		res = false;
 	}
 	
@@ -108,7 +131,7 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 	//Check for negative numbers
 	if(contactno < 0 ||zipcode < 0){
 		if(contactno < 0)
-			$("#contacterror").text($("#contacterror").text()+"Invalid contact Number");
+			$("#contacterror").text("Invalid contact Number");
 		if(zipcode < 0)
 			$("#ziperror").text("Invalid Zip Code");
 		
@@ -243,4 +266,10 @@ function isEmptyOrNull(item){
 	else
 		return false;
 	
+}
+function messageResult(){
+	if($("#msgresult1").text() === "You have Successfully Registered"){
+		$("#msgresult1").removeClass("errormsg");
+		$("#msgresult1").addClass("successmsg");
+	}
 }

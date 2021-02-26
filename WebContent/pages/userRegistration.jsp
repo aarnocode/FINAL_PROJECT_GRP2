@@ -25,10 +25,11 @@
 			<h1>Create Account</h1>
 		</div>
 		
-		
+		<p id="msgresult1" class="successmsg">You have Successfully Registered</p>
 		
 		<div class="form-body">
-			<p class="errormsg" id="errMessage1"></p>
+		<div id="regcontainer"></div>
+		<p class="errormsg" id="errMessage1"></p>
 		<p class="errormsg" id="errMessage2"></p>
 		<p class="errormsg" id="errMessage3"></p>
 			<div class="row">
@@ -197,8 +198,8 @@
 				Street Address: 
 				</div>
 				<div class="form-group right">
-				<input type="textbox" id="Enter your street address"
-					placeholder="Street Address">
+				<input type="textbox" id="streetaddress"
+					placeholder="Enter your street address">
 					</div>
 			</div>
 			</div>
@@ -289,7 +290,6 @@
 	</div>
 	<!-- END of signup-form div -->
 
-	<div id="regcontainer"></div>
 
 	<jsp:include page="footer.jsp"/>
 
