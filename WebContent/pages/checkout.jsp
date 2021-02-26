@@ -23,6 +23,7 @@
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
 	 <input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+	 <input id="fromCart" type="hidden" value="${action}" style="display:none">
 	 <h1>Checkout</h1>
 	 <h3 id="notice">${notice}</h3>
 <c:if test="${action != 'cartCheckout'}">
@@ -88,7 +89,7 @@
        	<table>
        		<tr>
        			<td><label>Change for: </label></td>
-       			<td><input id="amount" type="number" placeholder="Enter amount"></td>
+       			<td><input id="amount" type="number" value="0.00"></td>
        			<td id="amountErr" class="err">Invalid amount</td>
        		</tr>
        	</table>

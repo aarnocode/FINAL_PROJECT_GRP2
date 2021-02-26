@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,14 @@ public class TransactionController extends HttpServlet{
 		String action= (String)session.getAttribute("action");	
 		int userId = Integer.valueOf((String)session.getAttribute("UID"));
 		String method = request.getParameter("method");
+		double grandTotal = 0;
+		String from = request.getParameter("from");
+		String card = "**** **** **** "+request.getParameter("card").substring(15);
+		double amount = Double.valueOf(request.getParameter("amount"));
+		RequestDispatcher dispatcher = null;
+		System.out.println(from);
+		
+		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
 			OrderMapper order = sqlSession.getMapper(OrderMapper.class);
@@ -43,17 +52,31 @@ public class TransactionController extends HttpServlet{
 					order.recordTransaction(order.getId()+1, userId, c.getProduct_id(), c.getQuantity(), 
 											getTotal(c), method, getNewDate());
 					cart.removeItem(userId, c.getProduct_id());
+					grandTotal = grandTotal + getTotal(c);
 				}
+				session.setAttribute("itemBought", myCart);
 			} else {
 				Product product = (Product)session.getAttribute("productView");
 				int quantity = Integer.valueOf((int)session.getAttribute("productQuantity"));
 				order.recordTransaction(order.getId()+1, userId, product.getId(), quantity,
 										product.getPrice().doubleValue()*quantity, method, getNewDate());
+				session.setAttribute("itemBought", product);
+				grandTotal = product.getPrice().doubleValue()*quantity;
 			}
 			sqlSession.commit();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		//response parameters
+		session.setAttribute("grandTotal", grandTotal);
+		session.setAttribute("method", method);
+		session.setAttribute("date", getNewDate());
+		session.setAttribute("from", from);
+		session.setAttribute("amount", amount);
+		session.setAttribute("card", card);
+		dispatcher = request.getRequestDispatcher("pages/thankyou.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 	public double getTotal(Cart cart) {

@@ -100,6 +100,8 @@ $("#rdCharge").click(function(){
 $("#btnCheckout").click(function(){
 	var method="";
 	var isValid = false;
+	var amount=getAmount();
+	var card=getCard();
 	if($("#rdCashOnDelivery").is(":checked")){
 		method = "Cash On Delivery";
 		isValid=validateAmount();
@@ -112,10 +114,13 @@ $("#btnCheckout").click(function(){
 		url: contextPath + "transact",
 		method: "POST",
 		data:{
-			method:method
+			method:method,
+			amount:amount,
+			card:card,
+			from: $("#fromCart").val()
 		},
 		success:function(){
-			console.log("Success checkout!");
+			window.location = "../pages/thankyou.jsp";
 		}
 	});
 	}
@@ -192,3 +197,19 @@ function hasNumbers(t)
 	var regex = /\d/g;
 	return regex.test(t);
 }   
+
+function getAmount(){
+	if($("#amount").val() === ""){
+		return 0;
+	}else{
+		return $("#amount").val();
+	}
+}
+
+function getCard(){
+	if($("#cardNumber").val() === ""){
+		return "**** **** **** ****";
+	}else{
+		return $("#cardNumber").val();
+	}
+}
