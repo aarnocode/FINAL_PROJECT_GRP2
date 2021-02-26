@@ -22,18 +22,23 @@
 
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
+	<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
      <h1>My Cart</h1>
+     <h5 id="cartNotice">${cartNotice}</h5>
      <table class="cartTable">
          <tr>
+         	 <th>Select</th>
              <th>Item</th>
              <th>Quantity</th>
              <th>Price</th>
              <th>Total</th>
              <th>Image</th>
+             <th>Remove</th>
          </tr>
          <c:set var="total" value="${0}"/>
          <c:forEach var="cart" items="${myCart}">
          	<tr>
+         	<td><input class="center" type="checkbox" name="${cart.getCart_id()}"></td>
              <td class="columnName">${cart.getName()}</td>
              <td class="columnQuantity">
                  <span>
@@ -46,6 +51,7 @@
              <td class="columnPrice"><fmt:formatNumber type="currency" currencySymbol="P" value="${cart.getPrice()}"/></td>
              <td class="columnTotal"><fmt:formatNumber type="currency" currencySymbol="P" value="${cart.getPrice()*cart.getQuantity()}"/></td>
              <td class="columnImage"><img src="${cart.getImage()}"></td>
+             <td><img id="imgDelete${cart.getCart_id()}" name="delete" class="trash center" src="https://img.icons8.com/fluent-systems-regular/48/000000/trash--v1.png"/></td>
          </tr>
          <c:set var="total" value="${cart.getPrice()*cart.getQuantity() + total}"/>
          </c:forEach>

@@ -28,6 +28,22 @@ public interface CartMapper {
 	})
 	public ArrayList<Cart> getCartById(int id);
 	
+	@Select("SELECT c.cart_id, c.product_id, p.name, c.quantity, p.price, p.image, c.add_date\r\n" + 
+			"    FROM FINAL_PROJECT_GRP2_CART c,\r\n" + 
+			"         FINAL_PROJECT_GRP2_PRODUCT p\r\n" + 
+			"    WHERE c.cart_id = #{arg0}\r\n" + 
+			"    AND c.product_id = p.product_id")
+	@Results({
+		@Result(property = "cart_id", column = "CART_ID"),
+		@Result(property = "product_id", column = "PRODUCT_ID"),
+		@Result(property = "name",column= "NAME"),
+		@Result(property = "quantity", column = "QUANTITY"),
+		@Result(property = "price", column = "PRICE"),
+		@Result(property = "image", column = "IMAGE"),
+		@Result(property = "date", column = "ADD_DATE")
+	})
+	public Cart getCartItem(int cartId);
+	
 	@Select("SELECT COALESCE ((SELECT MAX(cart_id) FROM FINAL_PROJECT_GRP2_CART),0) FROM DUAL")
 	public int getId();
 	
@@ -40,6 +56,9 @@ public interface CartMapper {
 	@Select("SELECT COUNT(user_id) FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0}")
 	public int getCartCount(int userId);
 	
+	@Select("SELECT product_id FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND cart_id = #{arg1}")
+	public int getProductId(int userId, int cartId);
+	
 	@Update("UPDATE FINAL_PROJECT_GRP2_CART SET quantity = #{arg0} WHERE cart_id=#{arg1}")
 	public int updateCart(int quantity, int id);
 	
@@ -49,4 +68,6 @@ public interface CartMapper {
 	@Delete("DELETE FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND product_id = #{arg1}")
 	public int removeItem(int userId, int prodId);
 	
+	@Delete("DELETE FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND cart_id = #{arg1}")
+	public int removeCartItem(int userId, int cartId);
 }

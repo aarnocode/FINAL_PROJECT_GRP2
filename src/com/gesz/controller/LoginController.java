@@ -18,6 +18,7 @@ import com.gesz.mapper.ProductMapper;
 import com.gesz.model.Product;
 import com.gesz.mybatis.GenSessionFactory;
 import com.gesz.service.Authenticator;
+import com.gesz.service.UpdateCart;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
@@ -36,7 +37,7 @@ public class LoginController extends HttpServlet{
 			System.out.println("success");
 			session.setAttribute("UID", result[1]);
 			session.setAttribute("isLoggedIn", true);
-			session.setAttribute("cartCount", getCartCount(result[1]));
+			session.setAttribute("cartCount",UpdateCart.getCartCount(result[1]));
 		}else {
 			System.out.println("failed");
 			session.setAttribute("logMsg", "Login failed, please try again");
@@ -44,15 +45,4 @@ public class LoginController extends HttpServlet{
 		}
 	}
 	
-	public int getCartCount(String UID) {
-		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
-		int count = 0;
-		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
-			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
-			 count = cart.getCartCount(Integer.valueOf(UID));
-		 }catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return count;
-	}
 }

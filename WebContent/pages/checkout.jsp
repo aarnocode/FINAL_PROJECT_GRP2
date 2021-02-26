@@ -22,6 +22,7 @@
 
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
+	 <input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
 	 <h1>Checkout</h1>
 	 <h3 id="notice">${notice}</h3>
 <c:if test="${action != 'cartCheckout'}">

@@ -23,7 +23,6 @@ public class CartController extends HttpServlet {
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
 		session.setAttribute("addCartStatus", "");

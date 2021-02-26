@@ -33,6 +33,10 @@ public class CheckoutController extends HttpServlet {
 		session.setAttribute("notice", "");
 		int UID = Integer.valueOf((String)session.getAttribute("UID"));
 		String action = (String)session.getAttribute("action");
+		String selected = request.getParameter("selected");
+		selected = selected.substring(0,selected.length()-1);
+		String [] item = selected.split(",");
+		System.out.println(selected);
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
@@ -41,7 +45,10 @@ public class CheckoutController extends HttpServlet {
 			 User user = account.getUserById(UID);
 			 session.setAttribute("user", user);
 			 if(action.equals("cartCheckout")) {
-				 ArrayList<Cart> mycart = cart.getCartById(UID);
+				 ArrayList<Cart> mycart = new ArrayList<Cart>();
+				 for(int i = 0; i < item.length; i++) {
+					 mycart.add(cart.getCartItem(Integer.valueOf(item[i])));
+				 }
 				 session.setAttribute("myCart", mycart);
 			 }else {
 				 Product prod = (Product)session.getAttribute("productView");
