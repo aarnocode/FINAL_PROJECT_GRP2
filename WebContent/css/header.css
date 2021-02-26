@@ -40,7 +40,7 @@
     margin-left: -10px; 
 }
 
-.homeIcon, .brandName, .searchIcon, .searchField{
+.logo, .brandName, .searchIcon, .searchField{
 	float:left
 }
 
@@ -48,3 +48,6 @@
 	padding-top:7px
 }
 
+.logo{
+	padding-right:5px
+}
