@@ -23,6 +23,7 @@
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
      <h1>My Cart</h1>
+     <h5>${cartNotice}</h5>
      <table class="cartTable">
          <tr>
          	 <th>Select</th>

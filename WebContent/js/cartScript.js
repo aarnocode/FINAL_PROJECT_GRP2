@@ -12,7 +12,8 @@ $("#increase,#decrease").click(function(){
 		method:"POST",
 		data:{
 			quantity:quantity,
-			id:id
+			id:id,
+			action:$(this).attr("id")
 		},
 		success:function(){
 			window.location="../pages/cart.jsp";
