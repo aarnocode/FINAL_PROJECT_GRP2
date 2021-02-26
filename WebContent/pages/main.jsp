@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="css/userRegistrationStyle.css" type="text/css">
 <link rel="stylesheet" href="css/footer.css" type="text/css">
 <link rel="stylesheet" href="css/header.css" type="text/css">
+<link rel="stylesheet" href="css/mainStyle.css" type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type="text/javascript">var contextPath = '${pageContext.request.contextPath}' + '/'</script>
 <script src="js/userRegistrationScript.js"></script>
@@ -39,7 +42,9 @@
 		</div><!-- end of container-fluid div -->
 </nav>
 	<div id="mainContainer">
-	
+		<div id="gesz">
+			<p>GESZ</p>
+		</div>
 	</div>
 	<jsp:include page="footer.jsp"/>
 </body>
