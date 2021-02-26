@@ -1,3 +1,10 @@
+var isLoggedIn = $("#isLoggedIn").val();
+if(isLoggedIn == "false"){
+	$(".loginBlur").show();
+}else{
+	$(".loginBlur").hide();
+}
+
 $(document).ready(function(){
 	getTotal();
 });
@@ -35,3 +42,41 @@ function getTotal(){
 	var total = parseFloat($(".columnPrice").text().substring(1).replace(",","") * parseInt($("#quantity").text()));
 	$(".columnTotal").text("P"+total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
+
+$(".cart").click(function(){
+	if(isLoggedIn == "true"){
+		console.log("logged in");
+		$.ajax({
+			url: contextPath + "cart",
+			method: "POST",
+			success: function(){
+				window.location = "../pages/cart.jsp";
+			}
+		});
+	}else{
+		$(".loginBlur").show();
+	}
+	
+});
+
+$(".btnLogin").click(function(){
+	console.log("clicked");
+	$.ajax({
+		url:contextPath + "login",
+		method: "POST",
+		data:{
+			username:$(".txtUsername").val(),
+			password:$(".txtPassword").val()
+		},
+		success: function(){
+			window.location="../pages/cart.jsp";
+		}
+	});
+});
+
+$("#btnClose").click(function(){
+	$(".txtUsername").val("");
+	$(".txtPassword").val("");
+	$("#notice").text("");
+	$(".loginBlur").hide();
+});

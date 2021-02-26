@@ -1,3 +1,10 @@
+var isLoggedIn = $("#isLoggedIn").val();
+if(isLoggedIn == "false"){
+	$(".loginBlur").show();
+}else{
+	$(".loginBlur").hide();
+}
+
 $("#increase,#decrease").click(function(){
 	var id=$(this).attr('name');
 	var quantity = parseInt($("#quantity"+id).text());
@@ -37,9 +44,19 @@ $("#btnCancel").click(function(){
 
 $("#btnCheckout").click(function(){
 	console.log("clicked");
+	var selected ="";
+	$("input[type=checkbox]").each(function(){
+		if ($(this).is(':checked')) {
+			selected=selected + $(this).attr("name")+",";
+			console.log($(this).attr("name"));
+		}
+	});
 	$.ajax({
 		url:contextPath + "checkout",
 		method:"POST",
+		data: {
+			selected:selected
+		},
 		success:function(){
 			window.location = "../pages/checkout.jsp";
 		}
@@ -60,4 +77,44 @@ $("img[name=delete").click(function(){
 			window.location = "../pages/cart.jsp";
 		}
 	});
+});
+
+
+$(".cart").click(function(){
+	if(isLoggedIn == "true"){
+		console.log("logged in");
+		$.ajax({
+			url: contextPath + "cart",
+			method: "POST",
+			success: function(){
+				window.location = "../pages/cart.jsp";
+			}
+		});
+	}else{
+		$(".loginBlur").show();
+	}
+	
+});
+
+$(".btnLogin").click(function(){
+	console.log("clicked");
+	$.ajax({
+		url:contextPath + "login",
+		method: "POST",
+		data:{
+			username:$(".txtUsername").val(),
+			password:$(".txtPassword").val()
+		},
+		success: function(){
+			console.log("success cart cliked");
+			window.location="../pages/cart.jsp";
+		}
+	});
+});
+
+$("#btnClose").click(function(){
+	$(".txtUsername").val("");
+	$(".txtPassword").val("");
+	$("#notice").text("");
+	$(".loginBlur").hide();
 });

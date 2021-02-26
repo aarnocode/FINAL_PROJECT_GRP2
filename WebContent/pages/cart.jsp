@@ -22,6 +22,7 @@
 
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
+	<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
      <h1>My Cart</h1>
      <h5>${cartNotice}</h5>
      <table class="cartTable">
