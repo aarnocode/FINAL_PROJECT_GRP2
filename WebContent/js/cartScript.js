@@ -44,3 +44,19 @@ $("#btnCheckout").click(function(){
 		}
 	});
 });
+
+$("img[name=delete").click(function(){
+	var cartId = ($(this).attr("id")).substring(9);
+	console.log("cart_id "+cartId);
+	$.ajax({
+		url: contextPath + "removecartitem",
+		method: "POST",
+		data:{
+			cartId: cartId,
+			quantity: $("#quantity"+cartId).text()
+		},
+		success: function(){
+			window.location = "../pages/cart.jsp";
+		}
+	});
+});

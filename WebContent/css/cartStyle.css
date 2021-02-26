@@ -44,6 +44,14 @@
     object-fit: cover;
 }
 
+.trash {
+	width:30px !important;
+	height:30px !important;
+	object-fit: cover !important;
+}
+
 .center{
 	text-align:center;
+	justify-content: center;
+	align-items: center;
 }

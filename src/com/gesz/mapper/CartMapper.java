@@ -40,6 +40,9 @@ public interface CartMapper {
 	@Select("SELECT COUNT(user_id) FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0}")
 	public int getCartCount(int userId);
 	
+	@Select("SELECT product_id FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND cart_id = #{arg1}")
+	public int getProductId(int userId, int cartId);
+	
 	@Update("UPDATE FINAL_PROJECT_GRP2_CART SET quantity = #{arg0} WHERE cart_id=#{arg1}")
 	public int updateCart(int quantity, int id);
 	
@@ -49,4 +52,6 @@ public interface CartMapper {
 	@Delete("DELETE FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND product_id = #{arg1}")
 	public int removeItem(int userId, int prodId);
 	
+	@Delete("DELETE FROM FINAL_PROJECT_GRP2_CART WHERE user_id = #{arg0} AND cart_id = #{arg1}")
+	public int removeCartItem(int userId, int cartId);
 }
