@@ -25,7 +25,6 @@
 			<h1>Create Account</h1>
 		</div>
 		
-		<p id="msgresult1" class="successmsg">You have Successfully Registered</p>
 		
 		<div class="form-body">
 		<div id="regcontainer"></div>
