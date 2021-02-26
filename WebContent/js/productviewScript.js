@@ -27,6 +27,9 @@ $(".btnBuy").on({
     		$.ajax({
     			url: contextPath + "checkout",
     			method:"POST",
+    			data:{
+    				selected:""
+    			},
     			success: function(){
     				window.location = "../pages/checkout.jsp";
     			}

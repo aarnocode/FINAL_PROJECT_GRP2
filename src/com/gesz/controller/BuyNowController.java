@@ -38,6 +38,7 @@ public class BuyNowController extends HttpServlet{
 			 CartMapper cart = sqlSession.getMapper(CartMapper.class);
 			 isExisting = cart.checkIfExist(UID, prodId);
 			 if(action.equals("buy")) {
+				 System.out.println("eneter buy now");
 				 
 				 if(isExisting > 0) {
 					 cart.updateCart(isExisting+1, cart.getCartId(UID, prodId));

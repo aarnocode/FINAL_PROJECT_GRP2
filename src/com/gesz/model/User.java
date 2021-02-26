@@ -14,6 +14,7 @@ public class User {
 	private String address;
 	private BigInteger ccno;
 	private int isAdmin;
+	private BigInteger ccno;
 	
 	public User(String username, String password) {
 		this.username = username;
@@ -47,7 +48,7 @@ public class User {
 }
 	
 	
-	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address) {
+	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address,BigInteger ccno) {
 		this.id = id;
 		this.username=username;
 		this.password=password;
@@ -57,7 +58,15 @@ public class User {
 		this.email = email;
 		this.contactno=contactno;
 		this.address = address;
-		
+		this.ccno = ccno;
+	}
+
+	public BigInteger getCcno() {
+		return ccno;
+	}
+
+	public void setCcno(BigInteger ccno) {
+		this.ccno = ccno;
 	}
 
 	public int getId() {
