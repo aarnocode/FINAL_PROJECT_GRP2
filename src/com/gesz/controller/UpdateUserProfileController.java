@@ -49,7 +49,7 @@ public class UpdateUserProfileController extends HttpServlet{
 		String country = request.getParameter("country");
 		String address = streetaddress+", "+zipcode+", "+city+", "+state+", "+country;
 		Boolean sameemail = Boolean.parseBoolean(request.getParameter("sameemail"));
-		int id=7;
+		int id=4;//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
 		
@@ -65,7 +65,7 @@ public class UpdateUserProfileController extends HttpServlet{
 					if(checkemail != "" && checkemail != null && sameemail == false){	//Will go here if email already exist in database			
 						System.out.println("Email Address is already in use");
 						request.setAttribute("updatemsg", "Another person have already used this Email");		
-						dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
+						dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 						sqlSession.close();
 						break label;
 					}
@@ -76,8 +76,8 @@ public class UpdateUserProfileController extends HttpServlet{
 						int result = accounts.updateNoCCProfile(firstname,lastname,mi,password,email,contactno,address,id);
 						sqlSession.commit();
 						sqlSession.close();
-						request.setAttribute("updatemsg", "You have Successfully Updated with No CC");
-						dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
+						request.setAttribute("updatemsg", "You have Successfully your Profile");
+						dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 						System.out.println("Success have Successfully Update");
 						dispatcher.forward(request, response);
 					}
@@ -88,8 +88,8 @@ public class UpdateUserProfileController extends HttpServlet{
 							sqlSession.commit();
 							sqlSession.close();
 							//request.setAttribute("user", user);
-							request.setAttribute("updatemsg", "You have Successfully Update");
-							dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
+							request.setAttribute("updatemsg", "You have Successfully your Profile");
+							dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 							System.out.println("You have Successfully Update");
 							dispatcher.forward(request, response);
 						}
@@ -97,13 +97,13 @@ public class UpdateUserProfileController extends HttpServlet{
 							//request.setAttribute("user", user);
 							sqlSession.close();
 							request.setAttribute("updatemsg", "Failed to Update");
-							dispatcher = request.getRequestDispatcher("/pages/userProfile");
+							dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage");
 							System.out.println("Not Updated");
 							dispatcher.forward(request, response);
 						}
 					}
 				}catch(Exception e) {//If Other Error Occurs it will go here
-					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");	
+					dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");	
 					request.setAttribute("updatemsg", "Another person have already used this Email");
 					System.out.println("Catch Error");
 					System.out.println(e);

@@ -1,11 +1,5 @@
 function initUserProfile(){	
-	$.ajax({
-		url: contextPath + "pages/profile",
-		method: "POST",
-		success: function(result){
-			$("#profilecontainer").html(result);
-		}
-	});
+	getProfile();
 	//Edit the Password
 	$('#editpass').click(function(){
 		$("#oldpassword").attr("disabled", false);
@@ -73,8 +67,8 @@ function initUserProfile(){
 			var city =$("#city").val();
 			var state =$("#state").val();
 			var country =$("#country").val();
-			alert(sameemail);
 			Update(firstname,lastname,mi,email,contactno,streetaddress,zipcode,city,state,country,newpassword,ccno,sameemail);
+			modalClose();
 		}
 		
 	});
@@ -84,8 +78,8 @@ function initUserProfile(){
 		$("cc#errMessage1").text('');
 		if(addCreditCardValidation(ccno)){
 			clearErrMssg();
-			alert("validation pass");
 			AddCreditCard(ccno);
+			modalClose();
 		}
 	});
 	$("#ccnoinput").attr("disabled", true);
@@ -100,7 +94,15 @@ function initUserProfile(){
 	maxLengthValidation();
 }
 
-
+function getProfile(){
+	$.ajax({
+		url: contextPath + "pages/profile",
+		method: "POST",
+		success: function(result){
+			$("#profilecontainer").html(result);
+		}
+	});
+}
 //Optional Function(Inactive)
 function disableEditInput(){
 	$("#firstname").attr("disabled", true);
@@ -204,6 +206,9 @@ function AddCreditCard(ccno){
 		method: "POST",
 		data: {
 			ccno : ccno
+		},
+		success: function(result){
+			$("#updatecontainer").html(result);
 		}
 	});
 }

@@ -24,7 +24,7 @@ public class UpdateToAddCCController extends HttpServlet{
 	private static final long serialVersionUID = -3435554487273689111L;
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
 		BigInteger ccno = new BigInteger(request.getParameter("ccno"));
-		int id=7;
+		int id=4;//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
 		
@@ -39,21 +39,21 @@ public class UpdateToAddCCController extends HttpServlet{
 						if(result == 1){//If Update is Success if will go here
 							sqlSession.commit();
 							sqlSession.close();
-							request.setAttribute("updatemsg", "You have Successfully Added CC");
-							dispatcher = request.getRequestDispatcher("/pages/userProfile.jsp");
+							request.setAttribute("updatemsg", "You have Successfully Added a Credit Card");		
 							System.out.println("You have Successfully Added CC");
+							dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 							dispatcher.forward(request, response);
 						}
 						else {//If Insert fails it will go here
 							//request.setAttribute("user", user);
 							sqlSession.close();
-							request.setAttribute("updatemsg", "Failed to Add CC");
-							dispatcher = request.getRequestDispatcher("/pages/userProfile");
+							request.setAttribute("updatemsg", "Failed to Add a Credit Card");
 							System.out.println("Failed to Add CC");
+							dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 							dispatcher.forward(request, response);
 							}
 				}catch(Exception e) {//If Other Error Occurs it will go here
-					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");	
+					dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");	
 					System.out.println("CATCH ERROR");
 					System.out.println(e);
 					dispatcher.forward(request, response);

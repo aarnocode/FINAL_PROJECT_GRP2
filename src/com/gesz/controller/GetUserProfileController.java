@@ -30,7 +30,7 @@ public class GetUserProfileController extends HttpServlet{
 //    }
 	//@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
-			int id = 7;
+			int id = 4;//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
 			RequestDispatcher dispatcher = null;
 			HttpSession session = request.getSession();	
 			
