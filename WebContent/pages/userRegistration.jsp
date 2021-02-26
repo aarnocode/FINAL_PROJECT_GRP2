@@ -4,9 +4,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
-
 <link rel="stylesheet" href="../css/userRegistrationStyle.css"
 	type="text/css">
+<link rel="stylesheet" href="../css/header.css" type="text/css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
@@ -18,6 +18,7 @@
 <title>User Registration</title>
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
 	<div class="signup-form">
 		
 		<div class="form-header">
@@ -286,6 +287,7 @@
 
 	<div id="regcontainer"></div>
 
+	<jsp:include page="footer.jsp"/>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
