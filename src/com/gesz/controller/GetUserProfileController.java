@@ -30,7 +30,7 @@ public class GetUserProfileController extends HttpServlet{
 //    }
 	//@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
-			int id = 3;
+			int id = 8;
 			RequestDispatcher dispatcher = null;
 			HttpSession session = request.getSession();	
 			
@@ -52,9 +52,8 @@ public class GetUserProfileController extends HttpServlet{
 					request.setAttribute("myuser", user);
 					
 					
-					System.out.println(user.getCcno());
 					dispatcher = request.getRequestDispatcher("/pages/userProfileResult.jsp");
-					System.out.println("Success "+user.getFirstname());
+					//System.out.println("Success "+user.getFirstname());
 					sqlSession.close();
 					dispatcher.forward(request, response);
 					

@@ -105,7 +105,7 @@
 		
 		
 	</div>
-	<div id="regcontainer">
+	<div id="updatecontainer">
   			
   	</div>
 <script type="text/javascript">

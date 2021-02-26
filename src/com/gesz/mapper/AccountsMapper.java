@@ -78,6 +78,10 @@ public interface AccountsMapper {
 	@Select("SELECT CCNO FROM final_project_grp2_user WHERE email = #{arg0}")
 	public String getcc(String id);
 	
+	//Update Button for no Credit Card
 	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
-	public int updateProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);
+	public int updateNoCCProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);
+	//Update Button with Credit Card
+	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6}, ccno=#{arg7}where user_id = #{arg8}")
+	public int updateProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,BigInteger ccno,int id);
 }

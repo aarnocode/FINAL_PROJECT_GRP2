@@ -23,8 +23,7 @@ function initUserProfile(){
 		$("#editModal").css("display", "block");	
 	});
 	$('#cancel').click(function(){
-		alert('f');
-		Update2();
+		//Update2();
 		
 	});
 	//Close Edit modal
@@ -61,18 +60,25 @@ function initUserProfile(){
 		$("#errMessage2").text('');
 		$("#errMessage3").text('');
 		$("#contacterror").text('');
-		//alert('aa');
 		if(validation(firstname,lastname,mi,password,email,contactno,address,newpassword,ccno,isPassInputDisabled,isCcnoInputDisabled)){
+			var sameemail = false;
 			clearErrMssg();
-			//alert('bb');
 			if(isPassInputDisabled === true){
 				newpassword = $('#myuserpassword').text();
 			}
 			if(isCcnoInputDisabled === true){
-				ccno = "";
+				ccno = "0";
 			}
-			alert("validation pass");
-			//Update2(firstname,lastname,mi,email,contactno,address,newpassword,ccno);
+			if($("#myuseremail").text() === $.trim(email)){
+				sameemail = true;
+			}
+			var streetaddress =$("#streetaddress").val();
+			var zipcode =$("#zipcode").val();
+			var city =$("#city").val();
+			var state =$("#state").val();
+			var country =$("#country").val();
+			alert(sameemail);
+			Update(firstname,lastname,mi,email,contactno,streetaddress,zipcode,city,state,country,newpassword,ccno,sameemail);
 		}
 		
 	});
@@ -171,8 +177,30 @@ function modalClose(){
     $("#ccModal").css("display", "none");
 }
 //Update Function
-function Update(){
-	
+function Update(firstname,lastname,mi,email,contactno,streetaddress,zipcode,city,state,country,newpassword,ccno,sameemail){
+	$.ajax({
+		url: contextPath + "pages/updateprofile",
+		method: "POST",
+		data: {
+			firstname: firstname,
+			lastname: lastname,
+			mi: mi,
+			email: email,
+			contactno: contactno,
+			streetaddress: streetaddress,
+			zipcode: zipcode,
+			city: city,
+			state: state,
+			country: country,
+			password: newpassword,
+			ccno : ccno,
+			sameemail : sameemail
+		}
+//	,
+//		success: function(result){
+//			$("#updatecontainer").html(result);
+//		}
+	});
 }
 function AddCreditCard(){
 	
@@ -213,7 +241,7 @@ function addCreditCardValidation(ccno){
 		res = false;
 	}
 	//Check for negative numbers
-	if(ccno < 0){
+	if(ccno <= 0){
 		//alert('e');
 		$("#addccnoerror").text("Invalid Credit Card Number");
 		res = false;
