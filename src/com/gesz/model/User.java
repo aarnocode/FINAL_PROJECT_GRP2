@@ -12,13 +12,14 @@ public class User {
 	private String email;
 	private BigInteger contactno;
 	private String address;
+	private BigInteger ccno;
 	private int isAdmin;
 	
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
-	
+	//overload for registering user
 	public User(String username, String password,String firstname,String lastname,String mi,
 				String email,BigInteger contactno,String address,int isAdmin) {
 		this.username = username;
@@ -31,6 +32,20 @@ public class User {
 		this.address = address;
 		this.isAdmin = 0;
 	}
+	//overloaded method for fetching user info w/ ccno for UserProfile
+	public User(int id,String username, String password,String firstname,String lastname,String mi,
+			String email,BigInteger contactno,String address,BigInteger ccno) {
+	this.username = username;
+	this.password = password;
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.mi = mi;
+	this.email = email;
+	this.contactno = contactno;
+	this.address = address;
+	this.ccno = ccno;
+}
+	
 	
 	public User(int id, String username, String password, String firstname, String lastname, String mi, String email, BigInteger contactno,String address) {
 		this.id = id;
@@ -84,6 +99,9 @@ public class User {
 	public int getIsAdmin() {
 		return isAdmin;
 	}
+	public BigInteger getCcno() {
+		return ccno;
+	}
 
 	public void setUsername(String username) {
 		this.username = username;
@@ -96,5 +114,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	
 }

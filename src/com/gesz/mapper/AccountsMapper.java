@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.gesz.model.User;
 
@@ -44,12 +45,10 @@ public interface AccountsMapper {
 			);
 	
 	@Select("SELECT email FROM final_project_grp2_user WHERE email = #{arg0}")
-	public String verifyEmail(
-					String email);
+	public String verifyEmail(String email);
 	
 	@Select("SELECT username FROM final_project_grp2_user WHERE username = #{arg0}")
-	public String verifyUsername(
-					String username);
+	public String verifyUsername(String username);
 	
 	@Select("SELECT user_id, username, pass_word, first_name, last_name, mi, email, contact_no, address FROM final_project_grp2_user WHERE user_id = #{arg0}")
 	@Results({
@@ -64,4 +63,31 @@ public interface AccountsMapper {
 		@Result(property = "address", column = "ADDRESS")
 	})
 	public User getUserById(int id);
+	
+	@Select("SELECT user_id, username, pass_word, first_name, last_name, mi, email, contact_no, address, ccno FROM final_project_grp2_user WHERE user_id = #{arg0}")
+	@Results({
+		@Result(property = "id", column = "USER_ID"),
+		@Result(property = "username", column = "USERNAME"),
+		@Result(property = "password", column = "PASS_WORD"),
+		@Result(property = "firstname", column = "FIRST_NAME"),
+		@Result(property = "lastname", column = "LAST_NAME"),
+		@Result(property = "mi", column = "MI"),
+		@Result(property = "email", column = "EMAIL"),
+		@Result(property = "contactno", column = "CONTACT_NO"),
+		@Result(property = "address", column = "ADDRESS"),
+		@Result(property = "ccno", column = "CCNO")
+	})
+	public User getUserByIdWCC(int id);//method for fetching user info w/ ccno
+	
+	@Select("SELECT CCNO FROM final_project_grp2_user WHERE email = #{arg0}")
+	public String getcc(String id);
+	//Update Button with Credit Card
+	@Update("Update final_project_grp2_user set ccno=#{arg0} where user_id = #{arg1}")
+	public int addCCNo(BigInteger ccno,int id);
+	//Update Button for no Credit Card
+	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6} where user_id = #{arg7}")
+	public int updateNoCCProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,int id);
+	//Update Button with Credit Card
+	@Update("Update final_project_grp2_user set first_name=#{arg0}, last_name=#{arg1}, mi=#{arg2}, pass_word=#{arg3}, email=#{arg4}, contact_no=#{arg5}, address=#{arg6}, ccno=#{arg7}where user_id = #{arg8}")
+	public int updateProfile(String firstname, String lastname, String mi, String password, String email, BigInteger contact_no,String address,BigInteger ccno,int id);
 }

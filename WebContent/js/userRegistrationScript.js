@@ -9,7 +9,7 @@ function initUserReg(){
 		var password = $("#password").val();
 		var email = $("#email").val();
 		var contactno = $("#contactno").val();
-		var address = $("#streetaddress").val() + ","+$("#zipcode").val()+","+$("#city").val()+","+$("#state").val()+","+$("#country").val();
+		var address = $("#streetaddress").val() + ", "+$("#zipcode").val()+", "+$("#city").val()+", "+$("#state").val()+", "+$("#country").val();
 		var errmsg = "Error "+address;
 		$("#errMessage1").text('');
 		$("#errMessage2").text('');
