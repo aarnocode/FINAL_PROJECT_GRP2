@@ -1,13 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Register Result</title>
-</head>
-<body>
-<p>${message}</p>
-<p>${message2}</p>
-</body>
-</html>
+<p id="msgresult1" class="errormsg">${message}</p>
+<p id="msgresult2" class="errormsg">${message2}</p>
+<script type="text/javascript">
+		$(document).ready(function(){
+			messageResult();
+		});
+</script>

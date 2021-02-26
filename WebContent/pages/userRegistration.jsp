@@ -26,9 +26,9 @@
 		</div>
 		
 		
-		
 		<div class="form-body">
-			<p class="errormsg" id="errMessage1"></p>
+		<div id="regcontainer"></div>
+		<p class="errormsg" id="errMessage1"></p>
 		<p class="errormsg" id="errMessage2"></p>
 		<p class="errormsg" id="errMessage3"></p>
 			<div class="row">
@@ -176,7 +176,7 @@
 			<div class="rightColumn">
 			<div class="horizontal-group">
 				<div class="form-group left" >
-				Contact No.: 
+				Contact No: 
 				</div>
 				<div class="form-group right">
 				<input type="number" id="contactno" placeholder="Enter your contact no">
@@ -197,8 +197,8 @@
 				Street Address: 
 				</div>
 				<div class="form-group right">
-				<input type="textbox" id="Enter your street address"
-					placeholder="Street Address">
+				<input type="textbox" id="streetaddress"
+					placeholder="Enter your street address">
 					</div>
 			</div>
 			</div>
@@ -261,8 +261,8 @@
 				<div class="form-group left" >
 				Country: 
 				</div>
-				<div class="form-group right">
-				<select name="country" id="country">
+				<div class="form-group  right">
+				<select class="form-select" aria-label="Country Select" name="country" id="country">
 					<option selected="selected">Please Select</option>
 					<option value="Philippines">Philippines</option>
 					<option value="Malaysia">Malaysia</option>
@@ -276,7 +276,6 @@
 			</div>
 			</div>
 			</div> <!-- end country row -->
-			
 			</div> <!-- END of column2 -->
 			</div> <!--  END of row -->
 
@@ -289,7 +288,6 @@
 	</div>
 	<!-- END of signup-form div -->
 
-	<div id="regcontainer"></div>
 
 	<jsp:include page="footer.jsp"/>
 

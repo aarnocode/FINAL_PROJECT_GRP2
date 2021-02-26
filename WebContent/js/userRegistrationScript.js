@@ -1,6 +1,7 @@
 function initUserReg(){
-	//window.location.href = 'http://localhost:8080/OnlineStore/';
-	
+	$(".logo").click(function(){
+		toMainMenu();
+	});
 	$("#submitregBtn").click(function(){
 		var firstname = $("#firstname").val();
 		var lastname = $("#lastname").val();
@@ -11,30 +12,36 @@ function initUserReg(){
 		var contactno = $("#contactno").val();
 		var address = $("#streetaddress").val() + ", "+$("#zipcode").val()+", "+$("#city").val()+", "+$("#state").val()+", "+$("#country").val();
 		var errmsg = "Error "+address;
-		$("#errMessage1").text('');
-		$("#errMessage2").text('');
-		$("#errMessage3").text('');
-		$("#contacterror").text('');
-		
+		refreshErrMsg();
 		
 		if(validation(firstname,lastname,mi,username,password,email,contactno,address)){
-			//alert("validation passed");
 			clearErrMssg();
 			Register(firstname,lastname,mi,username,password,email,contactno,address);
+			cleartTxtBox();
 		}
-
-		//Register("zz","zz","z","zzzzzzzzzzz","zzzzzzzzzzz","rr@rr.com","12345678","zzzzzzzzzz");
-		
 		
 		
 	});
 	maxLengthValidation();
 	
-	
 }
 
-
-
+function refreshErrMsg(){//Clears Relevant Message every time user registers
+	$("#errMessage1").text('');
+	$("#errMessage2").text('');
+	$("#errMessage3").text('');
+	$("#pwerror").text('');
+	$("#contacterror").text('');
+	$("#countryerror").text('');
+	$("#msgresult1").text('');
+	$("#msgresult2").text('');
+}
+function toMainMenu(){//Redirect to Main Menu if you click the logo
+	if(window.location.href == "http://localhost:8080/OnlineStore/pages/userRegistration.jsp" ||
+			window.location.href == "http://localhost:8080/OnlineStore/pages/userRegistration.jsp#"){
+		window.location.href = 'http://localhost:8080/OnlineStore/pages/home.jsp';
+	}
+}
 function Register(firstname,lastname,mi,username,password,email,contactno,address){
 	$.ajax({
 		url: contextPath + "pages/register",
@@ -66,16 +73,32 @@ function clearErrMssg(){
 	$("#pwerror").text('');
 	$("#emailerror").text('');
 	$("#contacterror").text('');
+	$("#countryerror").text('');
 }
-function validation(firstname,lastname,mi,username,password,email,contactno,address){
+function cleartTxtBox(){
+	$("#firstname").val('');
+	$("#lastname").val('');
+	$("#mi").val('');
+	$("#username").val('');
+	$("#password").val('');
+	$("#confirmpass").val('');
+	$("#email").val('');
+	$("#contactno").val('');
+	$("#streetaddress").val('');
+	$("#zipcode").val('');
+	$("#city").val('');
+	$("#state").val('');
+	$("#country").val("Please Select");
+}
+function validation(firstname,lastname,mi,username,password,email,contactno,address){//Validation for the Data Inputted by user
 	var res = true;
 	var zipcode = $("#zipcode").val();
 	var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 	var formatemail = /[!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?]+/;
 	//Check if any of the input field is null or empty
 	if(isEmptyOrNull(firstname)|| isEmptyOrNull(lastname) || isEmptyOrNull(mi) || isEmptyOrNull(username)
-			|| isEmptyOrNull(password) || isEmptyOrNull(email) || isEmptyOrNull(contactno) || isEmptyOrNull(streetaddress)
-			|| isEmptyOrNull(zipcode)  || isEmptyOrNull(city) || isEmptyOrNull(state) || isEmptyOrNull(city)){
+			|| isEmptyOrNull(password) || isEmptyOrNull(email) || isEmptyOrNull(contactno) || isEmptyOrNull($("#streetaddress").val())
+			|| isEmptyOrNull(zipcode)  || isEmptyOrNull($("#city").val()) || isEmptyOrNull($("#state").val()) || isEmptyOrNull($("#country").val())){
 		errmsg = "There Are Some Empty Fields, Please Fill them up";
 		$("#errMessage1").text(errmsg);
 		
@@ -85,11 +108,22 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 	//Check if any of the input field exceeded the max. char length and displays and error message
 	if(firstname.length > 20 || lastname.length > 20 || mi.length > 1 || username.length > 16 || (password.length > 30 || password.length < 8) ||
 			email.length > 50 || contactno.length > 11 || address.length > 300){
+		if(firstname.length > 20)
+			$("#fnerror").text("First Name is only up to 20 Character ");
+		if(lastname.length > 20)
+			$("#lnerror").text("Last Name is only up to 20 Character ");
+		if(mi.length > 1)
+			$("#mierror").text("Middle initial is only up to 1 Character ");
+		if(mi.length > 16)
+			$("#unerror").text("Username is only up to 16 Character ");
 		if(password.length > 30 || password.length < 8)
 			$("#pwerror").text("Password must have at least 8 Characters and only up to 30 Character ");
+		if(email.length > 50)
+			$("#emailerror").text("Email is only up to 50 Character ");
+		if(contactno.length > 11)
+			$("#contacterror").text("Contact Number is only up to 11 Character ");
 		if(address.length > 300)
 			$("#errMessage2").text("Address is only up to 300 Character ");
-		
 		res = false;
 	}
 	
@@ -101,14 +135,14 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 	
 	//Checks for special/illegal Characters
 	if(format.test(firstname)||format.test(lastname)||format.test(mi)||format.test(username)||format.test(password)||formatemail.test(email)||
-			format.test(contactno)){
+			format.test(contactno)||format.test($("#city").val())||format.test($("#state").val())){
 		$("#errMessage3").text("Some Fields Contains Special Characters");
 		res = false;
 	}
 	//Check for negative numbers
 	if(contactno < 0 ||zipcode < 0){
 		if(contactno < 0)
-			$("#contacterror").text($("#contacterror").text()+"Invalid contact Number");
+			$("#contacterror").text("Invalid contact Number");
 		if(zipcode < 0)
 			$("#ziperror").text("Invalid Zip Code");
 		
@@ -128,7 +162,7 @@ function validation(firstname,lastname,mi,username,password,email,contactno,addr
 		return false;
 			
 }
-function maxLengthValidation(){
+function maxLengthValidation(){//Validation while typing for textbox
 	//Check the max lenght and display messages and prevent from further input
 	$('#firstname').on('keydown', function (e) {
 	    if($(this).val().length>19 && e.which != 8 && e.which != 9){
@@ -237,10 +271,16 @@ function maxLengthValidation(){
 
      });
 }
-function isEmptyOrNull(item){
+function isEmptyOrNull(item){//Returns Results if data is null or empty
 	if (item == "" || item.length == 0 || item == null)
 	    return true;
 	else
 		return false;
 	
+}
+function messageResult(){//Change success message to green
+	if($("#msgresult1").text() === "You have Successfully Registered"){
+		$("#msgresult1").removeClass("errormsg");
+		$("#msgresult1").addClass("successmsg");
+	}
 }
