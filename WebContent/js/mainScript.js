@@ -3,6 +3,11 @@ window.onscroll = function() {myFunction()};
 var header = document.getElementById("header");
 var sticky = header.offsetTop;
 
+$("#gesz p").fadeOut(500,function(){
+	$("#gesz p").fadeIn(500);
+});
+
+
 function myFunction() {
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky");
@@ -21,7 +26,5 @@ $(document).ready(function(){
 		success:function(result){
 			window.location = "pages/home.jsp";
 		}
-	});
-	
-	
+	});	
 });
