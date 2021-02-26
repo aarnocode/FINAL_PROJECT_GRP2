@@ -28,13 +28,13 @@
 		
 		
 		<div class="form-body">
-			<div class="row">
-			<div class="column">
-			
 			<p class="errormsg" id="errMessage1"></p>
 		<p class="errormsg" id="errMessage2"></p>
 		<p class="errormsg" id="errMessage3"></p>
+			<div class="row">
 			
+			<div class="column">
+			<h4 style="text-align:center">--Personal Info--</h4>
 			<div class="row">
 			<div class="leftColumn">
 			<p class="errormsg" id="fnerror"></p> 
@@ -144,13 +144,11 @@
 			</div>
 			</div> <!-- confirm password row -->
 			
-			
-			</div> <!--  end of first column -->
-			
-			<div class="column">
-			
 			<div class="row">
-			<div class="leftColumn"></div>
+			
+			<div class="leftColumn">
+			<p class="errormsg" id="emailerror"></p>
+			</div>
 			<div class="rightColumn">
 			<div class="horizontal-group">
 				<div class="form-group left" >
@@ -159,11 +157,17 @@
 				<div class="form-group right">
 				<input type="textbox" id="email" placeholder="Enter your email address">
 				</div>
-				<p class="errormsg" id="emailerror"></p>
+				
 
 			</div>
 			</div>
 			</div> <!-- end email row -->
+			</div> <!--  end of first column -->
+			
+			
+			<div class="column">
+			<h4 style="text-align:center">--Delivery Details--</h4>
+			
 
 			<div class="row">
 			<div class="leftColumn">
