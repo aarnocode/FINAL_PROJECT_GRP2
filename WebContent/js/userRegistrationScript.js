@@ -1,6 +1,8 @@
 function initUserReg(){
 	//window.location.href = 'http://localhost:8080/OnlineStore/';
-	
+	$(".logo").click(function(){
+		toMainMenu();
+	});
 	$("#submitregBtn").click(function(){
 		var firstname = $("#firstname").val();
 		var lastname = $("#lastname").val();
@@ -28,11 +30,15 @@ function initUserReg(){
 	});
 	maxLengthValidation();
 	
-	
 }
 
 
-
+function toMainMenu(){
+	if(window.location.href == "http://localhost:8080/OnlineStore/pages/userRegistration.jsp" ||
+			window.location.href == "http://localhost:8080/OnlineStore/pages/userRegistration.jsp#"){
+		window.location.href = 'http://localhost:8080/OnlineStore/pages/home.jsp';
+	}
+}
 function Register(firstname,lastname,mi,username,password,email,contactno,address){
 	$.ajax({
 		url: contextPath + "pages/register",
