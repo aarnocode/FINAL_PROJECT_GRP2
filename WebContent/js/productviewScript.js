@@ -113,7 +113,7 @@ $("#btnHome").click(function(){
 		url: contextPath+"home",
 		method: "POST",
 		success:function(){
-			window.location = "../";
+			window.location = "../pages/home.jsp";
 		}
 	});
 });

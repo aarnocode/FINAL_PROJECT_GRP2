@@ -38,8 +38,8 @@
 						${cartCount}
 					</c:if>
 				</span>
-				<i class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
-				<i class="material-icons" style="font-size:36px; color:white">account_circle</i>
+				<i id="btnNavHome" class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
+				<i id="btnNavAccount" class="material-icons" style="font-size:36px; color:white">account_circle</i>
 			</div>
 			
 		</div><!-- end of container-fluid div -->
@@ -76,5 +76,15 @@ $(".cart").click(function(){
 		$(".loginBlur").show();
 	}
 	
+});
+
+$("#btnNavHome").click(function(){
+	$.ajax({
+		url: contextPath + "home",
+		method: "POST",
+		success: function(){
+			window.location = "../pages/home.jsp";
+		}
+	});
 });
 </script>

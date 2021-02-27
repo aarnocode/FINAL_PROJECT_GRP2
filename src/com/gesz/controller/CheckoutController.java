@@ -21,6 +21,7 @@ import com.gesz.model.Cart;
 import com.gesz.model.Product;
 import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
+import com.gesz.service.UpdateCart;
 
 @WebServlet("/checkout")
 public class CheckoutController extends HttpServlet {
@@ -37,7 +38,6 @@ public class CheckoutController extends HttpServlet {
 			selected = selected.substring(0,selected.length()-1);
 		}
 		String [] item = selected.split(",");
-		System.out.println(selected);
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
