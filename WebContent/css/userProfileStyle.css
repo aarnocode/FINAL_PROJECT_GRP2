@@ -1,3 +1,5 @@
+
+
 .userImg{
 	height: 200px;
 	width: 200px;
@@ -10,7 +12,10 @@
 	color: red;
 }
 .dataheader{
-	text-align:left;float:left;
+	text-align:left;
+	float:left;
+	font-size:1rem;
+	
 }
 .notvisible{
 	display: none;
@@ -59,4 +64,90 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.left-column{
+	float:left;
+	width:30%;
+}
+.right-column{
+	float:left;
+	width:70%;
+}
+.left-column-2{
+	float:left;
+	width:20%;
+	
+}
+.right-column-2{
+	float:left;
+	width:80%;
+}
+.left-column-3{
+	float:left;
+	width:50%;
+	margin-bottom:10px;
+}
+.right-column-3{
+	float:left;
+	width:50%;
+	margin-bottom:10px;
+}
+.my-profile{
+	font-size:2.5rem;
+}
+.subtitle{
+	font-size:1.0rem;
+}
+.user-header{
+	margin-bottom:25px;
+}
+hr{
+	width:98%;
+}
+.atSign, #name, #myuserusername, #myuseremail, #myusercontactno, #myuseraddress, #myuserccno{
+	font-size:1.5rem;
+}
+
+.profilePage{
+	margin: 30px 30px;
+}
+.myName{
+	margin-top:15px;
+	text-transform:capitalize;
+}
+
+#editBtn{
+	width:60px;
+	background-color:black;
+	color: white;
+	padding: 10px 10px;
+}
+#viewOrderBtn{
+	width: 120px;
+	background-color:black;
+	padding: 10px 10px;
+	color: white;
+}
+.modal-content{
+	background-color:black;
+	color:white;
+	height:600px;
+	width:900px;
+}
+#delivery-title, #personal-title {
+	text-align:center;
+	margin-bottom:20px;
+}
+.modal-buttons{
+	float:right;
+	
+}
+#submitEditBtn{
+	width:70px;
+	padding:5px;
+}
+#cancelEditBtn{
+	padding:5px;
+	width:70px;
 }
