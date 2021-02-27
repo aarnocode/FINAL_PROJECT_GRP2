@@ -18,6 +18,7 @@ import com.gesz.mapper.ProductMapper;
 import com.gesz.model.Product;
 import com.gesz.mybatis.GenSessionFactory;
 import com.gesz.service.Authenticator;
+import com.gesz.service.CartExpiration;
 import com.gesz.service.UpdateCart;
 
 @WebServlet("/login")
@@ -37,6 +38,7 @@ public class LoginController extends HttpServlet{
 			System.out.println("success");
 			session.setAttribute("UID", result[1]);
 			session.setAttribute("isLoggedIn", true);
+			CartExpiration.checkExpiredItems(Integer.valueOf(result[1]));
 			session.setAttribute("cartCount",UpdateCart.getCartCount(result[1]));
 		}else {
 			System.out.println("failed");
