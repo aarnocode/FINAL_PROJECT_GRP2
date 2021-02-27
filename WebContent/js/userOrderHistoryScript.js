@@ -1,8 +1,8 @@
 function initOrderHistory(){
 	
 	$('#backBtn').click(function(){
-		var oldURL = document.referrer;
-		window.location.href = oldURL;
+		var prevURL = document.referrer;
+		window.location.href = prevURL;
 	});
 
 }
