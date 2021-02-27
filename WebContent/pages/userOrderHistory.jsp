@@ -19,25 +19,25 @@
 <body>
 <input type="button" id="backBtn" value="back">
 
-<!-- 	<table border="1"> -->
-<!-- 		<tr> -->
-<!-- 			<td>Name</td> -->
-<!-- 			<td>Quantity</td> -->
-<!-- 			<td>Total Amount</td> -->
-<!-- 			<td>Mode of Payment</td> -->
-<!-- 			<td>Purchase Date</td> -->
-<!-- 		</tr> -->
-<%-- 		<c:forEach var="ordr" items="${order}"> --%>
-<!--     		<tr> -->
-<%--     			<td><c:out value="${ordr.getProductName()}"/></td> --%>
-<%--     			<td><c:out value="${ordr.getQty()}"/></td> --%>
-<%--     			<td><c:out value="${ordr.getTotal()}"/></td> --%>
-<%--     			<td><c:out value="${ordr.getPaymentMethod()}"/></td> --%>
-<%--     			<td><c:out value="${ordr.getPurchaseDate()}"/></td> --%>
-<!--     		</tr> -->
-<%--    		</c:forEach> --%>
-<!-- 	</table> -->
-    ${message}
+	<table border="1">
+		<tr>
+			<td>Name</td>
+			<td>Quantity</td>
+			<td>Total Amount</td>
+			<td>Mode of Payment</td>
+			<td>Purchase Date</td>
+		</tr>
+		<c:forEach var="ordr" items="${orders}">
+    		<tr>
+    			<td><c:out value="${ordr.getProductName()}"/></td>
+    			<td><c:out value="${ordr.getQty()}"/></td>
+    			<td><c:out value="${ordr.getTotal()}"/></td>
+    			<td><c:out value="${ordr.getPaymentMethod()}"/></td>
+    			<td><c:out value="${ordr.getPurchaseDate()}"/></td>
+    		</tr>
+   		</c:forEach>
+	</table>
+    <p id="msg">${message}</p>
 
 <div id="orderdatacontainer">
 

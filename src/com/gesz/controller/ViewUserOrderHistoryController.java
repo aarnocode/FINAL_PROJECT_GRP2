@@ -25,28 +25,23 @@ public class ViewUserOrderHistoryController extends HttpServlet{
 public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();
-		//int id=Integer.valueOf((String)session.getAttribute("UID"));
-		int id= 5;
-		System.out.println("a");
+		int id=Integer.valueOf((String)session.getAttribute("UID"));
+		
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
 			try(SqlSession sqlSession = sqlSessionFactory.openSession()){		
 				OrderMapper order = sqlSession.getMapper(OrderMapper.class);
 				ArrayList<Order> userorder = order.GetUserOrderHistory(id);
-				request.setAttribute("orders", userorder);
+				session.setAttribute("orders", userorder);
 				request.setAttribute("message", "Order Retrieved");
-//				for(Order ord: userorder) {
-//					System.out.println(userorder.getProductName());
-//				}
-				//sqlSession.close();
-				dispatcher = request.getRequestDispatcher("/pages/userOrderHistoryResult.jsp");
-				System.out.println(userorder.size());					
+
+				dispatcher = request.getRequestDispatcher("/pages/userOrderHistory.jsp");					
 			}catch(Exception e) {//If Other Error Occurs it will go here
 				System.out.println("Failed to Retrieve Order");
 				System.out.println(e);
 				request.setAttribute("message", "Failed to Retrieve Order");
-				dispatcher = request.getRequestDispatcher("/pages/userOrderHistoryResult.jsp");		
+				dispatcher = request.getRequestDispatcher("/pages/userOrderHistory.jsp");		
 			}
 			dispatcher.forward(request, response);
 		

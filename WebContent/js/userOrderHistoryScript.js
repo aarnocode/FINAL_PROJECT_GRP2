@@ -1,13 +1,8 @@
 function initOrderHistory(){
-	getOrderHistory();
-}
-function getOrderHistory(){
-	alert('f');
-	$.ajax({
-		url: contextPath + "pages/orderhistory",
-		method: "POST",
-		success: function(result){
-			$("#orderdatacontainer").html(result);
-		}
+	
+	$('#backBtn').click(function(){
+		window.location.href = 'http://localhost:8080/OnlineStore/pages/userProfile.jsp';
 	});
+
 }
+

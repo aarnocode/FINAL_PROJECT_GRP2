@@ -220,7 +220,14 @@ function AddCreditCard(ccno){
 }
 //Go to ViewUserOrderHistory
 function OrderHistory(){
-	window.location.href= 'http://localhost:8080/OnlineStore/pages/userOrderHistory.jsp';
+	$.ajax({
+		url: contextPath + "pages/orderhistory",
+		method: "POST",
+		success: function(result){
+			window.location.href= 'http://localhost:8080/OnlineStore/pages/userOrderHistory.jsp';
+		}
+	});
+	
 }
 // Validation for Add Credit Card
 function addCreditCardValidation(ccno){
