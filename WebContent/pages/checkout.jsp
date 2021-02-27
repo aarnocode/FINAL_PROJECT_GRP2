@@ -184,6 +184,7 @@
 		</div>
 	</div>
 </div>
+<jsp:include page="footer.jsp"/>
 </body>
 <script src="../js/checkoutScript.js"></script>
 </html>
