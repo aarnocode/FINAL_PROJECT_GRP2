@@ -24,9 +24,9 @@ public class UpdateToAddCCController extends HttpServlet{
 	private static final long serialVersionUID = -3435554487273689111L;
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
 		BigInteger ccno = new BigInteger(request.getParameter("ccno"));
-		int id=4;//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
+		int id=Integer.valueOf((String)session.getAttribute("UID"));//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
 		
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();

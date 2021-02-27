@@ -98,7 +98,7 @@
        <div id="charge">
        	<table>
        		<tr><td colspan="2">Card Number</td></tr>
- 			<tr><td><input id="cardNumber" type="text" value="${user.getCcno()}"></td></tr>
+ 			<tr><td><input id="cardNumber" type="text" value="${user.getCcnoFormat()}"></td></tr>
  			<tr><td id="numberErr" class="err">Invalid Card Number</td></tr>
  			<tr><td colspan="2">Account Name</td></tr>
  			<tr><td><input id="accountName" type="text" placeholder="Owner name"></td></tr>
