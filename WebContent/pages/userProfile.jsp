@@ -26,7 +26,7 @@
 	 	
 	 	
 	 	<input class="notvisible" type="button" id="editBtn" value="Edit">&emsp;&emsp;
-	 	<input type="button" id="viewOrderBtn" value="View Orders">
+	 	<input class="notvisible" type="button" id="viewOrderBtn" value="View Orders">
 	 	
 	 	</div>
 	 	

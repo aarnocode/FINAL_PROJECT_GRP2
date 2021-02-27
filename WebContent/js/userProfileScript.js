@@ -9,7 +9,6 @@ function initUserProfile(){
 	//Edit Credit Card No.
 	$('#editccno').click(function(){
 		$("#ccnoinput").attr("disabled", false);
-		$("#ccnoinputerror").removeClass("notvisible");	
 	});
 	
 	//Open Edit Modal
@@ -82,6 +81,10 @@ function initUserProfile(){
 			modalClose();
 		}
 	});
+	//View User Order History
+	$('#viewOrderBtn').click(function(){
+		OrderHistory();
+	});
 	$("#ccnoinput").attr("disabled", true);
 	$("#oldpassword").attr("disabled", true);
 	$("#newpassword").attr("disabled", true);
@@ -93,7 +96,7 @@ function initUserProfile(){
 //	}
 	maxLengthValidation();
 }
-
+//Go to GetUserPRofileController
 function getProfile(){
 	$.ajax({
 		url: contextPath + "pages/profile",
@@ -133,19 +136,22 @@ function transferInfoToEditInput(){
 	$("#state").val($('#myuserstate').text());
 	$("#country").val($('#myusercountry').text());
 }
-//Condition if User does/doesnt have Credit Card
+//Initializes when user data gets fetched
 function initUserProfileResult(){
+	//Condition if User does/doesnt have Credit Card
 	$("#editBtn").removeClass("notvisible");
-	$("#cancel").removeClass("notvisible");
+	$("#viewOrderBtn").removeClass("notvisible");
 	
 	if($.trim($('#myuserccno').text()) == ""){//No Credit Card
 		$("#ccnoinput").attr("placeholder", "No Credit Card");
 		$('#addcc').removeClass("notvisible");
+		$('#editccno').addClass("notvisible");
 		//Dont put #myuserccno.text above this
 		$('#myuserccno').text('No Credit Card');	
 	}
 	else{//Have Credit Card
 		$('#addcc').addClass("notvisible");
+		$('#editccno').removeClass("notvisible");
 	}
 	
 	
@@ -212,7 +218,10 @@ function AddCreditCard(ccno){
 		}
 	});
 }
-
+//Go to ViewUserOrderHistory
+function OrderHistory(){
+	window.location.href= 'http://localhost:8080/OnlineStore/pages/userOrderHistory.jsp';
+}
 // Validation for Add Credit Card
 function addCreditCardValidation(ccno){
 	var res = true;

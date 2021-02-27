@@ -26,7 +26,7 @@ public class UpdateToAddCCController extends HttpServlet{
 		BigInteger ccno = new BigInteger(request.getParameter("ccno"));
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
-		int id=Integer.valueOf((String)session.getAttribute("UID"));//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
+		int id=Integer.valueOf((String)session.getAttribute("UID"));//VARIABLE OF SESSION ID 
 		
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
