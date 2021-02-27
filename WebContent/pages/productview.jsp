@@ -60,7 +60,7 @@
             <p class="description">${productView.getDescription()}</p>
         </div>
     </div>
-    
+<jsp:include page="footer.jsp"/>
 </body>
 <script src="../js/productviewScript.js"></script>
 </html>

@@ -105,5 +105,16 @@ public class User {
 		this.password = password;
 	}
 	
+	public String getCcnoFormat() {
+		String cc = String.valueOf(this.ccno);
+		String result="";
+		if(cc.length() >= 16) {
+			result = cc.substring(0,4) + " " + 
+					 cc.substring(4,8) + " " + 
+					 cc.substring(8,12) + " " + 
+					 cc.substring(12);
+		}
+		return result;
+	}
 	
 }

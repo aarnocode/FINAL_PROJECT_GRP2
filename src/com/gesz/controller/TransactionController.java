@@ -23,6 +23,7 @@ import com.gesz.mapper.ProductMapper;
 import com.gesz.model.Cart;
 import com.gesz.model.Product;
 import com.gesz.mybatis.GenSessionFactory;
+import com.gesz.service.UpdateCart;
 
 @WebServlet("/transact")
 public class TransactionController extends HttpServlet{
@@ -38,7 +39,6 @@ public class TransactionController extends HttpServlet{
 		String card = "**** **** **** "+request.getParameter("card").substring(15);
 		double amount = Double.valueOf(request.getParameter("amount"));
 		RequestDispatcher dispatcher = null;
-		System.out.println(from);
 		
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
@@ -53,8 +53,10 @@ public class TransactionController extends HttpServlet{
 											getTotal(c), method, getNewDate());
 					cart.removeItem(userId, c.getProduct_id());
 					grandTotal = grandTotal + getTotal(c);
+					sqlSession.commit();
 				}
 				session.setAttribute("itemBought", myCart);
+				session.setAttribute("cartCount",UpdateCart.getCartCount(String.valueOf(userId)));
 			} else {
 				Product product = (Product)session.getAttribute("productView");
 				int quantity = Integer.valueOf((int)session.getAttribute("productQuantity"));

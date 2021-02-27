@@ -38,18 +38,40 @@
 						${cartCount}
 					</c:if>
 				</span>
-				<i class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
-				<i class="material-icons" style="font-size:36px; color:white">account_circle</i>
+				<i id="btnNavHome" class="material-icons d-inline-block align-top" style="font-size:36px; color:white">home</i>
+				<i id="btnNavAccount" class="material-icons" style="font-size:36px; color:white">account_circle</i>
 			</div>
 			
 		</div><!-- end of container-fluid div -->
+		<div class="controlPanel">
+			<input id="btnLogin" type="button" value="Login">
+			<input id="btnProfile" type="button" value="Profile">
+			<hr>
+			<input id="btnOrder" type="button" value="Order History">
+			<hr>
+			<input id="btnLogout" type="button" value="Logout">
+		</div>
 	
 </nav>
 
 <script> 
 $(".loginBlur").hide();
+$(".controlPanel").hide();
+$("#btnLogout").hide();
+$("#btnProfile").hide();
+$("#btnOrder").hide();
+$("#btnLogin").show();
 var isLoggedIn = $("#isLoggedIn").val();
-console.log(contextPath);
+
+
+$(document).ready(function(){
+	if(isLoggedIn == "true"){
+		$("#btnLogout").show();
+		$("#btnProfile").show();
+		$("#btnOrder").show();
+		$("#btnLogin").hide();
+	}
+});
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("header");
@@ -76,5 +98,47 @@ $(".cart").click(function(){
 		$(".loginBlur").show();
 	}
 	
+});
+
+$("#btnNavHome").click(function(){
+	$.ajax({
+		url: contextPath + "home",
+		method: "POST",
+		success: function(){
+			window.location = "../pages/home.jsp";
+		}
+	});
+});
+
+$("#btnNavAccount").click(function(){
+	$(".controlPanel").slideToggle();
+});
+
+$("#btnProfile").click(function(){
+	if(isLoggedIn == "true"){
+		$.ajax({
+			url: contextPath + "pages/profile",
+			method: "POST",
+			success: function(){
+				window.location = "../pages/userProfile.jsp";
+			}
+		});
+	}else{
+		$(".loginBlur").show();
+	}
+});
+
+$("#btnLogout").click(function(){
+	$.ajax({
+		url: contextPath + "logout",
+		method:"POST",
+		success:function(){
+			window.location=contextPath;
+		}
+	});
+});
+
+$("#btnLogin").click(function(){
+	$(".loginBlur").show();
 });
 </script>

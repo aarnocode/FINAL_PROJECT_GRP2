@@ -17,6 +17,7 @@ import com.gesz.mapper.ProductMapper;
 import com.gesz.model.Cart;
 import com.gesz.model.Product;
 import com.gesz.mybatis.GenSessionFactory;
+import com.gesz.service.UpdateCart;
 
 @WebServlet("/addtocart")
 public class AddToCartController extends HttpServlet{
@@ -49,6 +50,7 @@ public class AddToCartController extends HttpServlet{
 						 cart.addToCart(cart.getId()+1, UID, prodId, 1,Cart.getNewDate());
 					 }
 					 sqlSession.commit();
+					 session.setAttribute("cartCount",UpdateCart.getCartCount(String.valueOf(UID)));
 					 //prompt success
 					 session.setAttribute("addCartStatus", "success");
 				 }else {
