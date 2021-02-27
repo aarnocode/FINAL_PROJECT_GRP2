@@ -17,6 +17,11 @@ public class LogoutController extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("isAdmin", "false");
+		String isAdmin = (String)session.getAttribute("isAdmin");
+		if(isAdmin.equals("true")) {
+			session.setAttribute("isAdmin", "false");
+		}else {
+			session.invalidate();
+		}
 	}
 }

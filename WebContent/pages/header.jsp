@@ -43,13 +43,35 @@
 			</div>
 			
 		</div><!-- end of container-fluid div -->
+		<div class="controlPanel">
+			<input id="btnLogin" type="button" value="Login">
+			<input id="btnProfile" type="button" value="Profile">
+			<hr>
+			<input id="btnOrder" type="button" value="Order History">
+			<hr>
+			<input id="btnLogout" type="button" value="Logout">
+		</div>
 	
 </nav>
 
 <script> 
 $(".loginBlur").hide();
+$(".controlPanel").hide();
+$("#btnLogout").hide();
+$("#btnProfile").hide();
+$("#btnOrder").hide();
+$("#btnLogin").show();
 var isLoggedIn = $("#isLoggedIn").val();
-console.log(contextPath);
+
+
+$(document).ready(function(){
+	if(isLoggedIn == "true"){
+		$("#btnLogout").show();
+		$("#btnProfile").show();
+		$("#btnOrder").show();
+		$("#btnLogin").hide();
+	}
+});
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("header");
@@ -86,5 +108,37 @@ $("#btnNavHome").click(function(){
 			window.location = "../pages/home.jsp";
 		}
 	});
+});
+
+$("#btnNavAccount").click(function(){
+	$(".controlPanel").slideToggle();
+});
+
+$("#btnProfile").click(function(){
+	if(isLoggedIn == "true"){
+		$.ajax({
+			url: contextPath + "pages/profile",
+			method: "POST",
+			success: function(){
+				window.location = "../pages/userProfile.jsp";
+			}
+		});
+	}else{
+		$(".loginBlur").show();
+	}
+});
+
+$("#btnLogout").click(function(){
+	$.ajax({
+		url: contextPath + "logout",
+		method:"POST",
+		success:function(){
+			window.location=contextPath;
+		}
+	});
+});
+
+$("#btnLogin").click(function(){
+	$(".loginBlur").show();
 });
 </script>
