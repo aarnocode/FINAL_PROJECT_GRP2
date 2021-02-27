@@ -17,8 +17,6 @@ public class CartExpiration {
 	
 	public static void checkExpiredItems(int UID) {
 		Date now = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
-		String today = formatter.format(now);
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
