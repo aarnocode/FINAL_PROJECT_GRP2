@@ -145,6 +145,22 @@ $("#btnClose").click(function(){
 	$("#notice").text("");
 	$(".loginBlur").hide();
 });
+$('.txtUsername').keypress(function(e) {
+    var key = e.which;
+    if (key == 13)
+    {
+      $(".btnLogin").click();
+      return false;
+    }
+});
+$('.txtPassword').keypress(function(e) {
+    var key = e.which;
+    if (key == 13) 
+    {
+      $(".btnLogin").click();
+      return false;
+    }
+});
 
 $(".navtabs").on({
     mouseenter:function(){
