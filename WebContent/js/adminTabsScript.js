@@ -3,12 +3,30 @@ function initializeEvents(){
 		clearUpdate();
 		$("#pnlContentAdd").show();
 		$("#pnlContentUpdate").hide();
+		$("#pnlView").hide();
 	});
 
 	$("#btnUpdateProduct").click(function(){
 		clearAdd();
 		$("#pnlContentUpdate").show();
 		$("#pnlContentAdd").hide();
+		$("#pnlView").hide();
+	});
+	
+	$("#btnViewProduct").click(function(){
+		$.ajax({
+			url: contextPath + "viewproducts",
+			method:"POST",
+			success:function(result){
+				$("#mainContainer").html(result);
+				$("#pnlContentAdd").hide();
+				$("#pnlContentUpdate").hide();
+				$("#pnlView").show();
+				$("#pnlControl").show();
+				$(".loginPop").hide();
+				initializeEvents();
+			}
+		});
 	});
 	
 	$("#btnLogout").click(function(){
