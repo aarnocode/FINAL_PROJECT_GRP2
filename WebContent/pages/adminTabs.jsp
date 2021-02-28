@@ -70,13 +70,14 @@
 		    	<h2>View Products</h2>
 		    	<div id="productList" class="cartContainer">
 		    		<table class="cartTable">
-		    			<tr>
-		    				<th>Product ID</th>
-		    				<th>Image</th>
-		    				<th>Name</th>
-		    				<th>Category</th>
-		    				<th>Price</th>
-		    				<th>Stock</th>
+		    		<tbody>
+		    		<tr>
+		    				<td><b>Product ID</b></td>
+		    				<td><b>Image</b></td>
+		    				<td><b>Name</b></td>
+		    				<td><b>Category</b></td>
+		    				<td><b>Price</b></td>
+		    				<td><b>Stock</b></td>
 		    			</tr>
 		    			<c:forEach var="product" items="${allproducts}">
 		    				<tr>
@@ -88,6 +89,7 @@
 		    					<td>${product.getStock()}</td>
 		    				</tr>
 		    			</c:forEach>
+		    		</tbody>
 		    		</table>
 		    	</div>
 		    </div>
