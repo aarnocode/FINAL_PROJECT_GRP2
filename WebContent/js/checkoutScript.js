@@ -74,9 +74,14 @@ $(".btnLogin").click(function(){
 			password:$(".txtPassword").val()
 		},
 		success: function(){
-			window.location="../pages/cart.jsp";
+			window.location="../";
 		}
 	});
+});
+$(".txtPassword, .txtUsername").keyup(function(e){
+	if(e.keyCode === 13){
+		$(".btnLogin").trigger("click");
+	}
 });
 
 $("#btnClose").click(function(){
