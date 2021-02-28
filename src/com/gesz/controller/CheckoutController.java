@@ -21,7 +21,6 @@ import com.gesz.model.Cart;
 import com.gesz.model.Product;
 import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
-import com.gesz.service.UpdateCart;
 
 @WebServlet("/checkout")
 public class CheckoutController extends HttpServlet {
