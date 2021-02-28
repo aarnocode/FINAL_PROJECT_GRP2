@@ -15,7 +15,6 @@
 <script type="text/javascript">
 	var contextPath = '${pageContext.request.contextPath}' + '/'
 </script>
-<script src="../js/userRegistrationScript.js"></script>
 <script src="../js/bootstrap.js"></script>
 <title>User Registration</title>
 </head>
@@ -306,8 +305,9 @@
 
 
 	<jsp:include page="footer.jsp"/>
-
-	<script type="text/javascript" src="../js/header.js">
+	<script type="text/javascript" src="../js/header.js"></script>
+	<script src="../js/userRegistrationScript.js"></script>
+	<script>
 		$(document).ready(function() {
 			//document.title = "User Registration";
 			console.log("init");

@@ -1,4 +1,13 @@
+var isLoggedIn = ""; 
+
+
 function initUserReg(){
+	isLoggedIn = $("#isLoggedIn").val();
+	if(isLoggedIn == "false"){
+		$(".loginBlur").show();
+	}else{
+		$(".loginBlur").hide();
+	}
 	$(".logo").click(function(){
 		//toMainMenu();
 	});
@@ -285,7 +294,41 @@ function messageResult(){//Change success message to green
 	}
 }
 
+$(".btnLogin").click(function(){
+	console.log("clicked");
+	$.ajax({
+		url:contextPath + "login",
+		method: "POST",
+		data:{
+			username:$(".txtUsername").val(),
+			password:$(".txtPassword").val()
+		},
+		success: function(){
+			window.location="../pages/userRegistration.jsp";
+		}
+	});
+});
+
+$(".txtPassword, .txtUsername").keyup(function(e){
+	if(e.keyCode === 13){
+		$(".btnLogin").trigger("click");
+	}
+});
+
+$("#btnClose").click(function(){
+	$(".txtUsername").val("");
+	$(".txtPassword").val("");
+	$("#notice").text("");
+	$(".loginBlur").hide();
+	if(isLoggedIn == "false"){
+		$.ajax({
+			url: contextPath + "resetstate",
+			method:"POST"
+		});
+	}
+});
+
 $("#register").click(function(){
 	window.location.href = 'http://localhost:8080/OnlineStore/pages/userRegistration.jsp';
-	console.log("register clicked!");
 });
+
