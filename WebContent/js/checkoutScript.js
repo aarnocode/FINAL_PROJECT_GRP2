@@ -78,6 +78,11 @@ $(".btnLogin").click(function(){
 		}
 	});
 });
+$(".txtPassword, .txtUsername").keyup(function(e){
+	if(e.keyCode === 13){
+		$(".btnLogin").trigger("click");
+	}
+});
 
 $("#btnClose").click(function(){
 	$(".txtUsername").val("");

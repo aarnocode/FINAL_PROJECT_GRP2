@@ -13,3 +13,9 @@ $("#btnLogin").click(function(){
 		
 	});
 });
+
+$("#txtUsername, #txtPassword").keyup(function(e){
+	if(e.keyCode === 13){
+		$("#btnLogin").trigger("click");
+	}
+});
