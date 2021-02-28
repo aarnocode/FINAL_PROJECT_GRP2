@@ -120,7 +120,11 @@ $("#btnCheckout").click(function(){
 			from: $("#fromCart").val()
 		},
 		success:function(){
-			window.location = "../pages/thankyou.jsp";
+			if($("#checkoutStatus").val() == "failed"){
+				window.location="../pages/checkout.jsp";
+			}else{
+				window.location = "../pages/thankyou.jsp";
+			}
 		}
 	});
 	}

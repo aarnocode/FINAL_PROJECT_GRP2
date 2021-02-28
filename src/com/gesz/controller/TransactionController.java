@@ -61,11 +61,17 @@ public class TransactionController extends HttpServlet{
 				Product product = (Product)session.getAttribute("productView");
 				int quantity = Integer.valueOf((int)session.getAttribute("productQuantity"));
 				int stock = item.checkStock(product.getId());
-				item.decreaseStock(stock-quantity, product.getId());
-				order.recordTransaction(order.getId()+1, userId, product.getId(), quantity,
-										product.getPrice().doubleValue()*quantity, method, getNewDate());
-				session.setAttribute("itemBought", product);
-				grandTotal = product.getPrice().doubleValue()*quantity;
+				if(stock < quantity) {
+					session.setAttribute("checkoutStatus", "failed");
+					session.setAttribute("notice", "Checkout failed. Currently out of stock");
+				}else {
+					item.decreaseStock(stock-quantity, product.getId());
+					order.recordTransaction(order.getId()+1, userId, product.getId(), quantity,
+											product.getPrice().doubleValue()*quantity, method, getNewDate());
+					session.setAttribute("itemBought", product);
+					grandTotal = product.getPrice().doubleValue()*quantity;			
+				}
+				
 			}
 			sqlSession.commit();
 		}catch (Exception e) {

@@ -14,8 +14,8 @@ $(".loginBlur").hide();
 			$("#btnLogin").hide();
 		}
 	});
+	
 	window.onscroll = function() {myFunction()};
-
 	var header = document.getElementById("header");
 	var sticky = header.offsetTop;
 
@@ -34,7 +34,7 @@ $(".loginBlur").hide();
 				url: contextPath + "cart",
 				method: "POST",
 				success: function(){
-					window.location = "../pages/cart.jsp";
+					window.location = "../";
 				}
 			});
 		}else{
@@ -48,7 +48,7 @@ $(".loginBlur").hide();
 			url: contextPath + "home",
 			method: "POST",
 			success: function(){
-				window.location = "../pages/home.jsp";
+				window.location = "../";
 			}
 		});
 	});
