@@ -7,9 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
-
 <link rel="stylesheet" href="../css/header.css" type="text/css">
+<link rel="stylesheet" href="../css/footer.css" type="text/css">
 <link rel="stylesheet" href="../css/userOrderHistoryStyle.css" type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type="text/javascript">var contextPath = '${pageContext.request.contextPath}' + '/'</script>
 <script src="../js/userOrderHistoryScript.js"></script>
@@ -17,6 +19,8 @@
 <title>Order History</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
+<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
 <input type="button" id="backBtn" value="back">
 
 	<table border="1">
@@ -42,10 +46,12 @@
 <div id="orderdatacontainer">
 
 </div>
+<jsp:include page="footer.jsp"/>
+</body>
 <script type="text/javascript">
 		$(document).ready(function(){
 			initOrderHistory();
 		});
 </script>
-</body>
+<script src="../js/header.js"></script>
 </html>

@@ -70,6 +70,16 @@ $(".loginBlur").hide();
 			$(".loginBlur").show();
 		}
 	});
+	
+	$("#btnOrder").click(function(){
+		$.ajax({
+			url: contextPath + "pages/orderhistory",
+			method: "POST",
+			success: function(){
+				window.location = "../pages/userOrderHistory.jsp";
+			}
+		});
+	});
 
 	$("#btnLogout").click(function(){
 		$.ajax({
