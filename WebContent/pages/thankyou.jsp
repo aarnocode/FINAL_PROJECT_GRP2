@@ -20,7 +20,21 @@
 <body>
 <jsp:include page="header.jsp"/>
 <input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+<input id="isAdmin" type="hidden" value="${isAdmin}" style="display:none">
 <input id="checkoutStatus" type="hidden" value="${checkoutStatus}" style="display:none">
+<div class="loginPop">
+        	<input id="btnClose" type="button" value="X">
+            <h3>GESZ</h3>
+            <label id="notice">${logMsg}</label>
+            <label>Username:</label><br>
+            <input class="txtUsername" type="text"><br>
+            <label>Password:</label><br>
+            <input class="txtPassword" type="password"><br>
+            <input class="btnLogin" type="button" value="Login">
+            <p class="toRegister" id="register">"Not registered yet? Click here!"</p>
+        </div>
+    </div>  
+    
 <div id="failed" class="container mt-4 mb-4">
 	<h1 class="center">Purchase failed...</h1>
 	<h5>Oops! We're sorry but the product you are trying to purchase has ran out of stock.</h5>

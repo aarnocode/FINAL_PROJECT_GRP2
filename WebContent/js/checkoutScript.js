@@ -74,7 +74,7 @@ $(".btnLogin").click(function(){
 			password:$(".txtPassword").val()
 		},
 		success: function(){
-			window.location="../pages/cart.jsp";
+			window.location="../";
 		}
 	});
 });

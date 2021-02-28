@@ -34,7 +34,7 @@ $(".btnLogin").click(function(){
 		},
 		success: function(){
 			console.log("success cart cliked");
-			window.location="../pages/cart.jsp";
+			window.location="../";
 		}
 	});
 });

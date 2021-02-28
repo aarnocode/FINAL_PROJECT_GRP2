@@ -23,6 +23,20 @@
 <!-- CONTENTS HERE -->
 <div class=cartContainer>
 	<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+	<input id="isAdmin" type="hidden" value="${isAdmin}" style="display:none">
+	<div class="loginBlur">
+        <div class="loginPop">
+        	<input id="btnClose" type="button" value="X">
+            <h3>GESZ</h3>
+            <label id="notice">${logMsg}</label>
+            <label>Username:</label><br>
+            <input class="txtUsername" type="text"><br>
+            <label>Password:</label><br>
+            <input class="txtPassword" type="password"><br>
+            <input class="btnLogin" type="button" value="Login">
+            <p class="toRegister" id="register">"Not registered yet? Click here!"</p>
+        </div>
+    </div>  
      <h1>My Cart</h1>
      <h5 id="cartNotice">${cartNotice}</h5>
      <table class="cartTable">

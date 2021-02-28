@@ -110,8 +110,7 @@ $(".btnLogin").click(function(){
 			password:$(".txtPassword").val()
 		},
 		success: function(){
-			console.log("success cart cliked");
-			window.location="../pages/cart.jsp";
+			window.location="../";
 		}
 	});
 });
