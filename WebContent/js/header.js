@@ -1,4 +1,4 @@
-$(".loginBlur").hide();
+
 $(".controlPanel").hide();
 $("#btnLogout").hide();
 $("#btnProfile").hide();
