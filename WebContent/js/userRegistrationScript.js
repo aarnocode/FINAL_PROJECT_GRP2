@@ -1,6 +1,6 @@
 function initUserReg(){
 	$(".logo").click(function(){
-		toMainMenu();
+		//toMainMenu();
 	});
 	$("#submitregBtn").click(function(){
 		var firstname = $("#firstname").val();

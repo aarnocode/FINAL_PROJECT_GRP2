@@ -52,7 +52,7 @@ public class UpdateUserProfileController extends HttpServlet{
 		
 		RequestDispatcher dispatcher = null;
 		HttpSession session = request.getSession();	
-		int id=Integer.valueOf((String)session.getAttribute("UID"));//VARIABLE OF SESSION ID TEMP STATIC VARIABLE
+		int id=Integer.valueOf((String)session.getAttribute("UID"));//VARIABLE OF SESSION ID 
 		
 		//Implementation of mybatis
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
@@ -77,7 +77,7 @@ public class UpdateUserProfileController extends HttpServlet{
 						int result = accounts.updateNoCCProfile(firstname,lastname,mi,password,email,contactno,address,id);
 						sqlSession.commit();
 						sqlSession.close();
-						request.setAttribute("updatemsg", "You have Successfully your Profile");
+						request.setAttribute("updatemsg", "You have Successfully Updated your Profile");
 						dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 						System.out.println("Success have Successfully Update");
 						dispatcher.forward(request, response);
@@ -89,7 +89,7 @@ public class UpdateUserProfileController extends HttpServlet{
 							sqlSession.commit();
 							sqlSession.close();
 							//request.setAttribute("user", user);
-							request.setAttribute("updatemsg", "You have Successfully your Profile");
+							request.setAttribute("updatemsg", "You have Successfully Updated your Profile");
 							dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 							System.out.println("You have Successfully Update");
 							dispatcher.forward(request, response);

@@ -128,6 +128,16 @@ $("#btnProfile").click(function(){
 	}
 });
 
+$("#btnOrder").click(function(){
+	$.ajax({
+		url: contextPath + "pages/orderhistory",
+		method: "POST",
+		success: function(result){
+			window.location.href= 'http://localhost:8080/OnlineStore/pages/userOrderHistory.jsp';
+		}
+	});
+});
+
 $("#btnLogout").click(function(){
 	$.ajax({
 		url: contextPath + "logout",
