@@ -29,8 +29,8 @@
 	color:red;
 }
 
-.cartTable th,td{
-	padding-left:0.5em;
+.cartTable td{
+	 padding-left:3em;
 }
 
 .cartContainer {
@@ -43,6 +43,13 @@
     text-align: left;
     width:100%;
     table-layout: fixed;
+}
+
+.cartTable tbody {
+	height:500px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	display:block;
 }
 
 .cartTable img{
@@ -63,8 +70,4 @@
 	width:200px;
 	height:280px;
 	object-fit: cover;
-}
-
-#productList {
-	overflow: scroll;
 }
