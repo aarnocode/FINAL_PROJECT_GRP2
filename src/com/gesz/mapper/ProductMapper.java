@@ -63,7 +63,7 @@ public interface ProductMapper {
 	})
 	public ArrayList<Product> getProductByCategory(String category);
 	
-	@Select("Select DISTINCT(product_category) from final_project_grp2_product")
+	@Select("Select DISTINCT(product_category) from final_project_grp2_product where stock > 0")
 	public ArrayList<String> getCategories();
 	
 	@Select("Select stock from final_project_grp2_product where product_id = #{arg0}")
