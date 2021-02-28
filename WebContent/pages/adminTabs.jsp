@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="loginPop">
      		<h3>${resultMessage}</h3>
 		</div>
@@ -5,6 +7,7 @@
 		    <div id="pnlControl"class="col-lg-2 bg-light">
 		      <input id="btnAddProduct" type="button" value="Add Product" class="bg-light"><br>
 		      <input id="btnUpdateProduct" type="button" value="Update Product" class="bg-light"><br>
+		      <input id="btnViewProduct" type="button" value="View Product" class="bg-light"><br>
 		      <input id="btnLogout" type="button" value="Logout" class="bg-light">
 		    </div>
 		    <div id="pnlContentAdd" class="col-lg-10">
@@ -62,5 +65,30 @@
 			    	</div>
 			    	
 			    </div>
+		    </div>
+		    <div id="pnlView" class="col-lg-10">
+		    	<h2>View Products</h2>
+		    	<div id="productList" class="cartContainer">
+		    		<table class="cartTable">
+		    			<tr>
+		    				<th>Product ID</th>
+		    				<th>Image</th>
+		    				<th>Name</th>
+		    				<th>Category</th>
+		    				<th>Price</th>
+		    				<th>Stock</th>
+		    			</tr>
+		    			<c:forEach var="product" items="${allproducts}">
+		    				<tr>
+		    					<td>${product.getId()}</td>
+		    					<td><img src="${product.getImage()}"></td>
+		    					<td>${product.getName()}</td>
+		    					<td>${product.getCategory()}</td>
+		    					<td>${product.getPrice()}</td>
+		    					<td>${product.getStock()}</td>
+		    				</tr>
+		    			</c:forEach>
+		    		</table>
+		    	</div>
 		    </div>
 		</div>
