@@ -60,6 +60,8 @@ public class TransactionController extends HttpServlet{
 			} else {
 				Product product = (Product)session.getAttribute("productView");
 				int quantity = Integer.valueOf((int)session.getAttribute("productQuantity"));
+				int stock = item.checkStock(product.getId());
+				item.decreaseStock(stock-quantity, product.getId());
 				order.recordTransaction(order.getId()+1, userId, product.getId(), quantity,
 										product.getPrice().doubleValue()*quantity, method, getNewDate());
 				session.setAttribute("itemBought", product);

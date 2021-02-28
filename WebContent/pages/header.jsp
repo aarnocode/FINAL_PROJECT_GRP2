@@ -54,7 +54,7 @@
 	
 </nav>
 
-<script> 
+<!-- <script>
 $(".loginBlur").hide();
 $(".controlPanel").hide();
 $("#btnLogout").hide();
@@ -62,7 +62,6 @@ $("#btnProfile").hide();
 $("#btnOrder").hide();
 $("#btnLogin").show();
 var isLoggedIn = $("#isLoggedIn").val();
-
 
 $(document).ready(function(){
 	if(isLoggedIn == "true"){
@@ -86,6 +85,7 @@ function myFunction() {
 }
 
 $(".cart").click(function(){
+	console.log("cart clicked");
 	if(isLoggedIn == "true"){
 		$.ajax({
 			url: contextPath + "cart",
@@ -141,4 +141,17 @@ $("#btnLogout").click(function(){
 $("#btnLogin").click(function(){
 	$(".loginBlur").show();
 });
-</script>
+
+$("#btnClose").click(function(){
+	$(".txtUsername").val("");
+	$(".txtPassword").val("");
+	$("#notice").text("");
+	$(".loginBlur").hide();
+	if(isLoggedIn == "false"){
+		$.ajax({
+			url: contextPath + "resetstate",
+			method:"POST"
+		});
+	}
+});
+</script> -->

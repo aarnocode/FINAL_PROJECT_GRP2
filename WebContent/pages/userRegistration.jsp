@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="../css/userRegistrationStyle.css"
 	type="text/css">
 <link rel="stylesheet" href="../css/header.css" type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
@@ -19,6 +21,20 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
+	<div class="loginBlur">
+		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+        <div class="loginPop">
+        	<input id="btnClose" type="button" value="X">
+            <h3>GESZ</h3>
+            <label id="notice">${logMsg}</label>
+            <label>Username:</label><br>
+            <input class="txtUsername" type="text"><br>
+            <label>Password:</label><br>
+            <input class="txtPassword" type="password"><br>
+            <input class="btnLogin" type="button" value="Login">
+            <p class="toRegister" id="register">"Not registered yet? Click here!"</p>
+        </div>
+    </div>  
 	<div class="signup-form">
 		
 		<div class="form-header">
@@ -291,9 +307,10 @@
 
 	<jsp:include page="footer.jsp"/>
 
-	<script type="text/javascript">
+	<script type="text/javascript" src="../js/header.js">
 		$(document).ready(function() {
 			//document.title = "User Registration";
+			console.log("init");
 			initUserReg();
 		});
 	</script>

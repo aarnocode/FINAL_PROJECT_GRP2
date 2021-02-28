@@ -284,3 +284,8 @@ function messageResult(){//Change success message to green
 		$("#msgresult1").addClass("successmsg");
 	}
 }
+
+$("#register").click(function(){
+	window.location.href = 'http://localhost:8080/OnlineStore/pages/userRegistration.jsp';
+	console.log("register clicked!");
+});

@@ -19,6 +19,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
 <div class="container mt-4 mb-4">
 	<h1 class="center">Thank you for your purchase!</h1>
 	<table class="cartTable">
@@ -89,4 +90,5 @@
 <jsp:include page="footer.jsp"/>
 </body>
 <script src="../js/thankyouScript.js"></script>
+<script src="../js/header.js"></script>
 </html>
