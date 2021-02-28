@@ -78,11 +78,6 @@ public class Cart {
 		this.image = image;
 	}
 	
-	public static String convertDate(String date) {
-		String result="";
-		return result;
-	}
-	
 	public static String getNewDate() {
 		String result="";
 		Date now = new Date();

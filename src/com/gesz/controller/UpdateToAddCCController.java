@@ -15,7 +15,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.gesz.mapper.AccountsMapper;
-import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
 
 @WebServlet("/pages/addcc")

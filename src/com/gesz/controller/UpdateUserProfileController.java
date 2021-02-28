@@ -15,7 +15,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.gesz.mapper.AccountsMapper;
-import com.gesz.model.User;
 import com.gesz.mybatis.GenSessionFactory;
 
 @WebServlet("/pages/updateprofile")
@@ -23,18 +22,7 @@ public class UpdateUserProfileController extends HttpServlet{
 	private static final long serialVersionUID = -3435554487273689111L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{	
-//		String firstname = "dell";
-//		String lastname = "dell";
-//		String mi = "D";
-//		String password = "delldell";
-//		String email = "ralph@ralph.com";
-//		BigInteger contactno = new BigInteger("123456");
-//		BigInteger ccno = new BigInteger("987654");
-//		String streetaddress = "#3 dell St.";
-//		String zipcode = "1221";
-//		String city = "Manila";
-//		String state = "NCR";
-//		String country = "Philippines";
+
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String mi = request.getParameter("mi");

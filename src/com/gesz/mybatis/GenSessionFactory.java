@@ -13,7 +13,6 @@ import com.gesz.mapper.AccountsMapper;
 import com.gesz.mapper.CartMapper;
 import com.gesz.mapper.OrderMapper;
 import com.gesz.mapper.ProductMapper;
-import com.gesz.model.Cart;
 
 public class GenSessionFactory {
 	public static SqlSessionFactory buildqlSessionFactory() {
