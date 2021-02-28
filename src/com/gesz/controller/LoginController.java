@@ -38,6 +38,7 @@ public class LoginController extends HttpServlet{
 			System.out.println("success");
 			session.setAttribute("UID", result[1]);
 			session.setAttribute("isLoggedIn", true);
+			session.setAttribute("isAdmin", "false");
 			CartExpiration.checkExpiredItems(Integer.valueOf(result[1]));
 			session.setAttribute("cartCount",UpdateCart.getCartCount(result[1]));
 		}else {

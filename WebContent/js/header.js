@@ -5,9 +5,9 @@ $("#btnProfile").hide();
 $("#btnOrder").hide();
 $("#btnLogin").show();
 var isLoggedIn = $("#isLoggedIn").val();
-
+var isAdmin = $("#isAdmin").val();
 $(document).ready(function(){
-	if(isLoggedIn == "true"){
+	if(isLoggedIn == "true" && isAdmin != "true"){
 		$("#btnLogout").show();
 		$("#btnProfile").show();
 		$("#btnOrder").show();
