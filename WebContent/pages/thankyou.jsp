@@ -20,7 +20,12 @@
 <body>
 <jsp:include page="header.jsp"/>
 <input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
-<div class="container mt-4 mb-4">
+<input id="checkoutStatus" type="hidden" value="${checkoutStatus}" style="display:none">
+<div id="failed" class="container mt-4 mb-4">
+	<h1 class="center">Purchase failed...</h1>
+	<h5>Oops! We're sorry but the product you are trying to purchase has ran out of stock.</h5>
+</div>
+<div id="success" class="container mt-4 mb-4">
 	<h1 class="center">Thank you for your purchase!</h1>
 	<table class="cartTable">
 	<tr>

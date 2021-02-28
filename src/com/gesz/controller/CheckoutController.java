@@ -31,6 +31,7 @@ public class CheckoutController extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		HttpSession session=request.getSession();
 		session.setAttribute("notice", "");
+		session.setAttribute("checkoutStatus", "");
 		int UID = Integer.valueOf((String)session.getAttribute("UID"));
 		String action = (String)session.getAttribute("action");
 		String selected = request.getParameter("selected");
