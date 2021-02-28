@@ -34,11 +34,7 @@ public class CheckoutController extends HttpServlet {
 		session.setAttribute("checkoutStatus", "");
 		int UID = Integer.valueOf((String)session.getAttribute("UID"));
 		String action = (String)session.getAttribute("action");
-		String selected = request.getParameter("selected");
-		if(selected.length() > 0 ) {
-			selected = selected.substring(0,selected.length()-1);
-		}
-		String [] item = selected.split(",");
+		
 		
 		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
 		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
@@ -47,6 +43,11 @@ public class CheckoutController extends HttpServlet {
 			 User user = account.getUserById(UID);
 			 session.setAttribute("user", user);
 			 if(action.equals("cartCheckout")) {
+				 String selected = request.getParameter("selected");
+					if(selected.length() > 0 ) {
+						selected = selected.substring(0,selected.length()-1);
+					}
+				String [] item = selected.split(",");
 				 ArrayList<Cart> mycart = new ArrayList<Cart>();
 				 for(int i = 0; i < item.length; i++) {
 					 mycart.add(cart.getCartItem(Integer.valueOf(item[i])));
@@ -64,7 +65,7 @@ public class CheckoutController extends HttpServlet {
 					 session.setAttribute("notice","Cannot add more. Currently out of stock."); 
 					 session.setAttribute("productQuantity", quantity-1);
 				}else {
-					product.decreaseStock(quantity, prod.getId());
+//					product.decreaseStock(quantity, prod.getId());
 					session.setAttribute("productQuantity", quantity);
 				}
 				 

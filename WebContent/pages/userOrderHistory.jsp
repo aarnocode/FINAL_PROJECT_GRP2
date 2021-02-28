@@ -43,7 +43,7 @@
     			<td> <img src="${ordr.getImage()}" height=70px; width=70px; ></td>
     			<td><c:out value="${ordr.getProductName()}"/></td>
     			<td><c:out value="${ordr.getQty()}"/></td>
-    			<td><c:out value="${ordr.getTotal()}"/></td>
+    			<td><fmt:formatNumber type="currency" currencySymbol = "P" value="${ordr.getTotal()}"/></td>
     			<td><c:out value="${ordr.getPaymentMethod()}"/></td>
     			<td id="purchaseDate"><c:out value="${ordr.getPurchaseDate()}"/></td>
     		</tr>
