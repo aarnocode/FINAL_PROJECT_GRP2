@@ -17,9 +17,10 @@ public interface OrderMapper {
 	@Select("SELECT COALESCE((SELECT MAX(ORDER_ID) FROM FINAL_PROJECT_GRP2_ORDER),1) FROM DUAL")
 	public int getId();
 	
-	@Select("SELECT p.NAME, o.QUANTITY, o.TOTAL, o.P_METHOD, o.PURCHASE_DATE FROM final_project_grp2_order o, final_project_grp2_product p"
+	@Select("SELECT p.IMAGE, p.NAME, o.QUANTITY, o.TOTAL, o.P_METHOD, o.PURCHASE_DATE FROM final_project_grp2_order o, final_project_grp2_product p"
 			+ " WHERE o.PRODUCT_ID = p.PRODUCT_ID AND o.USER_ID = #{arg0} ORDER BY ORDER_ID DESC")
 	@Results({
+		@Result(property = "productImage", column = "p.IMAGE"),
 		@Result(property = "productName", column = "p.NAME"),
 		@Result(property = "qty", column = "o.QUANTITY"),
 		@Result(property = "total", column = "o.TOTAL"),
