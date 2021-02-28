@@ -22,7 +22,7 @@
 <body>
 	<jsp:include page="header.jsp"/>
 		<div class="loginBlur">
-		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
+		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
         <div class="loginPop">
         	<input id="btnClose" type="button" value="X">
             <h3>GESZ</h3>
@@ -61,6 +61,7 @@
 <jsp:include page="footer.jsp"/>
 </body>
 <script src="../js/homeScript.js"></script>
+<script src="../js/header.js"></script>
 </html>
 
 

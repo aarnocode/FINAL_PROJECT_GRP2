@@ -104,4 +104,5 @@
 <jsp:include page="footer.jsp"/>
 </body>
 <script src="../js/cartScript.js"></script>
+<script src="../js/header.js"></script>
 </html>

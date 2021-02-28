@@ -1,4 +1,6 @@
+var isLoggedIn = $("#isLoggedIn").val();
 function initUserProfile(){	
+	console.log($("#isLoggedIn").val());
 	getProfile();
 	//Edit the Password
 	$('#editpass').click(function(){

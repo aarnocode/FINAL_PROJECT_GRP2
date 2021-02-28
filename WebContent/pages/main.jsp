@@ -70,4 +70,5 @@
 	<jsp:include page="footer.jsp"/>
 </body>
 <script src="js/mainScript.js"></script>
+<script src="../js/header.js"></script>
 </html>

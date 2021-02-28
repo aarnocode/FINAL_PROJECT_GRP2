@@ -40,6 +40,13 @@ ${errMessage}
 	
 	
 <script type="text/javascript">
+	isLoggedIn = $("#isLoggedIn").val();
+	if(isLoggedIn == "true"){
+		$("#btnLogout").show();
+		$("#btnProfile").show();
+		$("#btnOrder").show();
+		$("#btnLogin").hide();
+	}
 		$(document).ready(function(){
 			initUserProfileResult();
 		});
