@@ -39,7 +39,7 @@ $(".cart").click(function(){
 			}
 		});
 	}else{
-		$(".loginBlur").show();
+		$(".loginBlur").fadeIn(1000);
 	}
 	
 });
@@ -68,7 +68,7 @@ $("#btnProfile").click(function(){
 			}
 		});
 	}else{
-		$(".loginBlur").show();
+		$(".loginBlur").fadeIn(1000);
 	}
 });
 
@@ -93,14 +93,14 @@ $("#btnLogout").click(function(){
 });
 
 $("#btnLogin").click(function(){
-	$(".loginBlur").show();
+	$(".loginBlur").fadeIn(1000);
 });
 
 $("#btnClose").click(function(){
 	$(".txtUsername").val("");
 	$(".txtPassword").val("");
 	$("#notice").text("");
-	$(".loginBlur").hide();
+	$(".loginBlur").fadeOut(500);
 	if(isLoggedIn == "false"){
 		$.ajax({
 			url: contextPath + "resetstate",
