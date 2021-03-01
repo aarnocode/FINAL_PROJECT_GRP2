@@ -174,6 +174,7 @@ function clearErrMssg(){
 	$("#unerror").text('');
 	$("#pwerror").text('');
 	$("#emailerror").text('');
+	$("#countryerror").text('');
 	$("#contacterror").text('');
 }
 //Close Modal Function
@@ -318,7 +319,7 @@ function validation(firstname,lastname,mi,password,email,contactno,address,newpa
 	}
 	
 	//Checks for special/illegal Characters
-	if(format.test(firstname)||format.test(lastname)||format.test(mi)||formatemail.test(email)||
+	if(format.test(firstname)||format.test(lastname)||format.test(mi)||formatemail.test(email)||format.test($("#city").val())||format.test($("#state").val())||
 			format.test(contactno)||(format.test(newpassword)&&isPassInputDisabled === false)||(format.test(password)&&isPassInputDisabled === false)||
 			(format.test(ccno)&&isCcnoInputDisabled === false)){
 		//alert('d');
@@ -509,9 +510,16 @@ function clearErrMssg(){
 	$("#lnerror").text('');
 	$("#mierror").text('');
 	$("#pwerror").text('');
+	$("#countryerror").text('');
 	$("#emailerror").text('');
 	$("#contacterror").text('');
 	$("#ccnoinputerror").text('');
 	$("#addccnoerror").text('');
+//	BELOW IS NOT ERROR MESSAGE JUST TEXTBOX
+	$("#oldpassword").val('');
+	$("#newpassword").val('');
+	$("#ccnoinput").attr("disabled", true);
+	$("#oldpassword").attr("disabled", true);
+	$("#newpassword").attr("disabled", true);
 	
 }

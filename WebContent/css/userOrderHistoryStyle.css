@@ -20,3 +20,9 @@
 .backIcon{
 	padding:10px;
 }
+.backIcon:hover,
+.backIcon:focus {
+	text-decoration: none;
+	cursor: pointer;
+	
+}
