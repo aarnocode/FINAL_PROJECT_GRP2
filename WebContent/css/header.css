@@ -70,6 +70,7 @@ overflow-x: hidden;
 	padding-right:1em;
 	padding-top:0.3em;
 	padding-bottom:0.3em;
+	display:none;
 }
 
 .controlPanel input[type=button] {
