@@ -6,7 +6,7 @@
   margin-right: auto;
   margin-left: 160px;
   flex-wrap:wrap;
-  
+  z-index: -1;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -15,7 +15,7 @@
 	  height: 100%;
 	  width: 160px; 
 	  position: fixed; 
-	  z-index: 1;
+	  z-index: -1;
 	  top: 0;
 	  left: 0;
 	  overflow-x: hidden;
