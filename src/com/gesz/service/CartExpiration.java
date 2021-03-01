@@ -37,6 +37,29 @@ public class CartExpiration {
 		}
 	}
 	
+	public static void checkExpiredItems() {
+		Date now = new Date();
+		SqlSessionFactory sqlSessionFactory = GenSessionFactory.buildqlSessionFactory();
+		
+		try(SqlSession sqlSession = sqlSessionFactory.openSession()){
+			CartMapper cart = sqlSession.getMapper(CartMapper.class);
+			ProductMapper item = sqlSession.getMapper(ProductMapper.class);
+			
+			ArrayList<Cart> mycart = cart.getAllCart();
+			for(Cart c : mycart) {
+				String itemDate = c.getDate();
+				if(getDifference(itemDate,now) > 7) {
+					int stock = item.checkStock(c.getProduct_id());
+					item.decreaseStock(stock+c.getQuantity(), c.getProduct_id());
+					cart.removeCartItem(c.getUserId(), c.getCart_id());
+					sqlSession.commit();
+				}
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public static long getDifference(String itemDate, Date now){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
 		long difference = 0;
