@@ -19,12 +19,10 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
-<input id="isAdmin" type="hidden" value="${isAdmin}" style="display:none">
-<input id="checkoutStatus" type="hidden" value="${checkoutStatus}" style="display:none">
+<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
+<input id="isAdmin" type="hidden" value="${isAdmin}">
+<input id="checkoutStatus" type="hidden" value="${checkoutStatus}">
 <div class="loginBlur">
-		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
-		<input id="isAdmin" type="hidden" value="${isAdmin}" style="display:none">
         <div class="loginPop">
         	<input id="btnClose" type="button" value="X">
             <h3>GESZ</h3>

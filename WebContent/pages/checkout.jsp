@@ -19,8 +19,8 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
-<input id="isAdmin" type="hidden" value="${isAdmin}" style="display:none">
+<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
+<input id="isAdmin" type="hidden" value="${isAdmin}">
 <div class="loginBlur">
         <div class="loginPop">
         	<input id="btnClose" type="button" value="X">
