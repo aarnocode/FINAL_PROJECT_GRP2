@@ -16,7 +16,7 @@ import com.gesz.mapper.ProductMapper;
 
 public class GenSessionFactory {
 	public static SqlSessionFactory buildqlSessionFactory() {
-		DataSource dataSource = new PooledDataSource("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:HR/hr@//13.212.93.70:1521/BASELINE", "HR", "hr");
+		DataSource dataSource = new PooledDataSource("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:HR/hr@//18.138.34.193:1521/BASELINE", "HR", "hr");
 		
 		Environment environment = new Environment("Development", new JdbcTransactionFactory(), dataSource);
 		
