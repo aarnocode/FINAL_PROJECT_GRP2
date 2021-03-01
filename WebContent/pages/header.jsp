@@ -16,19 +16,6 @@
 			</div>
 			</a>
 			</div>
-			
-			<!--  
-			<div class="searchBarWrapper" >
-				<div class="searchIcon" >
-				<i class="material-icons" style="font-size:36px; color:white">search</i>
-				
-				</div>
-				<div class="searchField" >
-				<input class="searchBar" type="text"
-					placeholder="Search for products" >
-				</div>
-			</div> 
-			-->
 
 
 			<div class="rightControls">
