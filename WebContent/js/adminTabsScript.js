@@ -96,6 +96,7 @@ function initializeEvents(){
 			success:function(result){
 				$("#mainContainer").html(result);
 				$("#pnlContentAdd").hide();
+				$("#pnlView").hide();
 				$("#pnlContentUpdate").show();
 				$("#pnlControl").show();
 				$(".loginPop").hide();
@@ -125,6 +126,7 @@ function initializeEvents(){
 					clearUpdate();
 					$("#mainContainer").html(result);
 					$("#pnlContentAdd").hide();
+					$("#pnlView").hide();
 					$("#pnlContentUpdate").show();
 					$("#pnlControl").show();
 					$(".loginPop").hide();
@@ -159,6 +161,7 @@ function initializeEvents(){
 					clearAdd();
 					$("#mainContainer").html(result);
 					$("#pnlContentUpdate").hide();
+					$("#pnlView").hide();
 					$(".loginPop").hide();
 					initializeEvents();
 					$(document).ready(function(){
