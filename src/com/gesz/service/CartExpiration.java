@@ -25,7 +25,7 @@ public class CartExpiration {
 			ArrayList<Cart> mycart = cart.getCartById(UID);
 			for(Cart c : mycart) {
 				String itemDate = c.getDate();
-				if(getDifference(itemDate,now) >= 7) {
+				if(getDifference(itemDate,now) > 7) {
 					int stock = item.checkStock(c.getProduct_id());
 					item.decreaseStock(stock+c.getQuantity(), c.getProduct_id());
 					cart.removeCartItem(UID, c.getCart_id());
