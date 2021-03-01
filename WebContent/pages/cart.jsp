@@ -38,6 +38,7 @@
         </div>
     </div>  
      <h1>My Cart</h1>
+     <h5>Items in the cart last up to 7 days</h5>
      <h5 id="cartNotice">${cartNotice}</h5>
      <table class="cartTable">
          <tr>
