@@ -87,3 +87,9 @@ hr{
 	padding:0;
 	color:white;
 }
+.material-icons:hover,
+.material-icons:focus {
+	text-decoration: none;
+	cursor: pointer;
+	
+}
