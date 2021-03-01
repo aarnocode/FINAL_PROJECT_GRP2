@@ -11,6 +11,7 @@ public class Cart {
 	private double price;
 	private String image;
 	private String date;
+	private int userId;
 	
 	public Cart(int cart_id, int product_id,String name, int quantity, double price, String image, String date) {
 		this.cart_id = cart_id;
@@ -20,6 +21,25 @@ public class Cart {
 		this.price = price;
 		this.image = image;
 		this.date = date;
+	}
+	
+	public Cart(int cart_id, int product_id,String name, int quantity, double price, String image, String date,int userId) {
+		this.cart_id = cart_id;
+		this.product_id = product_id;
+		this.name = name;
+		this.quantity = quantity;
+		this.price = price;
+		this.image = image;
+		this.date = date;
+		this.userId = userId;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getDate() {

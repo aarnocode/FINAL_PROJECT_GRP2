@@ -28,6 +28,22 @@ public interface CartMapper {
 	})
 	public ArrayList<Cart> getCartById(int id);
 	
+	@Select("SELECT c.cart_id, c.product_id, p.name, c.quantity, p.price, p.image, c.add_date, c.user_id\r\n" + 
+			"    FROM FINAL_PROJECT_GRP2_CART c,\r\n" + 
+			"         FINAL_PROJECT_GRP2_PRODUCT p\r\n" + 
+			"    WHERE c.product_id = p.product_id")
+	@Results({
+		@Result(property = "cart_id", column = "CART_ID"),
+		@Result(property = "product_id", column = "PRODUCT_ID"),
+		@Result(property = "name",column= "NAME"),
+		@Result(property = "quantity", column = "QUANTITY"),
+		@Result(property = "price", column = "PRICE"),
+		@Result(property = "image", column = "IMAGE"),
+		@Result(property = "date", column = "ADD_DATE"),
+		@Result(property = "userId", column="USER_ID")
+	})
+	public ArrayList<Cart> getAllCart();
+	
 	@Select("SELECT c.cart_id, c.product_id, p.name, c.quantity, p.price, p.image, c.add_date\r\n" + 
 			"    FROM FINAL_PROJECT_GRP2_CART c,\r\n" + 
 			"         FINAL_PROJECT_GRP2_PRODUCT p\r\n" + 
