@@ -7,7 +7,7 @@
 	
 		<div class="container-fluid ">
 			<div >
-			<a class="navbar-brand" href="#"> 
+			<a class="navbar-brand"> 
 			<div class="logo" >
 			<img src="../images/logo.png">
 			</div>
