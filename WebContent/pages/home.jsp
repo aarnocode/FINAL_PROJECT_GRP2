@@ -46,14 +46,30 @@
 <div class="productContainer mt-4">
 <!-- MALE ITEMS -->
     	<c:forEach var="prod" items="${products}">
-    	<div class="cards">
-    	 <input type="hidden" value="${prod.getId()}">
-         <img src="${prod.getImage()}">
-         <h6 class="itemName"><b>${prod.getName()}</b></h6>
-         <h6 class="itemPrice">
-         	<fmt:formatNumber type="number" pattern="P ###,###,###.##" value="${prod.getPrice()}"/>
-       	</h6>
-    	</div>
+    	<c:choose>
+    		<c:when test="${prod.getStock() == 0 }">
+    			<div class="cards" style="background-color:rgb(230,230,230)">
+    			<input type="hidden" value="${prod.getId()}">
+	    		<img src="${prod.getImage()}">
+			    <h6 class="itemName"><b>${prod.getName()}</b></h6>
+			    <h6 class="itemPrice">
+	         		<fmt:formatNumber type="number" pattern="P ###,###,###.##" value="${prod.getPrice()}"/>
+	       		</h6>
+    			<h5 class="outOfStock">OUT OF STOCK</h5>
+    			</div>
+    		</c:when>
+    		<c:otherwise>
+    			<div class="cards">
+    			<input type="hidden" value="${prod.getId()}">
+	    		<img src="${prod.getImage()}">
+			    <h6 class="itemName"><b>${prod.getName()}</b></h6>
+			    <h6 class="itemPrice">
+	         		<fmt:formatNumber type="number" pattern="P ###,###,###.##" value="${prod.getPrice()}"/>
+	       		</h6>
+	       		<h5 class="outOfStock"></h5>
+	       		</div>
+    		</c:otherwise>
+    	</c:choose>
    	</c:forEach>
 </div>
 

@@ -39,7 +39,7 @@ public interface ProductMapper {
 	})
 	public Product getByName(String name);
 	
-	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product where stock > 0 order by product_id DESC")
+	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product order by product_id DESC")
 	@Results({
 		@Result(property="id", column="product_id"),
 		@Result(property="name",column="NAME"),
@@ -51,7 +51,7 @@ public interface ProductMapper {
 	})
 	public ArrayList<Product> getAllProduct();
 	
-	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product where stock > 0 AND product_category = #{arg0} order by product_id DESC")
+	@Select("Select product_id,name,price, stock, image, description, product_category from final_project_grp2_product where product_category = #{arg0} order by product_id DESC")
 	@Results({
 		@Result(property="id", column="product_id"),
 		@Result(property="name",column="NAME"),
@@ -63,7 +63,7 @@ public interface ProductMapper {
 	})
 	public ArrayList<Product> getProductByCategory(String category);
 	
-	@Select("Select DISTINCT(product_category) from final_project_grp2_product where stock > 0")
+	@Select("Select DISTINCT(product_category) from final_project_grp2_product")
 	public ArrayList<String> getCategories();
 	
 	@Select("Select stock from final_project_grp2_product where product_id = #{arg0}")
