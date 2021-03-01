@@ -319,7 +319,7 @@ $("#btnClose").click(function(){
 	$(".txtUsername").val("");
 	$(".txtPassword").val("");
 	$("#notice").text("");
-	$(".loginBlur").hide();
+	$(".loginBlur").fadeOut(500);
 	if(isLoggedIn == "false"){
 		$.ajax({
 			url: contextPath + "resetstate",

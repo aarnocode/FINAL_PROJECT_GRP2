@@ -59,7 +59,7 @@ $(".cart").click(function(){
 			}
 		});
 	}else{
-		$(".loginBlur").show();
+		$(".loginBlur").fadeIn(1000);
 	}
 	
 });
@@ -88,7 +88,7 @@ $("#btnClose").click(function(){
 	$(".txtUsername").val("");
 	$(".txtPassword").val("");
 	$("#notice").text("");
-	$(".loginBlur").hide();
+	$(".loginBlur").fadeOut(500);
 });
 
 $("#rdCashOnDelivery").click(function(){
