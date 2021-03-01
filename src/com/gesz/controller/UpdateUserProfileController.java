@@ -56,6 +56,7 @@ public class UpdateUserProfileController extends HttpServlet{
 						request.setAttribute("updatemsg", "Another person have already used this Email");		
 						dispatcher = request.getRequestDispatcher("/pages/userProfileResultMessage.jsp");
 						sqlSession.close();
+						dispatcher.forward(request, response);
 						break label;
 					}
 					//CCNO validation will go in here if user doesnt have CC yet or User didnt change his/her CC

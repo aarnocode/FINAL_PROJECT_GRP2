@@ -151,6 +151,7 @@
 				    <option value="Japan">Japan</option>
 				  </select>
 				  </div>
+				  <p class="errormsg" id="countryerror"></p>
 				  	</div>
 				  
 				  <div>

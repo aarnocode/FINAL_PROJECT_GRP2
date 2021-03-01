@@ -281,7 +281,7 @@ function maxLengthValidation(){//Validation while typing for textbox
      });
 }
 function isEmptyOrNull(item){//Returns Results if data is null or empty
-	if (item == "" || item.length == 0 || item == null)
+	if ($.trim(item) == "" || item.length == 0 || item == null)
 	    return true;
 	else
 		return false;
