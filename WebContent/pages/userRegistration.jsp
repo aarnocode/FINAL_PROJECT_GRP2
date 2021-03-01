@@ -21,7 +21,7 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	<div class="loginBlur">
-		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+		<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
         <div class="loginPop">
         	<input id="btnClose" type="button" value="X">
             <h3>GESZ</h3>

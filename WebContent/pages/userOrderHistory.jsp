@@ -21,7 +21,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
 <!-- <input type="button" id="backBtn" value="back"> -->
 <div class="backIcon">
 <i class="fa fa-arrow-left" id="backBtn" style="font-size:36px"></i>

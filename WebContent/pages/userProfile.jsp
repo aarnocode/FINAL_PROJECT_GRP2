@@ -19,7 +19,7 @@
 	<jsp:include page="header.jsp"/>
 	
 	<div>
-	<input id="isLoggedIn" type="hidden" value="${isLoggedIn}" style="display:none">
+	<input id="isLoggedIn" type="hidden" value="${isLoggedIn}">
 		${updatemsg}
 		<div class="profilePage">
 		<div id="profilecontainer">
