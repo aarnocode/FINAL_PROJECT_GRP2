@@ -16,16 +16,19 @@ $(document).ready(function(){
 
     $(".cards").on({
         click: function(){
-            $.ajax({
-            	url:contextPath + "productview",
-            	method:"POST",
-            	data: {
-            		id:$("input[type=hidden]",this).val()
-            	},
-            	success:function(result){
-            		window.location = "../pages/productview.jsp";
-            	}
-            });
+        	if($("h5",this).text() != "OUT OF STOCK"){
+        		$.ajax({
+                	url:contextPath + "productview",
+                	method:"POST",
+                	data: {
+                		id:$("input[type=hidden]",this).val()
+                	},
+                	success:function(result){
+                		window.location = "../pages/productview.jsp";
+                	}
+                });
+        	}
+            
         },
     });
     
