@@ -495,7 +495,7 @@ function maxLengthValidation(){
      });
 }
 function isEmptyOrNull(item){
-	if (item == "" || item.length == 0 || item == null)
+	if ($.trim(item) == "" || item.length == 0 || item == null)
 	    return true;
 	else
 		return false;
